@@ -1,0 +1,42 @@
+<Template>
+  <WidgetGroup>
+    <ObjectName>DeckContainer</ObjectName>
+    <SizePolicy>me,f</SizePolicy>
+    <Layout>vertical</Layout>
+
+    <Children>
+
+      <WidgetGroup>
+        <Layout>horizontal</Layout>
+        <Children>
+          <Template src="skin:templates/deck/rate_container.xml"/>
+
+          <WidgetGroup>
+            <ObjectName>DeckControls<Variable name="channum"/></ObjectName>
+            <MinimumSize>240,</MinimumSize>
+            <SizePolicy>me,f</SizePolicy>
+            <Layout>vertical</Layout>
+            <Children>
+              <Template src="skin:templates/deck/info_rows.xml"/>
+              <Template src="skin:templates/deck/waveform_overview.xml"/>
+              <Template src="skin:templates/deck/sync_and_hotcues.xml"/>
+              <Template src="skin:templates/deck/buttons.xml"/>
+            </Children>
+          </WidgetGroup>
+
+        </Children>
+      </WidgetGroup>
+
+      <WidgetGroup>
+        <ObjectName>DeckSpinnyWaveformContainer</ObjectName>
+        <Layout>horizontal</Layout>
+        <MaximumSize>,50</MaximumSize>
+        <Children>
+          <Template src="skin:templates/deck/spinny.xml"/>
+          <Template src="skin:templates/deck/waveform.xml"/>
+        </Children>
+      </WidgetGroup>
+
+    </Children>
+  </WidgetGroup>
+</Template>

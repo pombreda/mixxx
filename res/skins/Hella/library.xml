@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Template>
+  <WidgetGroup>
+    <ObjectName>Library</ObjectName>
+    <MinimumSize>1280,50</MinimumSize>
+    <Layout>horizontal</Layout>
+    <Children>
+      <Splitter>
+        <Size>me,me</Size>
+        <SplitSizes>1,12</SplitSizes>
+        <Children>
+          <WidgetGroup>
+            <Layout>vertical</Layout>
+            <Children>
+              <Template src="skin:templates/preview/container.xml"/>
+              <SearchBox/>
+              <LibrarySidebar/>
+            </Children>
+          </WidgetGroup>
+          <WidgetGroup>
+            <Layout>vertical</Layout>
+            <Children>
+              <Library>
+                <BgColor>#585858</BgColor>
+                <FgColor>#fff</FgColor>
+              </Library>
+            </Children>
+          </WidgetGroup>
+        </Children>
+      </Splitter>
+    </Children>
+  </WidgetGroup>
+</Template>

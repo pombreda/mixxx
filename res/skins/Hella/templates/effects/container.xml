@@ -1,0 +1,28 @@
+<Template>
+  <WidgetGroup trigger="[EffectRack1],show">
+    <ObjectName>EffectRackContainer</ObjectName>
+    <Layout>horizontal</Layout>
+    <Children>
+      <Template src="skin:templates/effects/unit.xml">
+        <SetVariable name="EffectRack">1</SetVariable>
+        <SetVariable name="EffectUnit">1</SetVariable>
+      </Template>
+      <Template src="skin:templates/effects/unit.xml">
+        <SetVariable name="EffectRack">1</SetVariable>
+        <SetVariable name="EffectUnit">2</SetVariable>
+      </Template>
+      <Template src="skin:templates/effects/unit.xml">
+        <SetVariable name="EffectRack">1</SetVariable>
+        <SetVariable name="EffectUnit">3</SetVariable>
+      </Template>
+      <Template src="skin:templates/effects/unit.xml">
+        <SetVariable name="EffectRack">1</SetVariable>
+        <SetVariable name="EffectUnit">4</SetVariable>
+      </Template>
+    </Children>
+    <Connection>
+      <ConfigKey persist="true">[EffectRack1],show</ConfigKey>
+      <BindProperty>visible</BindProperty>
+    </Connection>
+  </WidgetGroup>
+</Template>

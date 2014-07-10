@@ -1,0 +1,433 @@
+<Template>
+  <WidgetGroup>
+    <ObjectName>SamplerDeck</ObjectName>
+    <Layout>horizontal</Layout>
+    <MinimumSize>280,100</MinimumSize>
+    <Children>
+      <WidgetGroup>
+        <Layout>vertical</Layout>
+        <ObjectName>SamplerMainControls</ObjectName>
+        <Children>
+          <WidgetGroup>
+            <Layout>horizontal</Layout>
+            <ObjectName>SamplerText</ObjectName>
+            <Children>
+              <Text>
+                <TooltipId>text</TooltipId>
+                <Group>[Sampler<Variable name="samplernum"/>]</Group>
+              </Text>
+            </Children>
+          </WidgetGroup>
+          <WidgetGroup>
+            <Layout>horizontal</Layout>
+            <ObjectName>SamplerRowTwo</ObjectName>
+            <Children>
+              <WidgetGroup>
+                <Layout>horizontal</Layout>
+                <ObjectName>SamplerPlay</ObjectName>
+                <Children>
+                  <PushButton>
+                    <TooltipId>play_start</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <RightClickIsPushButton>true</RightClickIsPushButton>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/sampler/play/down.png</Pressed>
+                      <Unpressed>images/sampler/play/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/sampler/play/overdown.png</Pressed>
+                      <Unpressed>images/sampler/play/over.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],play</ConfigKey>
+                      <EmitOnDownPress>true</EmitOnDownPress>
+                      <ButtonState>LeftButton</ButtonState>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],start</ConfigKey>
+                      <EmitOnDownPress>true</EmitOnDownPress>
+                      <ButtonState>RightButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                  </PushButton>
+                </Children>
+              </WidgetGroup>
+              <Overview>
+                <TooltipId>waveform_overview</TooltipId>
+                <Group>[Sampler<Variable name="samplernum"/>]</Group>
+                <BgColor/>
+                <SignalHighColor/>
+                <SignalMidColor/>
+                <SignalLowColor/>
+                <SignalColor>#EECE33</SignalColor>
+                <MarkerColor>#00FF00</MarkerColor>
+                <DefaultMark>
+                  <Align>bottom</Align>
+                  <Color>#00FF00</Color>
+                  <TextColor>#FFFFFF</TextColor>
+                  <Text> %1 </Text>
+                </DefaultMark>
+                <Connection>
+                  <ConfigKey>[Sampler<Variable name="samplernum"/>],playposition</ConfigKey>
+                  <EmitOnDownPress>false</EmitOnDownPress>
+                </Connection>
+              </Overview>
+
+              <WidgetGroup>
+                <Layout>vertical</Layout>
+                <ObjectName>SamplerButtonGrid</ObjectName>
+                <Children>
+                  <WidgetGroup>
+                    <Layout>horizontal</Layout>
+                    <Children>
+                      <PushButton>
+                        <TooltipId>repeat</TooltipId>
+                        <NumberStates>2</NumberStates>
+                        <State>
+                          <Number>0</Number>
+                          <Pressed>images/sampler/repeat/back.png</Pressed>
+                          <Unpressed>images/sampler/repeat/back.png</Unpressed>
+                        </State>
+                        <State>
+                          <Number>1</Number>
+                          <Pressed>images/sampler/repeat/over.png</Pressed>
+                          <Unpressed>images/sampler/repeat/over.png</Unpressed>
+                        </State>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],repeat</ConfigKey>
+                        </Connection>
+                      </PushButton>
+                      <PushButton>
+                        <TooltipId>eject</TooltipId>
+                        <NumberStates>1</NumberStates>
+                        <State>
+                          <Number>0</Number>
+                          <Pressed>images/sampler/eject/over.png</Pressed>
+                          <Unpressed>images/sampler/eject/back.png</Unpressed>
+                        </State>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],eject</ConfigKey>
+                          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                          <ButtonState>LeftButton</ButtonState>
+                          <ConnectValueToWidget>false</ConnectValueToWidget>
+                        </Connection>
+                      </PushButton>
+                    </Children>
+                  </WidgetGroup>
+
+                  <WidgetGroup>
+                    <Layout>horizontal</Layout>
+                    <Children>
+                      <PushButton>
+                        <TooltipId>orientation</TooltipId>
+                        <NumberStates>3</NumberStates>
+                        <State>
+                          <Number>0</Number>
+                          <Pressed>images/sampler/orientation/left_over.png</Pressed>
+                          <Unpressed>images/sampler/orientation/left_over.png</Unpressed>
+                        </State>
+                        <State>
+                          <Number>1</Number>
+                          <Pressed>images/sampler/orientation/master.png</Pressed>
+                          <Unpressed>images/sampler/orientation/master.png</Unpressed>
+                        </State>
+                        <State>
+                          <Number>2</Number>
+                          <Pressed>images/sampler/orientation/right_over.png</Pressed>
+                          <Unpressed>images/sampler/orientation/right_over.png</Unpressed>
+                        </State>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],orientation</ConfigKey>
+                          <EmitOnDownPress>true</EmitOnDownPress>
+                          <ButtonState>LeftButton</ButtonState>
+                        </Connection>
+                      </PushButton>
+                      <PushButton>
+                        <TooltipId>keylock</TooltipId>
+                        <NumberStates>2</NumberStates>
+                        <State>
+                          <Number>0</Number>
+                          <Pressed>images/sampler/keylock/back.png</Pressed>
+                          <Unpressed>images/sampler/keylock/back.png</Unpressed>
+                        </State>
+                        <State>
+                          <Number>1</Number>
+                          <Pressed>images/sampler/keylock/over.png</Pressed>
+                          <Unpressed>images/sampler/keylock/over.png</Unpressed>
+                        </State>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],keylock</ConfigKey>
+                        </Connection>
+                      </PushButton>
+                    </Children>
+                  </WidgetGroup>
+
+                </Children>
+              </WidgetGroup>
+
+              <WidgetGroup>
+                <Layout>horizontal</Layout>
+                <ObjectName>SamplerVol</ObjectName>
+                <Children>
+                  <Knob>
+                    <TooltipId>pregain</TooltipId>
+                    <NumberStates>64</NumberStates>
+                    <Path>knobs/knob_rotary_s%1.png</Path>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],pregain</ConfigKey>
+                    </Connection>
+                  </Knob>
+                </Children>
+              </WidgetGroup>
+            </Children>
+          </WidgetGroup>
+
+          <WidgetGroup>
+            <Layout>horizontal</Layout>
+            <BackPath>images/background/tile.png</BackPath>
+            <ObjectName>SamplerButtons</ObjectName>
+            <Children>
+              <WidgetGroup>
+                <Layout>horizontal</Layout>
+                <ObjectName>SamplerSyncButton</ObjectName>
+                <Children>
+                  <PushButton>
+                    <TooltipId>beatsync_beatsync_tempo</TooltipId>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/sampler/sync/overdown.png</Pressed>
+                      <Unpressed>images/sampler/sync/back.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],beatsync</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],beatsync_tempo</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>RightButton</ButtonState>
+                    </Connection>
+                  </PushButton>
+                </Children>
+              </WidgetGroup>
+
+              <WidgetGroup>
+                <Layout>horizontal</Layout>
+                <ObjectNAme>SamplerHotcues</ObjectNAme>
+                <Children>
+                  <PushButton>
+                    <TooltipId>hotcue</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                    <RightClickIsPushButton>true</RightClickIsPushButton>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/hotcue/1/down.png</Pressed>
+                      <Unpressed>images/hotcue/1/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/hotcue/1/overdown.png</Pressed>
+                      <Unpressed>images/hotcue/1/over.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_1_activate</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_1_clear</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>RightButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_1_enabled</ConfigKey>
+                      <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                    </Connection>
+                  </PushButton>
+                  <PushButton>
+                    <TooltipId>hotcue</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                    <RightClickIsPushButton>true</RightClickIsPushButton>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/hotcue/2/down.png</Pressed>
+                      <Unpressed>images/hotcue/2/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/hotcue/2/overdown.png</Pressed>
+                      <Unpressed>images/hotcue/2/over.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_2_activate</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_2_clear</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>RightButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_2_enabled</ConfigKey>
+                      <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                    </Connection>
+                  </PushButton>
+                  <PushButton>
+                    <TooltipId>hotcue</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                    <RightClickIsPushButton>true</RightClickIsPushButton>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/hotcue/3/down.png</Pressed>
+                      <Unpressed>images/hotcue/3/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/hotcue/3/overdown.png</Pressed>
+                      <Unpressed>images/hotcue/3/over.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_3_activate</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_3_clear</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>RightButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_3_enabled</ConfigKey>
+                      <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                    </Connection>
+                  </PushButton>
+                  <PushButton>
+                    <TooltipId>hotcue</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                    <RightClickIsPushButton>true</RightClickIsPushButton>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/hotcue/4/down.png</Pressed>
+                      <Unpressed>images/hotcue/4/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/hotcue/4/overdown.png</Pressed>
+                      <Unpressed>images/hotcue/4/over.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_4_activate</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_4_clear</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>RightButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],hotcue_4_enabled</ConfigKey>
+                      <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                    </Connection>
+                  </PushButton>
+                </Children>
+              </WidgetGroup>
+
+              <WidgetGroup>
+                <Layout>horizontal</Layout>
+                <ObjectName>SamplerPfl</ObjectName>
+                <Children>
+                  <PushButton>
+                    <TooltipId>pfl</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/sampler/pfl/down.png</Pressed>
+                      <Unpressed>images/sampler/pfl/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/sampler/pfl/overdown.png</Pressed>
+                      <Unpressed>images/sampler/pfl/over.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Sampler<Variable name="samplernum"/>],pfl</ConfigKey>
+                    </Connection>
+                  </PushButton>
+                </Children>
+              </WidgetGroup>
+
+            </Children>
+          </WidgetGroup>
+
+        </Children>
+      </WidgetGroup>
+
+      <WidgetGroup>
+        <Layout>vertical</Layout>
+        <ObjectName>SamplerVU</ObjectName>
+        <MinimumSize>22,</MinimumSize>
+        <Children>
+          <StatusLight>
+            <TooltipId>PeakIndicator</TooltipId>
+            <PathStatusLight>images/sampler/clipping/over.png</PathStatusLight>
+            <PathBack>images/sampler/clipping/back.png</PathBack>
+            <Connection>
+              <ConfigKey>[Sampler<Variable name="samplernum"/>],PeakIndicator</ConfigKey>
+            </Connection>
+          </StatusLight>
+          <VuMeter>
+            <TooltipId>channel_VuMeter</TooltipId>
+            <PathVu>images/sampler/volume/over.png</PathVu>
+            <PathBack>images/sampler/volume/back.png</PathBack>
+            <Horizontal>false</Horizontal>
+            <PeakHoldSize>5</PeakHoldSize>
+            <PeakHoldTime>500</PeakHoldTime>
+            <PeakFallTime>50</PeakFallTime>
+            <PeakFallStep>2</PeakFallStep>
+            <Connection>
+              <ConfigKey>[Sampler<Variable name="samplernum"/>],VuMeter</ConfigKey>
+            </Connection>
+          </VuMeter>
+        </Children>
+      </WidgetGroup>
+
+      <WidgetGroup>
+        <Layout>vertical</Layout>
+        <ObjectName>SamplerPitch</ObjectName>
+        <MinimumSize>40,</MinimumSize>
+        <Children>
+          <SliderComposed>
+            <TooltipId>rate</TooltipId>
+            <Handle>images/knobs/pitch.png</Handle>
+            <Slider>images/sampler/sliders/pitch.png</Slider>
+            <Horizontal>false</Horizontal>
+            <Connection>
+              <ConfigKey>[Sampler<Variable name="samplernum"/>],rate</ConfigKey>
+              <EmitOnDownPress>false</EmitOnDownPress>
+            </Connection>
+          </SliderComposed>
+        </Children>
+      </WidgetGroup>
+
+    </Children>
+  </WidgetGroup>
+
+</Template>

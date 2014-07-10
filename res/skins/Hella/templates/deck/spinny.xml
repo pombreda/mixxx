@@ -1,0 +1,16 @@
+<Template>
+  <WidgetGroup>
+    <ObjectName>SpinnyContainer</ObjectName>
+    <Layout>horizontal</Layout>
+    <MinimumSize>50,50</MinimumSize>
+    <MinimumSize>50,50</MinimumSize>
+    <Children>
+      <Spinny>
+        <Group>[Channel<Variable name="channum"/>]</Group>
+        <PathBackground>images/vinylcontrol/spinny/small/background.png</PathBackground>
+        <PathForeground>images/vinylcontrol/spinny/small/pointer.png</PathForeground>
+        <PathGhost>images/vinylcontrol/spinny/small/ghost.png</PathGhost>
+      </Spinny>
+    </Children>
+  </WidgetGroup>
+</Template>

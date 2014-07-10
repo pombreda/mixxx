@@ -1,0 +1,14 @@
+<Template>
+  <WidgetGroup trigger="[PreviewDeck],show_previewdeck">
+    <ObjectName>PreviewDeckExpanded</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <Template src="skin:templates/preview/deck.xml"/>
+    </Children>
+    <Connection>
+      <ConfigKey persist="true">[PreviewDeck],show_previewdeck</ConfigKey>
+      <BindProperty>visible</BindProperty>
+    </Connection>
+  </WidgetGroup>
+</Template>

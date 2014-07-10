@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<Template>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>60f,20f</Size>
+        <ObjectName>UIReversedToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Text>BROWSE</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>BROWSE</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[Library],browser_only_mode</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[Library],browser_only_mode</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>60f,20f</Size>
+        <ObjectName>UIToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Text>PREVIEW</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>PREVIEW</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[PreviewDeck],show_previewdeck</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[PreviewDeck],show_previewdeck</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>40f,20f</Size>
+        <ObjectName>UIToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Text>2DECK</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>4DECK</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[Master],show_4decks</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[Master],show_4decks</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>40f,20f</Size>
+        <ObjectName>UIToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Text>MIXER</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>MIXER</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[Master],show_mixer</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[Master],show_mixer</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>40f,20f</Size>
+        <ObjectName>UIToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Text>VINYL</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>VINYL</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[VinylControl],show_vinylcontrol</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[VinylControl],show_vinylcontrol</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>60f,20f</Size>
+        <ObjectName>UIToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Text>SAMPLERS</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>SAMPLERS</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[Samplers],show_samplers</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[Samplers],show_samplers</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>60f,20f</Size>
+        <ObjectName>UIToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Text>EFFECTS</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>EFFECTS</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[EffectRack1],show</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[EffectRack1],show</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButtonMargin</ObjectName>
+    <Layout>horizontal</Layout>
+    <SizePolicy>me,min</SizePolicy>
+    <Children/>
+  </WidgetGroup>
+
+</Template>

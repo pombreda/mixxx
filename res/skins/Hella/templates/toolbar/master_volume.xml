@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<Template>
+  <WidgetGroup>
+    <ObjectName>MasterLevels</ObjectName>
+    <Size>110,50</Size>
+    <Layout>vertical</Layout>
+    <Children>
+      <WidgetGroup>
+        <Layout>horizontal</Layout>
+        <Children>
+
+          <VuMeter>
+            <TooltipId>channel_VuMeter</TooltipId>
+            <Style/>
+            <PathVu>images/volume/horizontal/over.png</PathVu>
+            <PathBack>images/volume/horizontal/back.png</PathBack>
+            <Pos>5,5</Pos>
+            <Horizontal>true</Horizontal>
+            <PeakHoldSize>5</PeakHoldSize>
+            <PeakHoldTime>500</PeakHoldTime>
+            <PeakFallTime>50</PeakFallTime>
+            <PeakFallStep>2</PeakFallStep>
+            <Connection>
+              <ConfigKey>[Master],VuMeterL</ConfigKey>
+            </Connection>
+          </VuMeter>
+
+          <StatusLight>
+            <TooltipId>PeakIndicator</TooltipId>
+            <Style/>
+            <PathStatusLight>images/volume/horizontal/over_clip.png</PathStatusLight>
+            <PathBack>images/volume/horizontal/back_clip.png</PathBack>
+            <Pos>5,90</Pos>
+            <Connection>
+              <ConfigKey>[Master],PeakIndicator</ConfigKey>
+            </Connection>
+          </StatusLight>
+
+        </Children>
+      </WidgetGroup>
+
+      <WidgetGroup>
+        <Layout>horizontal</Layout>
+        <Children>
+          <VuMeter>
+            <TooltipId>channel_VuMeter</TooltipId>
+            <Style/>
+            <PathVu>images/volume/horizontal/over.png</PathVu>
+            <PathBack>images/volume/horizontal/back.png</PathBack>
+            <Pos>15,5</Pos>
+            <Horizontal>true</Horizontal>
+            <PeakHoldSize>5</PeakHoldSize>
+            <PeakHoldTime>500</PeakHoldTime>
+            <PeakFallTime>50</PeakFallTime>
+            <PeakFallStep>2</PeakFallStep>
+            <Connection>
+              <ConfigKey>[Master],VuMeterR</ConfigKey>
+            </Connection>
+          </VuMeter>
+
+          <StatusLight>
+            <TooltipId>PeakIndicator</TooltipId>
+            <Style/>
+            <PathStatusLight>images/volume/horizontal/over_clip.png</PathStatusLight>
+            <PathBack>images/volume/horizontal/back_clip.png</PathBack>
+            <Pos>15,90</Pos>
+            <Connection>
+              <ConfigKey>[Master],PeakIndicator</ConfigKey>
+            </Connection>
+          </StatusLight>
+
+        </Children>
+      </WidgetGroup>
+
+    </Children>
+  </WidgetGroup>
+</Template>

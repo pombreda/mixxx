@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!--
+	Hella, a resizable skin for Mixxx 1.12 based on LateNight-Stacked
+	www.mixxx.org
+  Copyright (C) 2014 hile <hile@iki.fi>
+	Copyright (C) 2010-2013 jus <s.brandt@mixxx.org>, 2014 Owen Williams <owilliams@mixxx.org>
+
+  "Hella" is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported license.
+	http://creativecommons.org/licenses/by-sa/3.0/
+
+	With every copy of the work, you are required to either provide a copy of the license it self
+	or a link (URI). Failure to do this is a failure to complete the terms of the CC license.
+
+	You are free:
+	to Share - to copy, distribute and transmit the work
+	to Remix - to adapt the work
+
+	Under the following conditions:
+	Attribution - You must attribute the work in the manner specified by the author or licensor
+	(but not in any way that suggests that they endorse you or your use of the work).
+	A attribution should include the following: The name of the author and/or licensor,
+	the title of the work, the URL that is associated with the work.
+
+	Share Alike - If you alter, transform, or build upon this work, you may distribute
+	the resulting work only under the same or similar license to this one.
+	-->
+<!DOCTYPE skin>
+<skin>
+  <manifest>
+    <title>Hella</title>
+    <author>Hile Tuohela</author>
+    <version>1.12.0.01</version>
+    <description>Stackable 4 deck skin</description>
+    <language>en</language>
+    <license>Creative Commons Attribution, Share-Alike 3.0 Unported</license>
+    <attributes>
+      <attribute config_key="[Master],num_decks">4</attribute>
+      <attribute config_key="[Master],num_samplers">4</attribute>
+      <attribute config_key="[Master],num_preview_decks">1</attribute>
+      <attribute config_key="[Spinny1],show_spinny">1</attribute>
+      <attribute config_key="[Spinny2],show_spinny">1</attribute>
+      <attribute config_key="[Spinny3],show_spinny">1</attribute>
+      <attribute config_key="[Spinny4],show_spinny">1</attribute>
+      <attribute config_key="[Samplers],show_samplers">1</attribute>
+      <attribute config_key="[Microphone],show_microphone">0</attribute>
+      <attribute config_key="[Vinylcontrol],show_vinylcontrol">0</attribute>
+      <attribute config_key="[PreviewDeck],show_previewdeck">1</attribute>
+      <attribute config_key="[Master],show_mixer">1</attribute>
+      <attribute config_key="[Library],show_library">1</attribute>
+      <attribute config_key="[Library],browser_only_mode">0</attribute>
+      <attribute config_key="[Master],show_4decks">0</attribute>
+    </attributes>
+  </manifest>
+  <ObjectName>Mixxx</ObjectName>
+  <Style src="skin:style.qss"/>
+  <MinimumSize>1280,758</MinimumSize>
+  <Layout>vertical</Layout>
+  <Children>
+    <SetVariable name="SquareButtonSize">20f,20f</SetVariable>
+    <SetVariable name="TallButtonSize">20f,40f</SetVariable>
+    <SetVariable name="WideButtonSize">40f,20f</SetVariable>
+
+    <WidgetGroup>
+      <ObjectName>ToolbarContainer</ObjectName>
+      <Layout>vertical</Layout>
+      <SizePolicy>f,f</SizePolicy>
+      <MinimumSize>1280,50</MinimumSize>
+      <MaximumSize>1920,50</MaximumSize>
+      <Children>
+        <Template src="skin:templates/toolbar/container.xml"/>
+      </Children>
+    </WidgetGroup>
+
+    <WidgetStack currentpage="[Library],browser_only_mode_status" persist="true">
+      <SizePolicy>e,f</SizePolicy>
+      <Children>
+        <WidgetGroup trigger="[Library],browser_only_mode" persist="true">
+          <ObjectName>PlaybackContainer</ObjectName>
+          <Layout>vertical</Layout>
+          <SizePolicy>e,f</SizePolicy>
+          <Children>
+
+            <WidgetGroup>
+              <ObjectName>DecksAndMixers</ObjectName>
+              <Layout>horizontal</Layout>
+              <Children>
+                <Template src="skin:templates/deck/container_left.xml"/>
+                <Template src="skin:templates/mixer/container.xml"/>
+                <Template src="skin:templates/deck/container_right.xml"/>
+              </Children>
+            </WidgetGroup>
+
+            <WidgetGroup>
+              <ObjectName>SamplersAndEffects</ObjectName>
+              <Layout>vertical</Layout>
+              <Children>
+                <Template src="skin:templates/sampler/container.xml"/>
+                <Template src="skin:templates/effects/container.xml"/>
+              </Children>
+            </WidgetGroup>
+
+          </Children>
+        </WidgetGroup>
+
+        <WidgetGroup>
+          <ObjectName>BrowserOnlyControlsContainer</ObjectName>
+          <Layout>vertical</Layout>
+          <SizePolicy>e,f</SizePolicy>
+          <Children>
+          </Children>
+        </WidgetGroup>
+      </Children>
+    </WidgetStack>
+
+    <WidgetGroup>
+      <ObjectName>LibraryContainer</ObjectName>
+      <SizePolicy>me,e</SizePolicy>
+      <Layout>vertical</Layout>
+      <Children>
+        <Template src="skin:library.xml"/>
+      </Children>
+    </WidgetGroup>
+
+  </Children>
+</skin>

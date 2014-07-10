@@ -1,0 +1,388 @@
+<Template>
+  <WidgetGroup>
+    <ObjectName>VinylSyncHotcueContainer</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>me,f</SizePolicy>
+    <Children>
+
+      <WidgetStack currentpage="[VinylControl],show_vinylcontrol_status" persist="true">
+        <ObjectName>VinylControlContainer</ObjectName>
+        <SizePolicy>me,f</SizePolicy>
+        <Children>
+          <WidgetGroup trigger="[VinylControl],show_vinylcontrol" persist="true">
+            <ObjectName>VinylControls</ObjectName>
+            <Layout>horizontal</Layout>
+            <Children>
+              <PushButton>
+                <TooltipId>vinylcontrol_mode</TooltipId>
+                <Style/>
+                <NumberStates>3</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/vinylcontrol/mode/abs.png</Pressed>
+                  <Unpressed>images/vinylcontrol/mode/abs.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/vinylcontrol/mode/rel.png</Pressed>
+                  <Unpressed>images/vinylcontrol/mode/rel.png</Unpressed>
+                </State>
+                <State>
+                  <Number>2</Number>
+                  <Pressed>images/vinylcontrol/mode/const.png</Pressed>
+                  <Unpressed>images/vinylcontrol/mode/const.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],vinylcontrol_mode</ConfigKey>
+                </Connection>
+              </PushButton>
+              <PushButton>
+                <Pos>60,0</Pos>
+                <TooltipId>vinylcontrol_cueing</TooltipId>
+                <Style/>
+                <NumberStates>3</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/vinylcontrol/cueing/off.png</Pressed>
+                  <Unpressed>images/vinylcontrol/cueing/off.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/vinylcontrol/cueing/one.png</Pressed>
+                  <Unpressed>images/vinylcontrol/cueing/one.png</Unpressed>
+                </State>
+                <State>
+                  <Number>2</Number>
+                  <Pressed>images/vinylcontrol/cueing/hot.png</Pressed>
+                  <Unpressed>images/vinylcontrol/cueing/hot.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],vinylcontrol_cueing</ConfigKey>
+                </Connection>
+              </PushButton>
+            </Children>
+          </WidgetGroup>
+
+          <WidgetGroup>
+            <ObjectName>VinylControlContainer</ObjectName>
+            <Layout>horizontal</Layout>
+            <MinimumSize>0,0</MinimumSize>
+            <SizePolicy>f,f</SizePolicy>
+            <Children>
+            </Children>
+          </WidgetGroup>
+
+        </Children>
+      </WidgetStack>
+
+      <WidgetGroup>
+        <ObjectName>DeckSyncAndHotcues</ObjectName>
+        <Layout>horizontal</Layout>
+        <Children>
+
+          <PushButton>
+            <ObjectName>SyncControls</ObjectName>
+            <TooltipId>beatsync_beatsync_tempo</TooltipId>
+            <SizePolicy>me,f</SizePolicy>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Pressed>images/sync/overdown.png</Pressed>
+              <Unpressed>images/sync/back.png</Unpressed>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Pressed>images/sync/overdown.png</Pressed>
+              <Unpressed>images/sync/overdown.png</Unpressed>
+            </State>
+            <Connection>
+              <ConfigKey>[Channel<Variable name="channum"/>],sync_enabled</ConfigKey>
+              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+              <ButtonState>LeftButton</ButtonState>
+            </Connection>
+            <Connection>
+              <ConfigKey>[Channel<Variable name="channum"/>],beatsync_tempo</ConfigKey>
+              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+              <ButtonState>RightButton</ButtonState>
+            </Connection>
+          </PushButton>
+
+          <WidgetGroup>
+            <ObjectName>Hotcues</ObjectName>
+            <Layout>horizontal</Layout>
+            <SizePolicy>me,f</SizePolicy>
+            <Children>
+
+              <PushButton>
+                <TooltipId>hotcue</TooltipId>
+                <NumberStates>2</NumberStates>
+                <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                <RightClickIsPushButton>true</RightClickIsPushButton>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/hotcue/1/down.png</Pressed>
+                  <Unpressed>images/hotcue/1/back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/hotcue/1/overdown.png</Pressed>
+                  <Unpressed>images/hotcue/1/over.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_1_activate</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_1_clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_1_enabled</ConfigKey>
+                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                </Connection>
+              </PushButton>
+
+              <PushButton>
+                <TooltipId>hotcue</TooltipId>
+                <NumberStates>2</NumberStates>
+                <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                <RightClickIsPushButton>true</RightClickIsPushButton>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/hotcue/2/down.png</Pressed>
+                  <Unpressed>images/hotcue/2/back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/hotcue/2/overdown.png</Pressed>
+                  <Unpressed>images/hotcue/2/over.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_2_activate</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_2_clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_2_enabled</ConfigKey>
+                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                </Connection>
+              </PushButton>
+
+              <PushButton>
+                <TooltipId>hotcue</TooltipId>
+                <NumberStates>2</NumberStates>
+                <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                <RightClickIsPushButton>true</RightClickIsPushButton>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/hotcue/3/down.png</Pressed>
+                  <Unpressed>images/hotcue/3/back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/hotcue/3/overdown.png</Pressed>
+                  <Unpressed>images/hotcue/3/over.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_3_activate</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_3_clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_3_enabled</ConfigKey>
+                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                </Connection>
+              </PushButton>
+
+              <PushButton>
+                <TooltipId>hotcue</TooltipId>
+                <NumberStates>2</NumberStates>
+                <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                <RightClickIsPushButton>true</RightClickIsPushButton>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/hotcue/4/down.png</Pressed>
+                  <Unpressed>images/hotcue/4/back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/hotcue/4/overdown.png</Pressed>
+                  <Unpressed>images/hotcue/4/over.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_4_activate</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_4_clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_4_enabled</ConfigKey>
+                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                </Connection>
+              </PushButton>
+
+              <PushButton>
+                <TooltipId>hotcue</TooltipId>
+                <NumberStates>2</NumberStates>
+                <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                <RightClickIsPushButton>true</RightClickIsPushButton>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/hotcue/5/down.png</Pressed>
+                  <Unpressed>images/hotcue/5/back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/hotcue/5/overdown.png</Pressed>
+                  <Unpressed>images/hotcue/5/over.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_5_activate</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_5_clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_5_enabled</ConfigKey>
+                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                </Connection>
+              </PushButton>
+
+              <PushButton>
+                <TooltipId>hotcue</TooltipId>
+                <NumberStates>2</NumberStates>
+                <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                <RightClickIsPushButton>true</RightClickIsPushButton>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/hotcue/6/down.png</Pressed>
+                  <Unpressed>images/hotcue/6/back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/hotcue/6/overdown.png</Pressed>
+                  <Unpressed>images/hotcue/6/over.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_6_activate</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_6_clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_6_enabled</ConfigKey>
+                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                </Connection>
+              </PushButton>
+
+              <PushButton>
+                <TooltipId>hotcue</TooltipId>
+                <NumberStates>2</NumberStates>
+                <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                <RightClickIsPushButton>true</RightClickIsPushButton>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/hotcue/7/down.png</Pressed>
+                  <Unpressed>images/hotcue/7/back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/hotcue/7/overdown.png</Pressed>
+                  <Unpressed>images/hotcue/7/over.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_7_activate</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_7_clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_7_enabled</ConfigKey>
+                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                </Connection>
+              </PushButton>
+
+              <PushButton>
+                <TooltipId>hotcue</TooltipId>
+                <NumberStates>2</NumberStates>
+                <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                <RightClickIsPushButton>true</RightClickIsPushButton>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/hotcue/8/down.png</Pressed>
+                  <Unpressed>images/hotcue/8/back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/hotcue/8/overdown.png</Pressed>
+                  <Unpressed>images/hotcue/8/over.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_8_activate</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_8_clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],hotcue_8_enabled</ConfigKey>
+                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                </Connection>
+              </PushButton>
+
+            </Children>
+          </WidgetGroup>
+
+        </Children>
+      </WidgetGroup>
+
+    </Children>
+  </WidgetGroup>
+</Template>

@@ -1,0 +1,80 @@
+<Template>
+
+  <WidgetGroup>
+    <ObjectName>MasterInfo</ObjectName>
+    <Layout>horizontal</Layout>
+    <Children>
+
+      <WidgetGroup>
+        <ObjectName>MasterSyncWidget</ObjectName>
+        <SizePolicy>f,me</SizePolicy>
+        <Size>50,</Size>
+        <Layout>horizontal</Layout>
+        <Children>
+
+          <PushButton>
+            <ObjectName>MasterSyncButton</ObjectName>
+            <TooltipId>sync_master</TooltipId>
+            <Style/>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Pressed>images/master/sync/on.png</Pressed>
+              <Unpressed>images/master/sync/off.png</Unpressed>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Pressed>images/master/sync/on.png</Pressed>
+              <Unpressed>images/master/sync/on.png</Unpressed>
+            </State>
+            <Pos>4,4</Pos>
+            <Connection>
+              <ConfigKey>[InternalClock],sync_master</ConfigKey>
+              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+              <ButtonState>LeftButton</ButtonState>
+            </Connection>
+          </PushButton>
+
+          <NumberBpm>
+            <ObjectName>MasterBPM</ObjectName>
+            <TooltipId>visual_bpm</TooltipId>
+            <Channel>1</Channel>
+            <NumberOfDigits>2</NumberOfDigits>
+            <Connection>
+              <ConfigKey>[InternalClock],bpm</ConfigKey>
+            </Connection>
+          </NumberBpm>
+
+        </Children>
+      </WidgetGroup>
+
+      <WidgetGroup>
+        <ObjectName>MasterInfoMargin</ObjectName>
+        <Layout>horizontal</Layout>
+      </WidgetGroup>
+
+      <WidgetGroup>
+        <ObjectName>ClockWidget</ObjectName>
+        <Layout>horizontal</Layout>
+        <SizePolicy>me,me</SizePolicy>
+        <Children>
+
+          <WidgetGroup>
+            <ObjectName>Clock</ObjectName>
+            <Layout>horizontal</Layout>
+            <Children>
+              <Time>
+                <TooltipId>time</TooltipId>
+                <ShowSeconds>false</ShowSeconds>
+                <ClockFormat>12</ClockFormat>
+              </Time>
+            </Children>
+          </WidgetGroup>
+
+        </Children>
+      </WidgetGroup>
+
+    </Children>
+  </WidgetGroup>
+
+</Template>

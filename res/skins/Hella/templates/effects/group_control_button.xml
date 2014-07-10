@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE template>
+<Template>
+  <Template src="skin:templates/components/left_display_2state_button.xml">
+    <SetVariable name="ObjectName">EffectUnitGroupControlButton</SetVariable>
+    <SetVariable name="state_0_pressed"/>
+    <SetVariable name="state_0_unpressed"/>
+    <SetVariable name="state_0_text">
+      <Variable name="group_name"/>
+    </SetVariable>
+    <SetVariable name="state_1_pressed"/>
+    <SetVariable name="state_1_unpressed"/>
+    <SetVariable name="state_1_text"><Variable name="group_name"/></SetVariable>
+    <SetVariable name="left_connection_control"><Variable name="group"/>,group_<Variable name="group_group"/>_enable</SetVariable>
+    <SetVariable name="display_connection_control"><Variable name="group"/>,group_<Variable name="group_group"/>_enable</SetVariable>
+  </Template>
+</Template>

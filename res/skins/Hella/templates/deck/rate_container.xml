@@ -1,0 +1,39 @@
+<Template>
+  <WidgetGroup>
+    <ObjectName>RateContainer</ObjectName>
+    <Layout>vertical</Layout>
+    <MinimumSize>60,</MinimumSize>
+    <Children>
+
+      <Key>
+        <ObjectName>Visualkey</ObjectName>
+        <Group>[Channel<Variable name="channum"/>]</Group>
+        <Connection>
+          <ConfigKey>[Channel<Variable name="channum"/>],visual_key</ConfigKey>
+        </Connection>
+      </Key>
+      <NumberBpm>
+        <ObjectName>VisualBPM</ObjectName>
+        <TooltipId>visual_bpm</TooltipId>
+        <Channel><Variable name="channum"/></Channel>
+        <NumberOfDigits>2</NumberOfDigits>
+        <Connection>
+          <ConfigKey>[Channel<Variable name="channum"/>],visual_bpm</ConfigKey>
+        </Connection>
+      </NumberBpm>
+
+      <SliderComposed>
+        <TooltipId>rate</TooltipId>
+        <Handle>images/knobs/pitch.png</Handle>
+        <Slider>images/sliders/pitch.png</Slider>
+        <Horizontal>false</Horizontal>
+        <Connection>
+          <ConfigKey>[Channel<Variable name="channum"/>],rate</ConfigKey>
+          <EmitOnDownPress>false</EmitOnDownPress>
+        </Connection>
+      </SliderComposed>
+
+    </Children>
+  </WidgetGroup>
+
+</Template>

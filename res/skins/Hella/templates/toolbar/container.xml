@@ -1,0 +1,31 @@
+<Template>
+  <WidgetGroup>
+    <ObjectName>ToolbarContainer</ObjectName>
+    <Layout>horizontal</Layout>
+    <Children>
+
+      <Template src="skin:templates/toolbar/buttons.xml"/>
+
+      <WidgetGroup>
+        <ObjectName>Filler</ObjectName>
+        <Layout>horizontal</Layout>
+        <SizePolicy>me,min</SizePolicy>
+        <Children/>
+      </WidgetGroup>
+
+      <Template src="skin:templates/toolbar/info.xml"/>
+
+      <WidgetGroup>
+        <ObjectName>Filler</ObjectName>
+        <Layout>horizontal</Layout>
+        <SizePolicy>me,min</SizePolicy>
+        <Children/>
+      </WidgetGroup>
+
+      <Template src="skin:templates/toolbar/master_mix.xml"/>
+      <Template src="skin:templates/toolbar/master_volume.xml"/>
+
+    </Children>
+  </WidgetGroup>
+
+</Template>
