@@ -1,8 +1,8 @@
 <Template>
   <WidgetGroup>
-    <ObjectName>MicrophoneControls</ObjectName>
+    <ObjectName>MicrophoneControlsContainer</ObjectName>
     <Layout>horizontal</Layout>
-    <SizePolicy>f,min</SizePolicy>
+    <SizePolicy>me,min</SizePolicy>
     <Children>
 
       <WidgetGroup>

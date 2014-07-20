@@ -8,7 +8,7 @@
       <WidgetGroup>
         <ObjectName>MicrophoneContainer</ObjectName>
         <Layout>horizontal</Layout>
-        <SizePolicy>f,p</SizePolicy>
+        <SizePolicy>me,p</SizePolicy>
         <Children>
           <Template src="skin:templates/mixer/microphone.xml"/>
         </Children>
@@ -18,69 +18,78 @@
         </Connection>
       </WidgetGroup>
 
-      <WidgetStack currentpage="[Master],mixer_4decks_status" persist="true">
+      <WidgetGroup>
+        <ObjectName>MixerControlsContainer</ObjectName>
+        <Layout>vertical</Layout>
+        <SizePolicy>f,p</SizePolicy>
         <Children>
-          <WidgetGroup trigger="[Master],show_4decks" persist="true">
-            <ObjectName>Mixer4Channels</ObjectName>
-            <Layout>horizontal</Layout>
-            <SizePolicy>f,p</SizePolicy>
+
+          <WidgetStack currentpage="[Master],mixer_4decks_status" persist="true">
             <Children>
-              <Template src="skin:templates/mixer/channel_tall.xml">
-                <SetVariable name="channum">3</SetVariable>
-              </Template>
-              <Template src="skin:templates/mixer/channel_tall.xml">
-                <SetVariable name="channum">1</SetVariable>
-              </Template>
-              <Template src="skin:templates/mixer/channel_tall.xml">
-                <SetVariable name="channum">2</SetVariable>
-              </Template>
-              <Template src="skin:templates/mixer/channel_tall.xml">
-                <SetVariable name="channum">4</SetVariable>
-              </Template>
+              <WidgetGroup trigger="[Master],show_4decks" persist="true">
+                <ObjectName>Mixer4Channels</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>f,p</SizePolicy>
+                <Children>
+                  <Template src="skin:templates/mixer/channel_tall.xml">
+                    <SetVariable name="channum">3</SetVariable>
+                  </Template>
+                  <Template src="skin:templates/mixer/channel_tall.xml">
+                    <SetVariable name="channum">1</SetVariable>
+                  </Template>
+                  <Template src="skin:templates/mixer/channel_tall.xml">
+                    <SetVariable name="channum">2</SetVariable>
+                  </Template>
+                  <Template src="skin:templates/mixer/channel_tall.xml">
+                    <SetVariable name="channum">4</SetVariable>
+                  </Template>
+                </Children>
+              </WidgetGroup>
+
+              <WidgetGroup>
+                <ObjectName>Mixer2Channels</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>f,p</SizePolicy>
+                <Children>
+                  <Template src="skin:templates/mixer/channel_leftside.xml">
+                    <SetVariable name="channum">1</SetVariable>
+                  </Template>
+                  <Template src="skin:templates/mixer/channel_rightside.xml">
+                    <SetVariable name="channum">2</SetVariable>
+                  </Template>
+                </Children>
+              </WidgetGroup>
+            </Children>
+
+          </WidgetStack>
+
+          <WidgetGroup>
+            <ObjectName>CrossFaderContainer</ObjectName>
+            <Layout>horizontal</Layout>
+            <SizePolicy>me,f</SizePolicy>
+            <Children>
+              <SliderComposed>
+                <ObjectName>Crossfader</ObjectName>
+                <TooltipId>crossfader</TooltipId>
+                <Handle>images/knobs/crossfader.png</Handle>
+                <Slider>images/sliders/crossfader.png</Slider>
+                <Horizontal>true</Horizontal>
+                <Connection>
+                  <ConfigKey>[Master],crossfader</ConfigKey>
+                  <EmitOnDownPress>false</EmitOnDownPress>
+                </Connection>
+              </SliderComposed>
             </Children>
           </WidgetGroup>
 
           <WidgetGroup>
-            <ObjectName>Mixer2Channels</ObjectName>
+            <ObjectName>Filler</ObjectName>
             <Layout>horizontal</Layout>
-            <SizePolicy>f,p</SizePolicy>
-            <Children>
-              <Template src="skin:templates/mixer/channel_leftside.xml">
-                <SetVariable name="channum">1</SetVariable>
-              </Template>
-              <Template src="skin:templates/mixer/channel_rightside.xml">
-                <SetVariable name="channum">2</SetVariable>
-              </Template>
-            </Children>
+            <SizePolicy>min,me</SizePolicy>
+            <Children/>
           </WidgetGroup>
+
         </Children>
-
-      </WidgetStack>
-
-      <WidgetGroup>
-        <ObjectName>CrossFaderContainer</ObjectName>
-        <Layout>horizontal</Layout>
-        <SizePolicy>me,f</SizePolicy>
-        <Children>
-          <SliderComposed>
-            <ObjectName>Crossfader</ObjectName>
-            <TooltipId>crossfader</TooltipId>
-            <Handle>images/knobs/crossfader.png</Handle>
-            <Slider>images/sliders/crossfader.png</Slider>
-            <Horizontal>true</Horizontal>
-            <Connection>
-              <ConfigKey>[Master],crossfader</ConfigKey>
-              <EmitOnDownPress>false</EmitOnDownPress>
-            </Connection>
-          </SliderComposed>
-        </Children>
-      </WidgetGroup>
-
-      <WidgetGroup>
-        <ObjectName>Filler</ObjectName>
-        <Layout>horizontal</Layout>
-        <SizePolicy>min,me</SizePolicy>
-        <Children/>
       </WidgetGroup>
 
     </Children>

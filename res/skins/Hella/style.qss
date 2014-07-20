@@ -17,19 +17,16 @@
 #DeckContainer {
   qproperty-layoutAlignment: 'AlignTop';
   background-color: #0e0e0e;
+  border: 1px solid #585858;
 }
 
 #DecksAndMixers {
-  background-color: #0e0e0e;
+  qproperty-layoutAlignment: 'AlignTop';
 }
 
 #Samplers, #Effects {
   background-color: #0e0e0e;
   border: 1px solid #585858;
-  border-top: 0px;
-  border-right: 0px;
-  border-bottom: 0px;
-  background-color: yellow;
 }
 
 #LibraryContainer {
@@ -45,15 +42,15 @@
 }
 
 #ToolbarButtons, #OverviewToolbarButtons {
-  border: 1px solid #585858;
-  border-top: 0px;
-  border-right: 0px;
-  border-bottom: 0px;
   padding-left: 2px;
-  padding-right: 2px;
+  padding-right: 5px;
 }
 
-#Filler {
+#OverviewToolbarRow {
+}
+
+#ButtonRepeat, #ButtonKeylock, #ButtonTranslatePosition, #ButtonQuantize {
+  border: 1px solid #585858;
 }
 
 #MasterControls {
@@ -64,16 +61,14 @@
   qproperty-layoutAlignment: 'AlignHCenter | AlignCenter';
 }
 
-#MasterBPM {
-  padding-left: 10px;
-}
-#MasterInfoMargin {
-  padding-left: 20px;
+#MasterSyncContainer {
+  qproperty-layoutAlignment: 'AlignHCenter | AlignCenter';
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-#ClockWidget {
-  qproperty-layoutAlignment: 'AlignCenter | AlignLeft';
-  padding: 3px;
+#MasterSyncButton, #MasterBPM {
+  qproperty-layoutAlignment: 'AlignHCenter | AlignCenter';
 }
 
 #UIButton {
@@ -108,22 +103,27 @@
   padding-left: 2px;
 }
 
-#MixerContainer, #MicrophoneContainer {
+#MixerControlsContainer, #MicrophoneControlsContainer {
   qproperty-layoutAlignment: 'AlignTop';
+  border: 1px solid #585858;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+#MixerControlsContainer {
+  border: 0px;
 }
 #MicrophoneContainer {
   qproperty-layoutAlignment: 'AlignCenter | AlignTop';
+  border-bottom: 1px solid #585858;
 }
 
-#MicrophoneControls {
+#MicrophoneControlsContainer {
   qproperty-layoutAlignment: 'AlignCenter | AlignTop';
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 5px;
-  padding-bottom: 0px;
+  padding: 0px;
 }
 #MicrophoneTalkover {
-  padding-left: 30px;
+  padding-left: 10px;
   padding-right: 10px;
 }
 #MicrophoneVolume, #MicrophoneOrientation {
@@ -158,6 +158,7 @@
 
 #CrossFaderContainer {
   qproperty-layoutAlignment: 'AlignHCenter';
+  padding-bottom: 5px;
 }
 
 #Crossfader {
@@ -165,17 +166,17 @@
 }
 
 #DecksLeftContainer, #DecksRightContainer, #SkinContainer {
-  background-color: #0f0f0f;
   qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
 }
 #DeckWaveformOverviewContainer {
+  border-bottom: 1px solid #585858;
   padding: 0px;
 }
 
 #DeckSyncAndHotcues {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  border-bottom: 1px solid #585858;
   background-color: #1e1e1e;
+  padding: 5px;
 }
 
 #DeckInfoRows {
@@ -192,15 +193,12 @@
   border-right: 0px;
 }
 
-#SpinnyContainer {
-  qproperty-layoutAlignment: 'AlignTop';
-  padding-left: 5px;
-  padding-right: 5px;
+#DeckSpinnyWaveformContainer {
+  qproperty-layoutAlignment: 'AlignCenter';
 }
 
-#DeckWaveform {
-  padding-left: 5px;
-  padding-right: 5px;
+#SpinnyContainer, #DeckWaveform {
+  background-color: #0e0e0e;
 }
 
 #TitleGutter, #AlbumGutter {
@@ -230,6 +228,7 @@
 
 #Hotcues {
   qproperty-layoutAlignment: 'AlignRight | AlignTop';
+  padding: 0px;
 }
 
 #LoopSizeButtons, #LoopInOut {

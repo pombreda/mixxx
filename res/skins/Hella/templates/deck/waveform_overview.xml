@@ -49,30 +49,12 @@
         <SizePolicy>f,f</SizePolicy>
         <Children>
           <WidgetGroup>
-            <ObjectName>ToggleRowOne</ObjectName>
+            <ObjectName>OverviewToolbarRow</ObjectName>
             <Layout>horizontal</Layout>
             <Children>
+
               <PushButton>
-                <TooltipId>show_spinny</TooltipId>
-                <Style/>
-                <NumberStates>2</NumberStates>
-                <State>
-                  <Number>0</Number>
-                  <Pressed>images/spinny/back.png</Pressed>
-                  <Unpressed>images/spinny/back.png</Unpressed>
-                </State>
-                <State>
-                  <Number>1</Number>
-                  <Pressed>images/spinny/over.png</Pressed>
-                  <Unpressed>images/spinny/over.png</Unpressed>
-                </State>
-                <Connection>
-                  <ConfigKey persist="true">[Spinny<Variable name="channum"/>],show_spinny</ConfigKey>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                  <ButtonState>LeftButton</ButtonState>
-                </Connection>
-              </PushButton>
-              <PushButton>
+                <ObjectName>ButtonRepeat</ObjectName>
                 <TooltipId>repeat</TooltipId>
                 <Style/>
                 <NumberStates>2</NumberStates>
@@ -90,29 +72,38 @@
                   <ConfigKey>[Channel<Variable name="channum"/>],repeat</ConfigKey>
                 </Connection>
               </PushButton>
+
               <PushButton>
-                <TooltipId>eject</TooltipId>
+                <ObjectName>ButtonKeylock</ObjectName>
+                <TooltipId>keylock</TooltipId>
                 <Style/>
-                <NumberStates>1</NumberStates>
+                <NumberStates>2</NumberStates>
                 <State>
                   <Number>0</Number>
-                  <Pressed>images/eject/over.png</Pressed>
-                  <Unpressed>images/eject/back.png</Unpressed>
+                  <Pressed>images/keylock/back.png</Pressed>
+                  <Unpressed>images/keylock/back.png</Unpressed>
                 </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/keylock/over.png</Pressed>
+                  <Unpressed>images/keylock/over.png</Unpressed>
+                </State>
+                <Pos>52,23</Pos>
                 <Connection>
-                  <ConfigKey>[Channel<Variable name="channum"/>],eject</ConfigKey>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                  <ButtonState>LeftButton</ButtonState>
-                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                  <ConfigKey>[Channel<Variable name="channum"/>],keylock</ConfigKey>
                 </Connection>
               </PushButton>
+
             </Children>
           </WidgetGroup>
 
           <WidgetGroup>
+            <ObjectName>OverviewToolbarRow</ObjectName>
             <Layout>horizontal</Layout>
             <Children>
+
               <PushButton>
+                <ObjectName>ButtonTranslatePosition</ObjectName>
                 <TooltipId>beats_translate_curpos</TooltipId>
                 <Style/>
                 <NumberStates>1</NumberStates>
@@ -128,7 +119,9 @@
                   <ButtonState>LeftButton</ButtonState>
                 </Connection>
               </PushButton>
+
               <PushButton>
+                <ObjectName>ButtonQuantize</ObjectName>
                 <TooltipId>quantize</TooltipId>
                 <Style/>
                 <NumberStates>2</NumberStates>
@@ -149,25 +142,7 @@
                   <ButtonState>LeftButton</ButtonState>
                 </Connection>
               </PushButton>
-              <PushButton>
-                <TooltipId>keylock</TooltipId>
-                <Style/>
-                <NumberStates>2</NumberStates>
-                <State>
-                  <Number>0</Number>
-                  <Pressed>images/keylock/back.png</Pressed>
-                  <Unpressed>images/keylock/back.png</Unpressed>
-                </State>
-                <State>
-                  <Number>1</Number>
-                  <Pressed>images/keylock/over.png</Pressed>
-                  <Unpressed>images/keylock/over.png</Unpressed>
-                </State>
-                <Pos>52,23</Pos>
-                <Connection>
-                  <ConfigKey>[Channel<Variable name="channum"/>],keylock</ConfigKey>
-                </Connection>
-              </PushButton>
+
             </Children>
           </WidgetGroup>
         </Children>

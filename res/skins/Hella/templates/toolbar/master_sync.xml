@@ -1,0 +1,45 @@
+<Template>
+  <WidgetGroup>
+    <ObjectName>MasterSyncContainer</ObjectName>
+    <SizePolicy>f,me</SizePolicy>
+    <Size>50,</Size>
+    <Layout>vertical</Layout>
+    <Children>
+
+      <PushButton>
+        <ObjectName>MasterSyncButton</ObjectName>
+        <TooltipId>sync_master</TooltipId>
+        <Style/>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Pressed>images/master/sync/on.png</Pressed>
+          <Unpressed>images/master/sync/off.png</Unpressed>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Pressed>images/master/sync/on.png</Pressed>
+          <Unpressed>images/master/sync/on.png</Unpressed>
+        </State>
+        <Pos>4,4</Pos>
+        <Connection>
+          <ConfigKey>[InternalClock],sync_master</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+        </Connection>
+      </PushButton>
+
+      <NumberBpm>
+        <ObjectName>MasterBPM</ObjectName>
+        <TooltipId>visual_bpm</TooltipId>
+        <Channel>1</Channel>
+        <NumberOfDigits>2</NumberOfDigits>
+        <Connection>
+          <ConfigKey>[InternalClock],bpm</ConfigKey>
+        </Connection>
+      </NumberBpm>
+
+    </Children>
+  </WidgetGroup>
+
+</Template>
