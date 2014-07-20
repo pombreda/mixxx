@@ -2,6 +2,8 @@
   <WidgetGroup trigger="[EffectRack1],show">
     <ObjectName>EffectRackContainer</ObjectName>
     <Layout>horizontal</Layout>
+    <MinimumSize>0,0</MinimumSize>
+    <SizePolicy>me,min</SizePolicy>
     <Children>
       <Template src="skin:templates/effects/unit.xml">
         <SetVariable name="EffectRack">1</SetVariable>

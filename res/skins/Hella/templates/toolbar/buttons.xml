@@ -38,37 +38,6 @@
     <SizePolicy>min,min</SizePolicy>
     <Children>
       <PushButton>
-        <Size>60f,20f</Size>
-        <ObjectName>UIToggleButton</ObjectName>
-        <NumberStates>2</NumberStates>
-        <State>
-          <Number>0</Number>
-          <Text>PREVIEW</Text>
-        </State>
-        <State>
-          <Number>1</Number>
-          <Text>PREVIEW</Text>
-        </State>
-        <Connection>
-          <ConfigKey persist="true">[PreviewDeck],show_previewdeck</ConfigKey>
-          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-          <ButtonState>LeftButton</ButtonState>
-          <ConnectValueToWidget>false</ConnectValueToWidget>
-        </Connection>
-        <Connection>
-          <ConfigKey persist="true">[PreviewDeck],show_previewdeck</ConfigKey>
-          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-        </Connection>
-      </PushButton>
-    </Children>
-  </WidgetGroup>
-
-  <WidgetGroup>
-    <ObjectName>UIButton</ObjectName>
-    <Layout>vertical</Layout>
-    <SizePolicy>min,min</SizePolicy>
-    <Children>
-      <PushButton>
         <Size>40f,20f</Size>
         <ObjectName>UIToggleButton</ObjectName>
         <NumberStates>2</NumberStates>
@@ -136,6 +105,37 @@
         <NumberStates>2</NumberStates>
         <State>
           <Number>0</Number>
+          <Text>MIC</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>MIC</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[Microphone],show_microphone</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[Microphone],show_microphone</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>40f,20f</Size>
+        <ObjectName>UIToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
           <Text>VINYL</Text>
         </State>
         <State>
@@ -150,6 +150,37 @@
         </Connection>
         <Connection>
           <ConfigKey persist="true">[VinylControl],show_vinylcontrol</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+        </Connection>
+      </PushButton>
+    </Children>
+  </WidgetGroup>
+
+  <WidgetGroup>
+    <ObjectName>UIButton</ObjectName>
+    <Layout>vertical</Layout>
+    <SizePolicy>min,min</SizePolicy>
+    <Children>
+      <PushButton>
+        <Size>60f,20f</Size>
+        <ObjectName>UIToggleButton</ObjectName>
+        <NumberStates>2</NumberStates>
+        <State>
+          <Number>0</Number>
+          <Text>PREVIEW</Text>
+        </State>
+        <State>
+          <Number>1</Number>
+          <Text>PREVIEW</Text>
+        </State>
+        <Connection>
+          <ConfigKey persist="true">[PreviewDeck],show_previewdeck</ConfigKey>
+          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+          <ButtonState>LeftButton</ButtonState>
+          <ConnectValueToWidget>false</ConnectValueToWidget>
+        </Connection>
+        <Connection>
+          <ConfigKey persist="true">[PreviewDeck],show_previewdeck</ConfigKey>
           <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
         </Connection>
       </PushButton>

@@ -5,6 +5,19 @@
     <SizePolicy>f,me</SizePolicy>
     <Children>
 
+      <WidgetGroup>
+        <ObjectName>MicrophoneContainer</ObjectName>
+        <Layout>horizontal</Layout>
+        <SizePolicy>f,p</SizePolicy>
+        <Children>
+          <Template src="skin:templates/mixer/microphone.xml"/>
+        </Children>
+        <Connection>
+          <ConfigKey persist="true">[Microphone],show_microphone</ConfigKey>
+          <BindProperty>visible</BindProperty>
+        </Connection>
+      </WidgetGroup>
+
       <WidgetStack currentpage="[Master],mixer_4decks_status" persist="true">
         <Children>
           <WidgetGroup trigger="[Master],show_4decks" persist="true">

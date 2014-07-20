@@ -3,11 +3,14 @@
     <ObjectName>SamplerDeck</ObjectName>
     <Layout>horizontal</Layout>
     <MinimumSize>280,100</MinimumSize>
+    <SizePolicy>me,min</SizePolicy>
     <Children>
+
       <WidgetGroup>
         <Layout>vertical</Layout>
         <ObjectName>SamplerMainControls</ObjectName>
         <Children>
+
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <ObjectName>SamplerText</ObjectName>
@@ -19,13 +22,16 @@
             </Children>
           </WidgetGroup>
           <WidgetGroup>
+
             <Layout>horizontal</Layout>
             <ObjectName>SamplerRowTwo</ObjectName>
             <Children>
+
               <WidgetGroup>
                 <Layout>horizontal</Layout>
                 <ObjectName>SamplerPlay</ObjectName>
                 <Children>
+
                   <PushButton>
                     <TooltipId>play_start</TooltipId>
                     <NumberStates>2</NumberStates>
@@ -52,8 +58,10 @@
                       <ConnectValueToWidget>false</ConnectValueToWidget>
                     </Connection>
                   </PushButton>
+
                 </Children>
               </WidgetGroup>
+
               <Overview>
                 <TooltipId>waveform_overview</TooltipId>
                 <Group>[Sampler<Variable name="samplernum"/>]</Group>
@@ -79,9 +87,11 @@
                 <Layout>vertical</Layout>
                 <ObjectName>SamplerButtonGrid</ObjectName>
                 <Children>
+
                   <WidgetGroup>
                     <Layout>horizontal</Layout>
                     <Children>
+
                       <PushButton>
                         <TooltipId>repeat</TooltipId>
                         <NumberStates>2</NumberStates>
@@ -99,6 +109,7 @@
                           <ConfigKey>[Sampler<Variable name="samplernum"/>],repeat</ConfigKey>
                         </Connection>
                       </PushButton>
+
                       <PushButton>
                         <TooltipId>eject</TooltipId>
                         <NumberStates>1</NumberStates>
@@ -114,12 +125,14 @@
                           <ConnectValueToWidget>false</ConnectValueToWidget>
                         </Connection>
                       </PushButton>
+
                     </Children>
                   </WidgetGroup>
 
                   <WidgetGroup>
                     <Layout>horizontal</Layout>
                     <Children>
+
                       <PushButton>
                         <TooltipId>orientation</TooltipId>
                         <NumberStates>3</NumberStates>
@@ -144,6 +157,7 @@
                           <ButtonState>LeftButton</ButtonState>
                         </Connection>
                       </PushButton>
+
                       <PushButton>
                         <TooltipId>keylock</TooltipId>
                         <NumberStates>2</NumberStates>
@@ -161,6 +175,7 @@
                           <ConfigKey>[Sampler<Variable name="samplernum"/>],keylock</ConfigKey>
                         </Connection>
                       </PushButton>
+
                     </Children>
                   </WidgetGroup>
 
@@ -181,6 +196,7 @@
                   </Knob>
                 </Children>
               </WidgetGroup>
+
             </Children>
           </WidgetGroup>
 
@@ -189,10 +205,12 @@
             <BackPath>images/background/tile.png</BackPath>
             <ObjectName>SamplerButtons</ObjectName>
             <Children>
+
               <WidgetGroup>
                 <Layout>horizontal</Layout>
                 <ObjectName>SamplerSyncButton</ObjectName>
                 <Children>
+
                   <PushButton>
                     <TooltipId>beatsync_beatsync_tempo</TooltipId>
                     <NumberStates>1</NumberStates>
@@ -212,6 +230,7 @@
                       <ButtonState>RightButton</ButtonState>
                     </Connection>
                   </PushButton>
+
                 </Children>
               </WidgetGroup>
 
@@ -219,6 +238,7 @@
                 <Layout>horizontal</Layout>
                 <ObjectNAme>SamplerHotcues</ObjectNAme>
                 <Children>
+
                   <PushButton>
                     <TooltipId>hotcue</TooltipId>
                     <NumberStates>2</NumberStates>
@@ -251,6 +271,7 @@
                       <ConnectValueFromWidget>false</ConnectValueFromWidget>
                     </Connection>
                   </PushButton>
+
                   <PushButton>
                     <TooltipId>hotcue</TooltipId>
                     <NumberStates>2</NumberStates>
@@ -283,6 +304,7 @@
                       <ConnectValueFromWidget>false</ConnectValueFromWidget>
                     </Connection>
                   </PushButton>
+
                   <PushButton>
                     <TooltipId>hotcue</TooltipId>
                     <NumberStates>2</NumberStates>
@@ -315,6 +337,7 @@
                       <ConnectValueFromWidget>false</ConnectValueFromWidget>
                     </Connection>
                   </PushButton>
+
                   <PushButton>
                     <TooltipId>hotcue</TooltipId>
                     <NumberStates>2</NumberStates>
@@ -347,6 +370,7 @@
                       <ConnectValueFromWidget>false</ConnectValueFromWidget>
                     </Connection>
                   </PushButton>
+
                 </Children>
               </WidgetGroup>
 
@@ -354,6 +378,7 @@
                 <Layout>horizontal</Layout>
                 <ObjectName>SamplerPfl</ObjectName>
                 <Children>
+
                   <PushButton>
                     <TooltipId>pfl</TooltipId>
                     <NumberStates>2</NumberStates>
@@ -371,6 +396,7 @@
                       <ConfigKey>[Sampler<Variable name="samplernum"/>],pfl</ConfigKey>
                     </Connection>
                   </PushButton>
+
                 </Children>
               </WidgetGroup>
 
@@ -385,6 +411,7 @@
         <ObjectName>SamplerVU</ObjectName>
         <MinimumSize>22,</MinimumSize>
         <Children>
+
           <StatusLight>
             <TooltipId>PeakIndicator</TooltipId>
             <PathStatusLight>images/sampler/clipping/over.png</PathStatusLight>
@@ -393,6 +420,7 @@
               <ConfigKey>[Sampler<Variable name="samplernum"/>],PeakIndicator</ConfigKey>
             </Connection>
           </StatusLight>
+
           <VuMeter>
             <TooltipId>channel_VuMeter</TooltipId>
             <PathVu>images/sampler/volume/over.png</PathVu>
@@ -406,6 +434,7 @@
               <ConfigKey>[Sampler<Variable name="samplernum"/>],VuMeter</ConfigKey>
             </Connection>
           </VuMeter>
+
         </Children>
       </WidgetGroup>
 
@@ -414,6 +443,7 @@
         <ObjectName>SamplerPitch</ObjectName>
         <MinimumSize>40,</MinimumSize>
         <Children>
+
           <SliderComposed>
             <TooltipId>rate</TooltipId>
             <Handle>images/knobs/pitch.png</Handle>
@@ -424,6 +454,7 @@
               <EmitOnDownPress>false</EmitOnDownPress>
             </Connection>
           </SliderComposed>
+
         </Children>
       </WidgetGroup>
 

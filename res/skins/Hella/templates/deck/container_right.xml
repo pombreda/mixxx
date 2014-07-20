@@ -1,8 +1,9 @@
-<?xml version="1.0"?>
 <Template>
   <WidgetGroup>
     <ObjectName>DecksRightContainer</ObjectName>
     <Layout>vertical</Layout>
+    <SizePolicy>me,f</SizePolicy>
+
     <Children>
       <Template src="skin:templates/deck/deck.xml">
         <SetVariable name="channum">2</SetVariable>

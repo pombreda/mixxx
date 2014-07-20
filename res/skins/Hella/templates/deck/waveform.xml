@@ -2,8 +2,10 @@
   <WidgetGroup>
     <ObjectName>DeckWaveform</ObjectName>
     <Layout>vertical</Layout>
+    <SizePolicy>me,min</SizePolicy>
     <MinimumSize>200,</MinimumSize>
     <Children>
+
       <Visual>
         <TooltipId>waveform_display</TooltipId>
         <Style/>
@@ -55,6 +57,7 @@
           <TextColor>#FFFFFF</TextColor>
         </Mark>
       </Visual>
+
     </Children>
   </WidgetGroup>
 </Template>

@@ -33,6 +33,7 @@
         <MaximumSize>,50</MaximumSize>
         <Children>
           <Template src="skin:templates/deck/spinny.xml"/>
+          <Template src="skin:templates/deck/vinylcontrol.xml"/>
           <Template src="skin:templates/deck/waveform.xml"/>
         </Children>
       </WidgetGroup>

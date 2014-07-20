@@ -11,6 +11,7 @@
         <Layout>horizontal</Layout>
         <Children>
           <PushButton>
+            <ObjectName>PFLButton</ObjectName>
             <Pos>0,0</Pos>
             <TooltipId>pfl</TooltipId>
             <NumberStates>2</NumberStates>
@@ -44,6 +45,7 @@
         <Layout>horizontal</Layout>
         <Children>
           <PushButton>
+            <ObjectName>EQKillButton</ObjectName>
             <TooltipId>filterHighKill</TooltipId>
             <NumberStates>2</NumberStates>
             <State>
@@ -78,6 +80,7 @@
         <Layout>horizontal</Layout>
         <Children>
           <PushButton>
+            <ObjectName>EQKillButton</ObjectName>
             <TooltipId>filterMidKill</TooltipId>
             <NumberStates>2</NumberStates>
             <State>
@@ -114,6 +117,7 @@
         <Layout>horizontal</Layout>
         <Children>
           <PushButton>
+            <ObjectName>EQKillButton</ObjectName>
             <TooltipId>filterLowKill</TooltipId>
             <NumberStates>2</NumberStates>
             <State>

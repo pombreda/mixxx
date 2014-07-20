@@ -2,6 +2,8 @@
   <WidgetGroup trigger="[Samplers],show_samplers">
     <ObjectName>SamplerDecksContainer</ObjectName>
     <Layout>horizontal</Layout>
+    <MinimumSize>0,0</MinimumSize>
+    <SizePolicy>me,min</SizePolicy>
     <Children>
       <Template src="skin:templates/sampler/sampler.xml">
         <SetVariable name="samplernum">1</SetVariable>

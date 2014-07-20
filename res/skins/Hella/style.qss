@@ -1,29 +1,35 @@
 #Mixxx {
-    background-color: #0e0e0e;
+  background-color: #0e0e0e;
 }
 
 #ToolbarContainer {
-    background-color: #0e0e0e;
+  background-color: #0e0e0e;
 }
 
 #BrowserOnlyControlsContainer {
-    background-color: #0e0e0e;
+  background-color: #0e0e0e;
 }
 
 #PlaybackContainer {
-    background-color: #0e0e0e;
+  background-color: #0e0e0e;
 }
 
 #DeckContainer {
-    background-color: #0e0e0e;
+  qproperty-layoutAlignment: 'AlignTop';
+  background-color: #0e0e0e;
 }
 
 #DecksAndMixers {
-    background-color: #0e0e0e;
+  background-color: #0e0e0e;
 }
 
-#SamplersAndEffects {
-    background-color: #0e0e0e;
+#Samplers, #Effects {
+  background-color: #0e0e0e;
+  border: 1px solid #585858;
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  background-color: yellow;
 }
 
 #LibraryContainer {
@@ -83,17 +89,17 @@
 }
 
 #UIToggleButton[displayValue="0"], #UIReversedToggleButton[displayValue="1"] {
-    border: 1px solid #585858;
-    font: bold 10px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-    color: #585858;
-    background-color: #0e0e0e;
+  border: 1px solid #585858;
+  font: bold 10px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  color: #585858;
+  background-color: #0e0e0e;
 }
 
 #UIToggleButton[displayValue="1"], #UIReversedToggleButton[displayValue="0"] {
-    border: 1px solid #585858;
-    font: bold 10px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-    color: #0e0e0e;
-    background-color: #e17800;
+  border: 1px solid #585858;
+  font: bold 10px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  color: #0e0e0e;
+  background-color: #e17800;
 }
 
 #MasterSync {
@@ -102,9 +108,30 @@
   padding-left: 2px;
 }
 
-#MixerContainer {
+#MixerContainer, #MicrophoneContainer {
   qproperty-layoutAlignment: 'AlignTop';
 }
+#MicrophoneContainer {
+  qproperty-layoutAlignment: 'AlignCenter | AlignTop';
+}
+
+#MicrophoneControls {
+  qproperty-layoutAlignment: 'AlignCenter | AlignTop';
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 5px;
+  padding-bottom: 0px;
+}
+#MicrophoneTalkover {
+  padding-left: 30px;
+  padding-right: 10px;
+}
+#MicrophoneVolume, #MicrophoneOrientation {
+  padding-right: 5px;
+}
+ #MicrophoneVUMeter {
+  padding: 0px;
+ }
 
 #Mixer2Channels {
   padding-left: 10px;
@@ -118,6 +145,11 @@
 
 #MixerChannel {
   qproperty-layoutAlignment: 'AlignBottom';
+}
+
+#PFLButton, #EQKillButton {
+  qproperty-layoutAlignment: 'AlighRight';
+  min-width: 26px;
 }
 
 #ChannelVolumeMeter {
@@ -220,8 +252,8 @@
   text-align: left;
 }
 
-
 #VinylControlContainer {
+  qproperty-layoutAlignment: 'AlignRight | AlignCenter';
 }
 
 #VinylControls {
@@ -271,23 +303,21 @@
 
 #SamplerDecksContainer {
   background-color: #0e0e0e;
-  border-top: 1px solid #585858;
-  /*border-bottom: 1px solid #585858;*/
-  padding: 2px;
-  padding-left: 0px;
 }
 
 #SamplerDeck {
   padding: 0px;
-  margin: 10px;
-  margin-top: 0px;
+  margin: 0px;
   border: 1px solid #585858;
   background-color: #1e1e1e;
 }
 
+#SamplerMainControls {
+}
+
 #SamplerVU {
-  padding: 5px;
   qproperty-layoutAlignment: 'AlignRight | AlignBottom';
+  padding: 5px;
   border: 1px solid #585858;
   border-top: 0px;
   border-bottom: 0px;
@@ -301,13 +331,6 @@
 
 #SamplerSyncButton {
   qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
-}
-
-#SamplerMainControls {
-  border: 1px solid #585858;
-  border-top: 0px;
-  border-left: 0px;
-  border-bottom: 0px;
 }
 
 #SamplerButtons {

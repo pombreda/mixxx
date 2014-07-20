@@ -81,6 +81,14 @@
           <Children>
 
             <WidgetGroup>
+              <ObjectName>Effects</ObjectName>
+              <Layout>vertical</Layout>
+              <Children>
+                <Template src="skin:templates/effects/container.xml"/>
+              </Children>
+            </WidgetGroup>
+
+            <WidgetGroup>
               <ObjectName>DecksAndMixers</ObjectName>
               <Layout>horizontal</Layout>
               <Children>
@@ -91,11 +99,10 @@
             </WidgetGroup>
 
             <WidgetGroup>
-              <ObjectName>SamplersAndEffects</ObjectName>
+              <ObjectName>Samplers</ObjectName>
               <Layout>vertical</Layout>
               <Children>
                 <Template src="skin:templates/sampler/container.xml"/>
-                <Template src="skin:templates/effects/container.xml"/>
               </Children>
             </WidgetGroup>
 
