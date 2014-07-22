@@ -232,6 +232,9 @@
   padding: 0px;
 }
 
+#LoopControlsContainer {
+  qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
+}
 #LoopSizeButtons, #LoopInOut {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
 }
