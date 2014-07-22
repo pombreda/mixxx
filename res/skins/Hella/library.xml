@@ -12,7 +12,6 @@
           <WidgetGroup>
             <Layout>vertical</Layout>
             <Children>
-              <Template src="skin:templates/preview/container.xml"/>
               <SearchBox/>
               <LibrarySidebar/>
             </Children>

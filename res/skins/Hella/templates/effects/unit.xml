@@ -1,43 +1,70 @@
-<?xml version="1.0"?>
-<!DOCTYPE template>
-<!--
-  Description:
-    An effect unit widget.
-  Variables:
-    group: The group for the controls.
--->
 <Template>
   <SetVariable name="group">[EffectRack<Variable name="EffectRack"/>_EffectUnit<Variable name="EffectUnit"/>]</SetVariable>
+
   <WidgetGroup>
     <ObjectName>EffectUnit</ObjectName>
     <Layout>vertical</Layout>
     <SizePolicy>me,f</SizePolicy>
     <MinimumSize>300,80</MinimumSize>
     <MaximumSize>350,80</MaximumSize>
+
     <Children>
       <WidgetGroup>
         <ObjectName>EffectUnitNameRow</ObjectName>
         <Layout>horizontal</Layout>
         <Children>
+
+          <PushButton>
+            <ObjectName>EffectToggleButton</ObjectName>
+            <Size>40f,20f</Size>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>OFF</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>ON</Text>
+            </State>
+            <Connection>
+              <ConfigKey persist="true"><Variable name="group"/>,enabled</ConfigKey>
+              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+              <ButtonState>LeftButton</ButtonState>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="true"><Variable name="group"/>,enabled</ConfigKey>
+              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+            </Connection>
+          </PushButton>
+
           <WidgetGroup>
             <ObjectName>EffectUnitNameContainer</ObjectName>
             <Layout>horizontal</Layout>
+            <SizePolicy>me,min</SizePolicy>
             <Children>
+
               <EffectChainName>
                 <EffectRack>
                   <Variable name="EffectRack"/>
                 </EffectRack>
+
                 <EffectUnit>
                   <Variable name="EffectUnit"/>
                 </EffectUnit>
+
               </EffectChainName>
+
             </Children>
           </WidgetGroup>
+
           <WidgetGroup>
             <ObjectName>EffectUnitNextPrevContainer</ObjectName>
             <Layout>horizontal</Layout>
             <Children>
+
               <PushButton>
+                <ObjectName>EffectToggleButton</ObjectName>
                 <Size>20f,20f</Size>
                 <NumberStates>1</NumberStates>
                 <State>
@@ -45,11 +72,13 @@
                   <Text>&#x23CF;</Text>
                 </State>
                 <Connection>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
                   <ConfigKey><Variable name="group"/>,clear</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
                 </Connection>
               </PushButton>
+
               <PushButton>
+                <ObjectName>EffectToggleButton</ObjectName>
                 <Size>20f,20f</Size>
                 <NumberStates>1</NumberStates>
                 <State>
@@ -62,7 +91,9 @@
                   <ButtonState>LeftButton</ButtonState>
                 </Connection>
               </PushButton>
+
               <PushButton>
+                <ObjectName>EffectToggleButton</ObjectName>
                 <Size>20f,20f</Size>
                 <NumberStates>1</NumberStates>
                 <State>
@@ -75,39 +106,20 @@
                   <ButtonState>LeftButton</ButtonState>
                 </Connection>
               </PushButton>
-              <PushButton>
-                <Size>40f,20f</Size>
-                <ObjectName>EffectToggleButton</ObjectName>
-                <NumberStates>2</NumberStates>
-                <State>
-                  <Number>0</Number>
-                  <Text>OFF</Text>
-                </State>
-                <State>
-                  <Number>1</Number>
-                  <Text>ON</Text>
-                </State>
-                <Connection>
-                  <ConfigKey persist="true"><Variable name="group"/>,enabled</ConfigKey>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                  <ButtonState>LeftButton</ButtonState>
-                  <ConnectValueToWidget>false</ConnectValueToWidget>
-                </Connection>
-                <Connection>
-                  <ConfigKey persist="true"><Variable name="group"/>,enabled</ConfigKey>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                </Connection>
-              </PushButton>
+
             </Children>
           </WidgetGroup>
+
         </Children>
       </WidgetGroup>
+
       <WidgetGroup>
         <ObjectName>EffectUnitControlRow</ObjectName>
         <Layout>horizontal</Layout>
         <BackPath>images/background/tile.png</BackPath>
         <Children>
           <WidgetGroup>
+
             <ObjectName>EffectUnitParameters</ObjectName>
             <Layout>horizontal</Layout>
             <Children>
@@ -115,6 +127,7 @@
                 <Layout>horizontal</Layout>
                 <ObjectName>EffectKnobContainer</ObjectName>
                 <Children>
+
                   <Template src="skin:templates/effects/parameter_knob.xml">
                     <SetVariable name="Effect">1</SetVariable>
                     <SetVariable name="EffectParameter">1</SetVariable>
@@ -131,14 +144,18 @@
                     <SetVariable name="Effect">1</SetVariable>
                     <SetVariable name="EffectParameter">4</SetVariable>
                   </Template>
+
                 </Children>
               </WidgetGroup>
+
             </Children>
           </WidgetGroup>
+
           <WidgetGroup>
             <Layout>horizontal</Layout>
             <ObjectName>EffectControlsRight</ObjectName>
             <Children>
+
               <WidgetGroup>
                 <ObjectName>EffectUnitControls</ObjectName>
                 <Layout>horizontal</Layout>
@@ -149,11 +166,13 @@
                   </Template>
                 </Children>
               </WidgetGroup>
+
               <WidgetGroup>
                 <ObjectName>EffectUnitGroupControls</ObjectName>
                 <SizePolicy>min,min</SizePolicy>
                 <Layout>vertical</Layout>
                 <Children>
+
                   <WidgetGroup>
                     <Layout>horizontal</Layout>
                     <SizePolicy>min,min</SizePolicy>
@@ -168,6 +187,7 @@
                       </Template>
                     </Children>
                   </WidgetGroup>
+
                   <WidgetGroup>
                     <Layout>horizontal</Layout>
                     <SizePolicy>min,min</SizePolicy>
@@ -182,6 +202,7 @@
                       </Template>
                     </Children>
                   </WidgetGroup>
+
                   <WidgetGroup>
                     <Layout>horizontal</Layout>
                     <SizePolicy>min,min</SizePolicy>
@@ -196,12 +217,16 @@
                       </Template>
                     </Children>
                   </WidgetGroup>
+
                 </Children>
               </WidgetGroup>
+
             </Children>
           </WidgetGroup>
+
         </Children>
       </WidgetGroup>
+
     </Children>
   </WidgetGroup>
 </Template>

@@ -1,102 +1,106 @@
 <?xml version="1.0"?>
 <Template>
   <WidgetGroup>
-    <ObjectName>PreviewDeck</ObjectName>
+    <ObjectName>PreviewDeckContainer</ObjectName>
     <Layout>horizontal</Layout>
-    <SizePolicy>min, min</SizePolicy>
+    <SizePolicy>min,min</SizePolicy>
     <MinimumSize>100,40</MinimumSize>
     <Children>
-      <!-- Preview Deck Column 1 Row 1 -->
+
       <WidgetGroup>
-        <ObjectName>PreviewColumnOne</ObjectName>
+        <ObjectName>PreviewInfo</ObjectName>
         <Layout>vertical</Layout>
         <SizePolicy>min,min</SizePolicy>
         <MinimumSize>,40</MinimumSize>
         <Children>
+
           <WidgetGroup>
-            <ObjectName>PreviewTitleEject</ObjectName>
+            <ObjectName>PreviewDetailsRow</ObjectName>
             <Layout>horizontal</Layout>
-            <SizePolicy>min,min</SizePolicy>
+
             <Children>
+
               <WidgetGroup>
-                <ObjectName>AlignLeftTop</ObjectName>
-                <Layout>horizontal</Layout>
-                <SizePolicy>min,min</SizePolicy>
-                <Children>
-                  <Text>
-                    <TooltipId>text</TooltipId>
-                    <Style>QLabel {
-											font: 14px/16px Lucida Grande, Lucida Sans Unicode, Arial, Verdana,
-											sans-serif;
-											background-color: transparent;
-											color: #cfb32c;
-											text-align: left;
-											}
-										</Style>
-                    <Group>[PreviewDeck1]</Group>
-                  </Text>
-                </Children>
-              </WidgetGroup>
-              <WidgetGroup>
-                <ObjectName>AlignRightTop</ObjectName>
+                <ObjectName>PreviewTitle</ObjectName>
                 <Layout>horizontal</Layout>
                 <SizePolicy>me,min</SizePolicy>
                 <Children>
+
+                  <Text>
+                    <TooltipId>text</TooltipId>
+                    <Group>[PreviewDeck1]</Group>
+                  </Text>
+
+                </Children>
+              </WidgetGroup>
+
+              <PushButton>
+                <ObjectName>PreviewEjectButton</ObjectName>
+                <TooltipId>eject</TooltipId>
+                <NumberStates>1</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/eject/over.png</Pressed>
+                  <Unpressed>images/eject/back.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[PreviewDeck1],eject</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                  <ConnectValueToWidget>false</ConnectValueToWidget>
+                </Connection>
+              </PushButton>
+
+            </Children>
+          </WidgetGroup>
+
+          <WidgetGroup>
+            <ObjectName>PreviewOverview</ObjectName>
+            <Layout>horizontal</Layout>
+            <SizePolicy>me,min</SizePolicy>
+            <MinimumSize>100,30</MinimumSize>
+            <Children>
+
+              <WidgetGroup>
+                <ObjectName>PreviewPlayButton</ObjectName>
+                <Layout>horizontal</Layout>
+                <Children>
+
                   <PushButton>
-                    <TooltipId>eject</TooltipId>
-                    <NumberStates>1</NumberStates>
+                    <ObjectName>PreviewPlayButton</ObjectName>
+                    <TooltipId>play_start</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <RightClickIsPushButton>true</RightClickIsPushButton>
                     <State>
                       <Number>0</Number>
-                      <Pressed>images/eject/over.png</Pressed>
-                      <Unpressed>images/eject/back.png</Unpressed>
+                      <Pressed>images/sampler/play/down.png</Pressed>
+                      <Unpressed>images/sampler/play/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/sampler/play/overdown.png</Pressed>
+                      <Unpressed>images/sampler/play/over.png</Unpressed>
                     </State>
                     <Connection>
-                      <ConfigKey>[PreviewDeck1],eject</ConfigKey>
-                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ConfigKey>[PreviewDeck1],play</ConfigKey>
+                      <EmitOnDownPress>true</EmitOnDownPress>
                       <ButtonState>LeftButton</ButtonState>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[PreviewDeck1],start</ConfigKey>
+                      <EmitOnDownPress>true</EmitOnDownPress>
+                      <ButtonState>RightButton</ButtonState>
                       <ConnectValueToWidget>false</ConnectValueToWidget>
                     </Connection>
                   </PushButton>
                 </Children>
               </WidgetGroup>
-            </Children>
-          </WidgetGroup>
-          <WidgetGroup>
-            <ObjectName>PreviewPlayOverview</ObjectName>
-            <Layout>horizontal</Layout>
-            <SizePolicy>me,min</SizePolicy>
-            <MinimumSize>100,40</MinimumSize>
-            <Children>
-              <PushButton>
-                <TooltipId>play_start</TooltipId>
-                <NumberStates>2</NumberStates>
-                <RightClickIsPushButton>true</RightClickIsPushButton>
-                <State>
-                  <Number>0</Number>
-                  <Pressed>images/sampler/play/down.png</Pressed>
-                  <Unpressed>images/sampler/play/back.png</Unpressed>
-                </State>
-                <State>
-                  <Number>1</Number>
-                  <Pressed>images/sampler/play/overdown.png</Pressed>
-                  <Unpressed>images/sampler/play/over.png</Unpressed>
-                </State>
-                <Connection>
-                  <ConfigKey>[PreviewDeck1],play</ConfigKey>
-                  <EmitOnDownPress>true</EmitOnDownPress>
-                  <ButtonState>LeftButton</ButtonState>
-                </Connection>
-                <Connection>
-                  <ConfigKey>[PreviewDeck1],start</ConfigKey>
-                  <EmitOnDownPress>true</EmitOnDownPress>
-                  <ButtonState>RightButton</ButtonState>
-                  <ConnectValueToWidget>false</ConnectValueToWidget>
-                </Connection>
-              </PushButton>
+
               <Overview>
+                <ObjectName>PreviewWaveform</ObjectName>
                 <TooltipId>waveform_overview</TooltipId>
                 <Group>[PreviewDeck1]</Group>
-                <Size>me,45f</Size>
+                <Size>me,30f</Size>
                 <BgColor/>
                 <BgColor>#FFFFFF</BgColor>
                 <SignalColor>#FF8000</SignalColor>
@@ -122,19 +126,25 @@
                   <EmitOnDownPress>false</EmitOnDownPress>
                 </Connection>
               </Overview>
+
             </Children>
           </WidgetGroup>
+
         </Children>
       </WidgetGroup>
-      <!-- Preview Deck Column 2 -->
+
       <WidgetGroup>
+        <ObjectName>PreviewControls</ObjectName>
         <Layout>horizontal</Layout>
         <Children>
           <WidgetGroup>
+            <ObjectName>PreviewVolume</ObjectName>
             <Layout>vertical</Layout>
             <SizePolicy>min,min</SizePolicy>
             <Children>
+
               <StatusLight>
+                <ObjectName>PreviewPeakIndicator</ObjectName>
                 <TooltipId>PeakIndicator</TooltipId>
                 <PathStatusLight>images/preview/clipping/over.png</PathStatusLight>
                 <PathBack>images/preview/clipping/back.png</PathBack>
@@ -142,7 +152,9 @@
                   <ConfigKey>[PreviewDeck1],PeakIndicator</ConfigKey>
                 </Connection>
               </StatusLight>
+
               <VuMeter>
+                <ObjectName>PreviewVUMeter</ObjectName>
                 <TooltipId>channel_VuMeter</TooltipId>
                 <PathVu>images/preview/volume/over.png</PathVu>
                 <PathBack>images/preview/volume/back.png</PathBack>
@@ -155,9 +167,12 @@
                   <ConfigKey>[PreviewDeck1],VuMeter</ConfigKey>
                 </Connection>
               </VuMeter>
+
             </Children>
           </WidgetGroup>
+
           <SliderComposed>
+            <ObjectName>PreviewGainSlider</ObjectName>
             <TooltipId>pregain</TooltipId>
             <Handle>images/preview/knobs/volume.png</Handle>
             <Slider>images/preview/sliders/volume.png</Slider>
@@ -167,8 +182,10 @@
               <EmitOnDownPress>false</EmitOnDownPress>
             </Connection>
           </SliderComposed>
+
         </Children>
       </WidgetGroup>
+
     </Children>
   </WidgetGroup>
 </Template>
