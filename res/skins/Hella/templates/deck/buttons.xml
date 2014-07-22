@@ -114,6 +114,7 @@
           <WidgetGroup>
             <ObjectName>LoopSizeButtons</ObjectName>
             <Layout>horizontal</Layout>
+            <SizePolicy>f,f</SizePolicy>
             <Children>
 
               <PushButton>
@@ -429,87 +430,86 @@
             </Children>
           </WidgetGroup>
 
-        </Children>
-      </WidgetGroup>
-
-      <WidgetGroup>
-        <ObjectName>LoopInOut</ObjectName>
-        <Layout>vertical</Layout>
-        <SizePolicy>f,f</SizePolicy>
-        <Children>
-
           <WidgetGroup>
-            <Layout>horizontal</Layout>
             <ObjectName>LoopInOut</ObjectName>
+            <Layout>vertical</Layout>
+            <SizePolicy>f,f</SizePolicy>
             <Children>
 
-              <PushButton>
-                <TooltipId>loop_in</TooltipId>
-                <NumberStates>1</NumberStates>
-                <State>
-                  <Number>0</Number>
-                  <Pressed>images/loop_in/overdown.png</Pressed>
-                  <Unpressed>images/loop_in/back.png</Unpressed>
-                </State>
-                <Connection>
-                  <ConfigKey>[Channel<Variable name="channum"/>],loop_in</ConfigKey>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                  <ButtonState>LeftButton</ButtonState>
-                </Connection>
-              </PushButton>
+              <WidgetGroup>
+                <Layout>horizontal</Layout>
+                <ObjectName>LoopInOut</ObjectName>
+                <Children>
 
-              <PushButton>
-                <TooltipId>loop_out</TooltipId>
-                <NumberStates>1</NumberStates>
-                <State>
-                  <Number>0</Number>
-                  <Pressed>images/loop_out/overdown.png</Pressed>
-                  <Unpressed>images/loop_out/back.png</Unpressed>
-                </State>
-                <Connection>
-                  <ConfigKey>[Channel<Variable name="channum"/>],loop_out</ConfigKey>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                  <ButtonState>LeftButton</ButtonState>
-                </Connection>
-              </PushButton>
+                  <PushButton>
+                    <TooltipId>loop_in</TooltipId>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/loop_in/overdown.png</Pressed>
+                      <Unpressed>images/loop_in/back.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Channel<Variable name="channum"/>],loop_in</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                    </Connection>
+                  </PushButton>
+
+                  <PushButton>
+                    <TooltipId>loop_out</TooltipId>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/loop_out/overdown.png</Pressed>
+                      <Unpressed>images/loop_out/back.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Channel<Variable name="channum"/>],loop_out</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                    </Connection>
+                  </PushButton>
+
+                </Children>
+              </WidgetGroup>
+
+              <WidgetGroup>
+                <Layout>horizontal</Layout>
+                <ObjectName>LoopInOut</ObjectName>
+                <Children>
+
+                  <PushButton>
+                    <TooltipId>reloop_exit</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <LeftClickIsPushButton>true</LeftClickIsPushButton>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/reloop/down.png</Pressed>
+                      <Unpressed>images/reloop/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/reloop/overdown.png</Pressed>
+                      <Unpressed>images/reloop/over.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[Channel<Variable name="channum"/>],reloop_exit</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[Channel<Variable name="channum"/>],loop_enabled</ConfigKey>
+                      <ConnectValueFromWidget>false</ConnectValueFromWidget>
+                    </Connection>
+                  </PushButton>
+
+                </Children>
+              </WidgetGroup>
 
             </Children>
           </WidgetGroup>
-
-          <WidgetGroup>
-            <Layout>horizontal</Layout>
-            <ObjectName>LoopInOut</ObjectName>
-            <Children>
-
-              <PushButton>
-                <TooltipId>reloop_exit</TooltipId>
-                <NumberStates>2</NumberStates>
-                <LeftClickIsPushButton>true</LeftClickIsPushButton>
-                <State>
-                  <Number>0</Number>
-                  <Pressed>images/reloop/down.png</Pressed>
-                  <Unpressed>images/reloop/back.png</Unpressed>
-                </State>
-                <State>
-                  <Number>1</Number>
-                  <Pressed>images/reloop/overdown.png</Pressed>
-                  <Unpressed>images/reloop/over.png</Unpressed>
-                </State>
-                <Connection>
-                  <ConfigKey>[Channel<Variable name="channum"/>],reloop_exit</ConfigKey>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                  <ButtonState>LeftButton</ButtonState>
-                  <ConnectValueToWidget>false</ConnectValueToWidget>
-                </Connection>
-                <Connection>
-                  <ConfigKey>[Channel<Variable name="channum"/>],loop_enabled</ConfigKey>
-                  <ConnectValueFromWidget>false</ConnectValueFromWidget>
-                </Connection>
-              </PushButton>
-
-            </Children>
-          </WidgetGroup>
-
         </Children>
       </WidgetGroup>
 

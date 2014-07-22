@@ -187,7 +187,7 @@
 
 #DeckButtons {
   qproperty-layoutAlignment: 'AlignTop';
-  padding: 3px;
+  padding: 0px 3px 3px 3px;
   border: 1px solid #585858;
   border-top: 0px;
   border-left: 0px;
