@@ -12,57 +12,30 @@
         <Children>
 
           <WidgetGroup>
-            <Layout>horizontal</Layout>
             <ObjectName>SamplerText</ObjectName>
+            <Layout>horizontal</Layout>
+            <SizePolicy>me,min</SizePolicy>
+
             <Children>
+
               <Text>
                 <TooltipId>text</TooltipId>
                 <Group>[Sampler<Variable name="samplernum"/>]</Group>
               </Text>
+
             </Children>
           </WidgetGroup>
-          <WidgetGroup>
 
+          <WidgetGroup>
             <Layout>horizontal</Layout>
-            <ObjectName>SamplerRowTwo</ObjectName>
+            <ObjectName>SamplerWaveformContainer</ObjectName>
+            <SizePolicy>me,me</SizePolicy>
             <Children>
 
-              <WidgetGroup>
-                <Layout>horizontal</Layout>
-                <ObjectName>SamplerPlay</ObjectName>
-                <Children>
-
-                  <PushButton>
-                    <TooltipId>play_start</TooltipId>
-                    <NumberStates>2</NumberStates>
-                    <RightClickIsPushButton>true</RightClickIsPushButton>
-                    <State>
-                      <Number>0</Number>
-                      <Pressed>images/sampler/play/down.png</Pressed>
-                      <Unpressed>images/sampler/play/back.png</Unpressed>
-                    </State>
-                    <State>
-                      <Number>1</Number>
-                      <Pressed>images/sampler/play/overdown.png</Pressed>
-                      <Unpressed>images/sampler/play/over.png</Unpressed>
-                    </State>
-                    <Connection>
-                      <ConfigKey>[Sampler<Variable name="samplernum"/>],play</ConfigKey>
-                      <EmitOnDownPress>true</EmitOnDownPress>
-                      <ButtonState>LeftButton</ButtonState>
-                    </Connection>
-                    <Connection>
-                      <ConfigKey>[Sampler<Variable name="samplernum"/>],start</ConfigKey>
-                      <EmitOnDownPress>true</EmitOnDownPress>
-                      <ButtonState>RightButton</ButtonState>
-                      <ConnectValueToWidget>false</ConnectValueToWidget>
-                    </Connection>
-                  </PushButton>
-
-                </Children>
-              </WidgetGroup>
-
               <Overview>
+                <ObjectName>SamplerWaveform</ObjectName>
+                <MinimumSize>180,30</MinimumSize>
+                <SizePolicy>me,me</SizePolicy>
                 <TooltipId>waveform_overview</TooltipId>
                 <Group>[Sampler<Variable name="samplernum"/>]</Group>
                 <BgColor/>
@@ -182,61 +155,131 @@
                 </Children>
               </WidgetGroup>
 
-              <WidgetGroup>
-                <Layout>horizontal</Layout>
-                <ObjectName>SamplerVol</ObjectName>
-                <Children>
-                  <Knob>
-                    <TooltipId>pregain</TooltipId>
-                    <NumberStates>64</NumberStates>
-                    <Path>knobs/knob_rotary_s%1.png</Path>
-                    <Connection>
-                      <ConfigKey>[Sampler<Variable name="samplernum"/>],pregain</ConfigKey>
-                    </Connection>
-                  </Knob>
-                </Children>
-              </WidgetGroup>
-
             </Children>
           </WidgetGroup>
 
           <WidgetGroup>
+            <ObjectName>SamplerButtons</ObjectName>
             <Layout>horizontal</Layout>
             <BackPath>images/background/tile.png</BackPath>
-            <ObjectName>SamplerButtons</ObjectName>
             <Children>
 
               <WidgetGroup>
+                <ObjectName>SamplerButtonsLeft</ObjectName>
                 <Layout>horizontal</Layout>
-                <ObjectName>SamplerSyncButton</ObjectName>
+                <SizePolicy>me,f</SizePolicy>
                 <Children>
 
-                  <PushButton>
-                    <TooltipId>beatsync_beatsync_tempo</TooltipId>
-                    <NumberStates>1</NumberStates>
-                    <State>
-                      <Number>0</Number>
-                      <Pressed>images/sampler/sync/overdown.png</Pressed>
-                      <Unpressed>images/sampler/sync/back.png</Unpressed>
-                    </State>
-                    <Connection>
-                      <ConfigKey>[Sampler<Variable name="samplernum"/>],beatsync</ConfigKey>
-                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                      <ButtonState>LeftButton</ButtonState>
-                    </Connection>
-                    <Connection>
-                      <ConfigKey>[Sampler<Variable name="samplernum"/>],beatsync_tempo</ConfigKey>
-                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                      <ButtonState>RightButton</ButtonState>
-                    </Connection>
-                  </PushButton>
+                  <WidgetGroup>
+                    <Layout>horizontal</Layout>
+                    <ObjectName>SamplerVol</ObjectName>
+                    <Children>
+                      <Knob>
+                        <TooltipId>pregain</TooltipId>
+                        <NumberStates>64</NumberStates>
+                        <Path>knobs/knob_rotary_s%1.png</Path>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],pregain</ConfigKey>
+                        </Connection>
+                      </Knob>
+                    </Children>
+                  </WidgetGroup>
+
+                  <WidgetGroup>
+                    <ObjectName>SamplerPfl</ObjectName>
+                    <Layout>horizontal</Layout>
+                    <Children>
+
+                      <PushButton>
+                        <TooltipId>pfl</TooltipId>
+                        <NumberStates>2</NumberStates>
+                        <State>
+                          <Number>0</Number>
+                          <Pressed>images/sampler/pfl/down.png</Pressed>
+                          <Unpressed>images/sampler/pfl/back.png</Unpressed>
+                        </State>
+                        <State>
+                          <Number>1</Number>
+                          <Pressed>images/sampler/pfl/overdown.png</Pressed>
+                          <Unpressed>images/sampler/pfl/over.png</Unpressed>
+                        </State>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],pfl</ConfigKey>
+                        </Connection>
+                      </PushButton>
+
+                    </Children>
+                  </WidgetGroup>
+
+                  <WidgetGroup>
+                    <ObjectName>SamplerPlay</ObjectName>
+                    <Layout>horizontal</Layout>
+                    <Children>
+
+                      <PushButton>
+                        <TooltipId>play_start</TooltipId>
+                        <NumberStates>2</NumberStates>
+                        <RightClickIsPushButton>true</RightClickIsPushButton>
+                        <State>
+                          <Number>0</Number>
+                          <Pressed>images/sampler/play/down.png</Pressed>
+                          <Unpressed>images/sampler/play/back.png</Unpressed>
+                        </State>
+                        <State>
+                          <Number>1</Number>
+                          <Pressed>images/sampler/play/overdown.png</Pressed>
+                          <Unpressed>images/sampler/play/over.png</Unpressed>
+                        </State>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],play</ConfigKey>
+                          <EmitOnDownPress>true</EmitOnDownPress>
+                          <ButtonState>LeftButton</ButtonState>
+                        </Connection>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],start</ConfigKey>
+                          <EmitOnDownPress>true</EmitOnDownPress>
+                          <ButtonState>RightButton</ButtonState>
+                          <ConnectValueToWidget>false</ConnectValueToWidget>
+                        </Connection>
+                      </PushButton>
+
+                    </Children>
+                  </WidgetGroup>
+
+                  <WidgetGroup>
+                    <ObjectName>SamplerSyncButton</ObjectName>
+                    <Layout>horizontal</Layout>
+                    <Children>
+
+                      <PushButton>
+                        <TooltipId>beatsync_beatsync_tempo</TooltipId>
+                        <NumberStates>1</NumberStates>
+                        <State>
+                          <Number>0</Number>
+                          <Pressed>images/sampler/sync/overdown.png</Pressed>
+                          <Unpressed>images/sampler/sync/back.png</Unpressed>
+                        </State>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],beatsync</ConfigKey>
+                          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                          <ButtonState>LeftButton</ButtonState>
+                        </Connection>
+                        <Connection>
+                          <ConfigKey>[Sampler<Variable name="samplernum"/>],beatsync_tempo</ConfigKey>
+                          <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                          <ButtonState>RightButton</ButtonState>
+                        </Connection>
+                      </PushButton>
+
+                    </Children>
+                  </WidgetGroup>
 
                 </Children>
               </WidgetGroup>
 
               <WidgetGroup>
-                <Layout>horizontal</Layout>
                 <ObjectNAme>SamplerHotcues</ObjectNAme>
+                <Layout>horizontal</Layout>
                 <Children>
 
                   <PushButton>
@@ -374,32 +417,6 @@
                 </Children>
               </WidgetGroup>
 
-              <WidgetGroup>
-                <Layout>horizontal</Layout>
-                <ObjectName>SamplerPfl</ObjectName>
-                <Children>
-
-                  <PushButton>
-                    <TooltipId>pfl</TooltipId>
-                    <NumberStates>2</NumberStates>
-                    <State>
-                      <Number>0</Number>
-                      <Pressed>images/sampler/pfl/down.png</Pressed>
-                      <Unpressed>images/sampler/pfl/back.png</Unpressed>
-                    </State>
-                    <State>
-                      <Number>1</Number>
-                      <Pressed>images/sampler/pfl/overdown.png</Pressed>
-                      <Unpressed>images/sampler/pfl/over.png</Unpressed>
-                    </State>
-                    <Connection>
-                      <ConfigKey>[Sampler<Variable name="samplernum"/>],pfl</ConfigKey>
-                    </Connection>
-                  </PushButton>
-
-                </Children>
-              </WidgetGroup>
-
             </Children>
           </WidgetGroup>
 
@@ -439,9 +456,9 @@
       </WidgetGroup>
 
       <WidgetGroup>
-        <Layout>vertical</Layout>
         <ObjectName>SamplerPitch</ObjectName>
-        <MinimumSize>40,</MinimumSize>
+        <Layout>vertical</Layout>
+        <SizePolicy>f,f</SizePolicy>
         <Children>
 
           <SliderComposed>

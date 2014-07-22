@@ -325,23 +325,14 @@
 }
 
 #SamplerPitch {
-  padding: 5px;
-  qproperty-layoutAlignment: 'AlignRight | AlignBottom';
-}
-
-#SamplerSyncButton {
-  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
+  padding: 0px 5px 0px 5px;
+  qproperty-layoutAlignment: 'AlignCenter | AlignBottom';
 }
 
 #SamplerButtons {
-  padding: 5px;
+  padding: 0px;
+  margin: 0px;
   qproperty-layoutAlignment: 'AlignCenter';
-}
-
-#SamplerRowTwo {
-  border: 1px solid #585858;
-  border-left: 0px;
-  border-right: 0px;
 }
 
 #SamplerText {
@@ -353,12 +344,8 @@
   qproperty-layoutAlignment: 'AlignRight | AlignVCenter';
 }
 
-#SamplerPfl {
-  qproperty-layoutAlignment: 'AlignRight | AlignVCenter';
-  padding:5px;
-  padding-top:0px;
-  padding-bottom:0px;
-  padding-right:0px;
+#SamplerPlay, #SamplerSyncButton, #SamplerSyncButton {
+  qproperty-layoutAlignment: 'AlignLeft | AlignVCenter';
 }
 
 #SamplerButtonGrid {
@@ -368,23 +355,9 @@
   border-bottom: 0px;
 }
 
-#SamplerPlay {
-  padding: 5px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  border: 1px solid #585858;
-  border-top: 0px;
-  border-left: 0px;
-  border-bottom: 0px;
-}
-
 #SamplerVol {
   qproperty-layoutAlignment: 'AlignRight | AlignVCenter';
-  border: 1px solid #585858;
-  border-top: 0px;
-  border-bottom: 0px;
-  border-right: 0px;
-  padding: 2px;
+  padding: 0px 2px 0px 2px;
 }
 
 #EffectRackContainer {

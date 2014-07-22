@@ -2,25 +2,31 @@
   <WidgetGroup trigger="[Samplers],show_samplers">
     <ObjectName>SamplerDecksContainer</ObjectName>
     <Layout>horizontal</Layout>
-    <MinimumSize>0,0</MinimumSize>
     <SizePolicy>me,min</SizePolicy>
     <Children>
+
       <Template src="skin:templates/sampler/sampler.xml">
         <SetVariable name="samplernum">1</SetVariable>
       </Template>
+
       <Template src="skin:templates/sampler/sampler.xml">
         <SetVariable name="samplernum">2</SetVariable>
       </Template>
+
       <Template src="skin:templates/sampler/sampler.xml">
         <SetVariable name="samplernum">3</SetVariable>
       </Template>
+
       <Template src="skin:templates/sampler/sampler.xml">
         <SetVariable name="samplernum">4</SetVariable>
       </Template>
+
     </Children>
+
     <Connection>
       <ConfigKey persist="true">[Samplers],show_samplers</ConfigKey>
       <BindProperty>visible</BindProperty>
     </Connection>
+
   </WidgetGroup>
 </Template>
