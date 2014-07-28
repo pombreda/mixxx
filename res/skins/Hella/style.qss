@@ -81,9 +81,6 @@
   border-bottom:0px;
 }
 
-#UIButtonMargin {
-}
-
 #UIToggleButton[displayValue="0"], #UIReversedToggleButton[displayValue="1"] {
   border: 1px solid #585858;
   font: bold 10px/12px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
@@ -166,7 +163,7 @@
   qproperty-layoutAlignment: 'AlignHCenter';
 }
 
-#DecksLeftContainer, #DecksRightContainer, #SkinContainer {
+#DecksLeftContainer, #DecksRightContainer {
   qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
 }
 #DeckWaveformOverviewContainer {
@@ -202,7 +199,7 @@
   background-color: #0e0e0e;
 }
 
-#TitleGutter, #AlbumGutter {
+#TitleGutter {
   qproperty-layoutAlignment: 'AlignLeft | AlignBottom';
   padding: 1px;
   border: 1px solid #585858;
@@ -276,13 +273,6 @@
   border: 1px solid #585858;
   padding: 0px;
   margin: 0px 5px 0px 5px;
-}
-
-#PreviewColumnOne {
-  border: 1px solid #585858;
-  border-top: 0px;
-  border-left: 0px;
-  border-bottom: 0px;
 }
 
 #PreviewTitle {
@@ -507,25 +497,8 @@ QTableView::item:selected {
   background-color: #725309;
 }
 
-#LibraryBPMButton, #LibraryBPMSpinBox {
-  font: 11px/13px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  background-color: #ff0;
-}
-QPushButton#LibraryPreviewButton, QPushButton#LibraryBPMButton {
-  width: 23px;
-  height: 14px;
-  background: transparent;
-  border: 0px;
-}
-QPushButton#LibraryPreviewButton:!checked {
-  image: url(skin:/style/style_library_preview_play.png);
-}
-QPushButton#LibraryPreviewButton:checked {
-  image: url(skin:/style/style_library_preview_pause.png);
-}
-
 QHeaderView {
-  font: 13px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  font: 12px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
   color: #cfb32c;
   background-color: #0f0f0f;
 }
@@ -540,7 +513,7 @@ QScrollBar:horizontal {
   border: 1px solid #585858;
   min-width: 12px;
   height: 15px;
-  background: #1a1a1a;
+  background-color: #1a1a1a;
   border-radius: 3px;
   padding: 1px;
 }
@@ -548,7 +521,7 @@ QScrollBar:vertical {
   border: 1px solid #585858;
   min-height: 12px;
   width: 15px;
-  background: #1a1a1a;
+  background-color: #1a1a1a;
   border-radius: 3px;
   padding: 1px;
 }
@@ -582,30 +555,57 @@ QScrollBar::sub-line:horizontal, QScrollBar::sub-line:vertical {
   border: 0px solid white;
 }
 
-QSpinBox:editable {
-  font: 13px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  background: transparent;
+QLabel, QRadioButton {
+  font: 12px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  background-color: transparent;
   color: #cfb32c;
+  margin: 0px;
+  padding: 0px;
 }
-QSpinBox {
-  min-height: 12px;
-  max-height: 20px;
+
+QSpinBox, QDoubleSpinBox, QLabel {
+  background-color: #0f0f0f;
+  min-height: 14px;
   min-width: 40px;
-  max-width: 40px;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+QSpinBox:editable, QDoubleSpinBox:editable, QLabel:focus {
+  background-color: #0f0f0f;
+  color: #eee;
+  min-height: 16px;
+  min-width: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+
+QLabel#LibraryBPMButton, QLabel#LibraryBPMSpinBox {
+  background-color: #0f0f0f;
+}
+QPushButton#LibraryPreviewButton, QPushButton#LibraryBPMButton {
+  border: 0px;
+  background-color: #0f0f0f;
+}
+QPushButton#LibraryPreviewButton:!checked {
+  image: url(skin:style/style_library_preview_play.png);
+}
+QPushButton#LibraryPreviewButton:checked {
+  image: url(skin:style/style_library_preview_pause.png);
 }
 
 WSearchLineEdit {
   padding: 2px;
   border: 1px solid #656565;
-  font: 18px/20px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  background: #181818;
+  font: 14px/16px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  background-color: #181818;
   color: #cfb32c;
 }
 WSearchLineEdit:focus {
   padding: 2px;
   border: 2px solid #FF6600;
-  font: bold 18px/20px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  background: #0f0f0f;
+  background-color: #0f0f0f;
   color: #eece33;
 }
 
@@ -626,11 +626,6 @@ QSplitter::handle:vertical {
   background-color: #0e0e0e;
 }
 
-QLabel, QRadioButton {
-  font: 13px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  background: transparent;
-  color: #cfb32c;
-}
 QTreeView {
   margin: 10px 0px 0px 0px;
 }
