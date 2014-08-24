@@ -33,6 +33,200 @@
   background-color: #0e0e0e;
 }
 
+#Library {
+  border-left: 0px solid #585858;
+  background-color: #0e0e0e;
+  padding-top: 5px;
+  /*border-top: 1px solid #585858;*/
+}
+
+WLabel {
+  qproperty-alignment: 'AlignCenter';
+}
+
+QTableView, QTextBrowser, QTreeView {
+  border: 1px solid #585858;
+  font: 12px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  color: #cfb32c;
+  background-color: #0f0f0f;
+  alternate-background-color: #1a1a1a;
+}
+QTableView::indicator {
+  width: 12px;
+  height: 12px;
+}
+QTableView::indicator:checked {
+  background: url(skin:/style/style_checkbox_checked.png);
+}
+QTableView::indicator:unchecked {
+  background: url(skin:/style/style_checkbox_unchecked.png);
+}
+QTableView::item:selected {
+  color: #cfb32c;
+  background-color: #725309;
+}
+
+QHeaderView {
+  font: 12px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  color: #cfb32c;
+  background-color: #0f0f0f;
+}
+QHeaderView::section {
+  height: 18px;
+  border: 1px solid #585858;
+  border-left: 0px;
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #585858, stop:1 #0f0f0f);
+}
+
+QScrollBar:horizontal {
+  border: 1px solid #585858;
+  min-width: 12px;
+  height: 15px;
+  background-color: #1a1a1a;
+  border-radius: 3px;
+  padding: 1px;
+}
+QScrollBar:vertical {
+  border: 1px solid #585858;
+  min-height: 12px;
+  width: 15px;
+  background-color: #1a1a1a;
+  border-radius: 3px;
+  padding: 1px;
+}
+QScrollBar::add-page, QScrollBar::sub-page {
+  min-width: 15px;
+  min-height: 15px;
+  border: 2px;
+  background-color: #1a1a1a;
+  border-radius: 3px;
+}
+QScrollBar::handle:horizontal {
+  min-width: 25px;
+  background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #725309, stop:1 #412f05);
+  border-radius: 3px;
+  border: 1px solid #725309;
+}
+QScrollBar::handle:vertical {
+  min-height: 25px;
+  background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #725309, stop:1 #412f05);
+  border-radius: 3px;
+  border: 1px solid #725309;
+}
+QScrollBar::add-line:horizontal, QScrollBar::add-line:vertical {
+  width: 0px;
+  height: 0px;
+  border: 0px solid white;
+}
+QScrollBar::sub-line:horizontal, QScrollBar::sub-line:vertical {
+  width: 0px;
+  height: 0px;
+  border: 0px solid white;
+}
+
+QLabel, QRadioButton {
+  font: 12px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  background-color: transparent;
+  color: #cfb32c;
+  margin: 0px;
+  padding: 0px;
+}
+
+QSpinBox, QDoubleSpinBox, QLabel {
+  background-color: #0f0f0f;
+  min-height: 14px;
+  min-width: 40px;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+}
+
+QSpinBox:editable, QDoubleSpinBox:editable, QLabel:focus {
+  background-color: #0f0f0f;
+  color: #eee;
+  min-height: 16px;
+  min-width: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+
+QLabel#LibraryBPMButton, QLabel#LibraryBPMSpinBox {
+  background-color: #0f0f0f;
+}
+QPushButton#LibraryPreviewButton, QPushButton#LibraryBPMButton {
+  border: 0px;
+  background-color: #0f0f0f;
+}
+QPushButton#LibraryPreviewButton:!checked {
+  image: url(skin:style/style_library_preview_play.png);
+}
+QPushButton#LibraryPreviewButton:checked {
+  image: url(skin:style/style_library_preview_pause.png);
+}
+
+WSearchLineEdit {
+  padding: 2px;
+  border: 1px solid #656565;
+  font: 14px/16px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
+  background-color: #181818;
+  color: #cfb32c;
+}
+WSearchLineEdit:focus {
+  padding: 2px;
+  border: 2px solid #FF6600;
+  background-color: #0f0f0f;
+  color: #eece33;
+}
+
+QSplitter::handle {
+  image: url(skin:/style/style_handle_unchecked.png);
+  background-color: #1e1e1e;
+}
+QSplitter::handle:pressed {
+  image: url(skin:/style/style_handle_checked.png);
+  background-color: #1e1e1e;
+}
+QSplitter::handle:horizontal {
+  width: 10px;
+  background-color: #0e0e0e;
+}
+QSplitter::handle:vertical {
+  height: 10px;
+  background-color: #0e0e0e;
+}
+
+QTreeView {
+  margin: 10px 0px 0px 0px;
+}
+QTreeView {
+  show-decoration-selected: 0;
+  background-color: #151515;
+}
+QTreeView::branch:has-children:!has-siblings:closed,
+QTreeView::branch:closed:has-children:has-siblings {
+  border-image: none; image: url(skin:/style/style_branch_closed.png);
+  background-color:#0f0f0f;
+}
+QTreeView::branch:open:has-children:!has-siblings,
+QTreeView::branch:open:has-children:has-siblings {
+  border-image: none; image: url(skin:/style/style_branch_open.png);
+  background-color:#0f0f0f;
+}
+QTreeView::branch:has-children:!has-siblings:closed:selected,
+QTreeView::branch:closed:has-children:has-siblings:selected {
+  border-image: none; image: url(skin:/style/style_branch_closed.png);
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #585858, stop:1 #0f0f0f);
+}
+QTreeView::branch:open:has-children:!has-siblings:selected,
+QTreeView::branch:open:has-children:has-siblings:selected {
+  border-image: none; image: url(skin:/style/style_branch_open.png);
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #585858, stop:1 #0f0f0f);
+}
+QTreeView::item:selected {
+  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #585858, stop:1 #0f0f0f);
+  color: #cfb32c;
+}
+
 #AlignLeftTop {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
 }
@@ -197,7 +391,7 @@
   background-color: #0e0e0e;
 }
 
-#TitleGutter {
+#TitleRow, #ArtistRow {
   qproperty-layoutAlignment: 'AlignLeft | AlignBottom';
   padding: 1px;
   border: 1px solid #585858;
@@ -206,16 +400,20 @@
   border-right: 0px;
 }
 
-#ArtistGutter {
-  qproperty-layoutAlignment: 'AlignLeft | AlignBottom';
+#ArtistGutter, #TitleGutter {
+  qproperty-layoutAlignment: 'AlignLeft | AlignCenter';
   padding: 1px;
-  padding-bottom: 4px;
-  border: 0px solid #585858;
+}
+#AlbumGutter, #CommentGutter, #TimeGutter, #DurationGutter {
+  qproperty-layoutAlignment: 'AlignRight | AlignCenter';
+  padding: 1px;
 }
 
+#AlbumGutter, #CommentGutter, #TimeGutter, #DurationGutter {
+  padding-left: 3px;
+}
 #TimeGutter, #DurationGutter {
-  qproperty-layoutAlignment: 'AlignRight | AlignBottom';
-  padding: 3px;
+  color: #eeeeff;
 }
 
 #SyncControls {
@@ -242,11 +440,20 @@
   qproperty-layoutAlignment: 'AlignLeft | AlignBottom';
 }
 
-#TitleGutter WLabel, #EffectUnitNameContainer WLabel {
+#TitleGutter WLabel, #ArtistGutter WLabel, #EffectUnitNameContainer WLabel {
   font: bold 16px/19px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  color: #eece33;
   text-transform: none;
   text-align: left;
+}
+#AlbumGutter WLabel, #CommentGutter WLabel {
+  text-transform: none;
+  text-align: right;
+}
+#TimeGutter WLabel, #DurationGutter WLabel {
+  color: #eeeedd;
+}
+#TimeGutter WLabel {
+  font: bold 16px/19px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
 }
 
 #VinylControlContainer {
@@ -458,198 +665,4 @@
     color: #0e0e0e;
     background-color: #e17800;
     margin-right: 1px;
-}
-
-#Library {
-  border-left: 0px solid #585858;
-  background-color: #0e0e0e;
-  padding-top: 5px;
-  /*border-top: 1px solid #585858;*/
-}
-
-WLabel {
-  qproperty-alignment: 'AlignCenter';
-}
-
-QTableView, QTextBrowser, QTreeView {
-  border: 1px solid #585858;
-  font: 12px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  color: #cfb32c;
-  background-color: #0f0f0f;
-  alternate-background-color: #1a1a1a;
-}
-QTableView::indicator {
-  width: 12px;
-  height: 12px;
-}
-QTableView::indicator:checked {
-  background: url(skin:/style/style_checkbox_checked.png);
-}
-QTableView::indicator:unchecked {
-  background: url(skin:/style/style_checkbox_unchecked.png);
-}
-QTableView::item:selected {
-  color: #cfb32c;
-  background-color: #725309;
-}
-
-QHeaderView {
-  font: 12px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  color: #cfb32c;
-  background-color: #0f0f0f;
-}
-QHeaderView::section {
-  height: 18px;
-  border: 1px solid #585858;
-  border-left: 0px;
-  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #585858, stop:1 #0f0f0f);
-}
-
-QScrollBar:horizontal {
-  border: 1px solid #585858;
-  min-width: 12px;
-  height: 15px;
-  background-color: #1a1a1a;
-  border-radius: 3px;
-  padding: 1px;
-}
-QScrollBar:vertical {
-  border: 1px solid #585858;
-  min-height: 12px;
-  width: 15px;
-  background-color: #1a1a1a;
-  border-radius: 3px;
-  padding: 1px;
-}
-QScrollBar::add-page, QScrollBar::sub-page {
-  min-width: 15px;
-  min-height: 15px;
-  border: 2px;
-  background-color: #1a1a1a;
-  border-radius: 3px;
-}
-QScrollBar::handle:horizontal {
-  min-width: 25px;
-  background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #725309, stop:1 #412f05);
-  border-radius: 3px;
-  border: 1px solid #725309;
-}
-QScrollBar::handle:vertical {
-  min-height: 25px;
-  background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #725309, stop:1 #412f05);
-  border-radius: 3px;
-  border: 1px solid #725309;
-}
-QScrollBar::add-line:horizontal, QScrollBar::add-line:vertical {
-  width: 0px;
-  height: 0px;
-  border: 0px solid white;
-}
-QScrollBar::sub-line:horizontal, QScrollBar::sub-line:vertical {
-  width: 0px;
-  height: 0px;
-  border: 0px solid white;
-}
-
-QLabel, QRadioButton {
-  font: 12px/15px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  background-color: transparent;
-  color: #cfb32c;
-  margin: 0px;
-  padding: 0px;
-}
-
-QSpinBox, QDoubleSpinBox, QLabel {
-  background-color: #0f0f0f;
-  min-height: 14px;
-  min-width: 40px;
-  margin: 0px;
-  padding: 0px;
-  border: none;
-}
-
-QSpinBox:editable, QDoubleSpinBox:editable, QLabel:focus {
-  background-color: #0f0f0f;
-  color: #eee;
-  min-height: 16px;
-  min-width: 40px;
-  margin: 0px;
-  padding: 0px;
-}
-
-QLabel#LibraryBPMButton, QLabel#LibraryBPMSpinBox {
-  background-color: #0f0f0f;
-}
-QPushButton#LibraryPreviewButton, QPushButton#LibraryBPMButton {
-  border: 0px;
-  background-color: #0f0f0f;
-}
-QPushButton#LibraryPreviewButton:!checked {
-  image: url(skin:style/style_library_preview_play.png);
-}
-QPushButton#LibraryPreviewButton:checked {
-  image: url(skin:style/style_library_preview_pause.png);
-}
-
-WSearchLineEdit {
-  padding: 2px;
-  border: 1px solid #656565;
-  font: 14px/16px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-  background-color: #181818;
-  color: #cfb32c;
-}
-WSearchLineEdit:focus {
-  padding: 2px;
-  border: 2px solid #FF6600;
-  background-color: #0f0f0f;
-  color: #eece33;
-}
-
-QSplitter::handle {
-  image: url(skin:/style/style_handle_unchecked.png);
-  background-color: #1e1e1e;
-}
-QSplitter::handle:pressed {
-  image: url(skin:/style/style_handle_checked.png);
-  background-color: #1e1e1e;
-}
-QSplitter::handle:horizontal {
-  width: 10px;
-  background-color: #0e0e0e;
-}
-QSplitter::handle:vertical {
-  height: 10px;
-  background-color: #0e0e0e;
-}
-
-QTreeView {
-  margin: 10px 0px 0px 0px;
-}
-QTreeView {
-  show-decoration-selected: 0;
-  background-color: #151515;
-}
-QTreeView::branch:has-children:!has-siblings:closed,
-QTreeView::branch:closed:has-children:has-siblings {
-  border-image: none; image: url(skin:/style/style_branch_closed.png);
-  background-color:#0f0f0f;
-}
-QTreeView::branch:open:has-children:!has-siblings,
-QTreeView::branch:open:has-children:has-siblings {
-  border-image: none; image: url(skin:/style/style_branch_open.png);
-  background-color:#0f0f0f;
-}
-QTreeView::branch:has-children:!has-siblings:closed:selected,
-QTreeView::branch:closed:has-children:has-siblings:selected {
-  border-image: none; image: url(skin:/style/style_branch_closed.png);
-  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #585858, stop:1 #0f0f0f);
-}
-QTreeView::branch:open:has-children:!has-siblings:selected,
-QTreeView::branch:open:has-children:has-siblings:selected {
-  border-image: none; image: url(skin:/style/style_branch_open.png);
-  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #585858, stop:1 #0f0f0f);
-}
-QTreeView::item:selected {
-  background-color:qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #585858, stop:1 #0f0f0f);
-  color: #cfb32c;
 }
