@@ -278,7 +278,7 @@
               </WidgetGroup>
 
               <WidgetGroup>
-                <ObjectName>SamplerHotcues</ObjectNAme>
+                <ObjectName>SamplerHotcues</ObjectName>
                 <Layout>horizontal</Layout>
                 <Children>
 

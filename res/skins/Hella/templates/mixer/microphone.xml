@@ -104,7 +104,7 @@
           <StatusLight>
             <TooltipId>PeakIndicator</TooltipId>
             <PathStatusLight>images/volume/horizontal/over_clip.png</PathStatusLight>
-            <PathBack>images/volume/horizontal/clip.png</PathBack>
+            <PathBack>images/volume/horizontal/back_clip.png</PathBack>
             <Horizontal>false</Horizontal>
             <Connection>
               <ConfigKey>[Microphone],PeakIndicator</ConfigKey>

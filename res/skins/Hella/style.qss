@@ -68,7 +68,7 @@
   padding-right: 5px;
 }
 
-#MasterSyncButton, #MasterBPM {
+#MasterBPM {
   qproperty-layoutAlignment: 'AlignHCenter | AlignCenter';
 }
 
@@ -146,7 +146,6 @@
 }
 
 #PFLButton, #EQKillButton {
-  qproperty-layoutAlignment: 'AlighRight';
   min-width: 26px;
 }
 
@@ -160,7 +159,6 @@
 }
 
 #Crossfader {
-  qproperty-layoutAlignment: 'AlignHCenter';
 }
 
 #DecksLeftContainer, #DecksRightContainer {
@@ -221,7 +219,6 @@
 }
 
 #SyncControls {
-  qproperty-layoutAlignment: 'AlignLeft | AlignTop';
 }
 
 #Hotcues {
@@ -253,7 +250,6 @@
 }
 
 #VinylControlContainer {
-  qproperty-layoutAlignment: 'AlignRight | AlignCenter';
 }
 
 #VinylControls {
