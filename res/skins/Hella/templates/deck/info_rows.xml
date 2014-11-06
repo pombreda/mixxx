@@ -1,108 +1,122 @@
 <?xml version="1.0"?>
 <Template>
   <WidgetGroup>
-    <ObjectName>DeckInfoRows</ObjectName>
-    <Layout>vertical</Layout>
+    <ObjectName>DeckInfoRowAndCoverArt</ObjectName>
+    <Layout>horizontal</Layout>
     <SizePolicy>me,f</SizePolicy>
     <Children>
+      <CoverArt>
+        <ObjectName>DeckCoverArt</ObjectName>
+        <SizePolicy>min,min</SizePolicy>
+        <MinimumSize>64,64</MinimumSize>
+        <Group><Variable name="group"/></Group>
+      </CoverArt>
       <WidgetGroup>
-        <ObjectName>TitleRow</ObjectName>
-        <Layout>horizontal</Layout>
+        <ObjectName>DeckInfoRows</ObjectName>
+        <Layout>vertical</Layout>
+        <SizePolicy>me,f</SizePolicy>
         <Children>
           <WidgetGroup>
-            <ObjectName>TitleGutter</ObjectName>
+            <ObjectName>TitleRow</ObjectName>
             <Layout>horizontal</Layout>
-            <SizePolicy>me,f</SizePolicy>
             <Children>
-              <TrackProperty>
-                <Alignment>Left</Alignment>
-                <TooltipId>track_title</TooltipId>
-                <Property>title</Property>
-                <Channel>
-                  <Variable name="channum"/>
-                </Channel>
-              </TrackProperty>
+              <WidgetGroup>
+                <ObjectName>TitleGutter</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>me,f</SizePolicy>
+                <Children>
+                  <TrackProperty>
+                    <Alignment>Left</Alignment>
+                    <TooltipId>track_title</TooltipId>
+                    <Property>title</Property>
+                    <Channel>
+                      <Variable name="channum"/>
+                    </Channel>
+                  </TrackProperty>
+                </Children>
+              </WidgetGroup>
+              <WidgetGroup>
+                <ObjectName>CommentGutter</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>me,f</SizePolicy>
+                <Children>
+                  <TrackProperty>
+                    <Alignment>Left</Alignment>
+                    <TooltipId>track_comment</TooltipId>
+                    <Property>comment</Property>
+                    <Channel>
+                      <Variable name="channum"/>
+                    </Channel>
+                  </TrackProperty>
+                </Children>
+              </WidgetGroup>
+              <WidgetGroup>
+                <ObjectName>TimeGutter</ObjectName>
+                <Layout>horizontal</Layout>
+                <Children>
+                  <NumberPos>
+                    <TooltipId>track_time</TooltipId>
+                    <Alignment>right</Alignment>
+                    <Channel>
+                      <Variable name="channum"/>
+                    </Channel>
+                    <Connection>
+                      <ConfigKey>[Channel<Variable name="channum"/>],playposition</ConfigKey>
+                    </Connection>
+                  </NumberPos>
+                </Children>
+              </WidgetGroup>
             </Children>
           </WidgetGroup>
           <WidgetGroup>
-            <ObjectName>CommentGutter</ObjectName>
-            <Layout>horizontal</Layout>
-            <SizePolicy>me,f</SizePolicy>
-            <Children>
-              <TrackProperty>
-                <Alignment>Left</Alignment>
-                <TooltipId>track_comment</TooltipId>
-                <Property>comment</Property>
-                <Channel>
-                  <Variable name="channum"/>
-                </Channel>
-              </TrackProperty>
-            </Children>
-          </WidgetGroup>
-          <WidgetGroup>
-            <ObjectName>TimeGutter</ObjectName>
+            <ObjectName>ArtistRow</ObjectName>
             <Layout>horizontal</Layout>
             <Children>
-              <NumberPos>
-                <TooltipId>track_time</TooltipId>
-                <Alignment>right</Alignment>
-                <Channel>
-                  <Variable name="channum"/>
-                </Channel>
-                <Connection>
-                  <ConfigKey>[Channel<Variable name="channum"/>],playposition</ConfigKey>
-                </Connection>
-              </NumberPos>
+              <WidgetGroup>
+                <ObjectName>ArtistGutter</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>me,f</SizePolicy>
+                <Children>
+                  <TrackProperty>
+                    <TooltipId>track_artist</TooltipId>
+                    <Property>artist</Property>
+                    <Channel>
+                      <Variable name="channum"/>
+                    </Channel>
+                  </TrackProperty>
+                </Children>
+              </WidgetGroup>
+              <WidgetGroup>
+                <ObjectName>AlbumGutter</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>me,f</SizePolicy>
+                <Children>
+                  <TrackProperty>
+                    <TooltipId>track_album</TooltipId>
+                    <Property>album</Property>
+                    <Channel>
+                      <Variable name="channum"/>
+                    </Channel>
+                  </TrackProperty>
+                </Children>
+              </WidgetGroup>
+              <WidgetGroup>
+                <ObjectName>DurationGutter</ObjectName>
+                <Layout>horizontal</Layout>
+                <Children>
+                  <TrackProperty>
+                    <TooltipId>track_duration</TooltipId>
+                    <Property>durationFormatted</Property>
+                    <Channel>
+                      <Variable name="channum"/>
+                    </Channel>
+                  </TrackProperty>
+                </Children>
+              </WidgetGroup>
             </Children>
           </WidgetGroup>
         </Children>
-      </WidgetGroup>
-      <WidgetGroup>
-        <ObjectName>ArtistRow</ObjectName>
-        <Layout>horizontal</Layout>
-        <Children>
-          <WidgetGroup>
-            <ObjectName>ArtistGutter</ObjectName>
-            <Layout>horizontal</Layout>
-            <SizePolicy>me,f</SizePolicy>
-            <Children>
-              <TrackProperty>
-                <TooltipId>track_artist</TooltipId>
-                <Property>artist</Property>
-                <Channel>
-                  <Variable name="channum"/>
-                </Channel>
-              </TrackProperty>
-            </Children>
-          </WidgetGroup>
-          <WidgetGroup>
-            <ObjectName>AlbumGutter</ObjectName>
-            <Layout>horizontal</Layout>
-            <SizePolicy>me,f</SizePolicy>
-            <Children>
-              <TrackProperty>
-                <TooltipId>track_album</TooltipId>
-                <Property>album</Property>
-                <Channel>
-                  <Variable name="channum"/>
-                </Channel>
-              </TrackProperty>
-            </Children>
-          </WidgetGroup>
-          <WidgetGroup>
-            <ObjectName>DurationGutter</ObjectName>
-            <Layout>horizontal</Layout>
-            <Children>
-              <TrackProperty>
-                <TooltipId>track_duration</TooltipId>
-                <Property>durationFormatted</Property>
-                <Channel>
-                  <Variable name="channum"/>
-                </Channel>
-              </TrackProperty>
-            </Children>
-          </WidgetGroup>
-        </Children>
+
       </WidgetGroup>
     </Children>
   </WidgetGroup>
