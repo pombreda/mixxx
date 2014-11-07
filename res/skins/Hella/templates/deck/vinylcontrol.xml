@@ -4,7 +4,15 @@
     <ObjectName>VinylControlContainer</ObjectName>
     <SizePolicy>f,f</SizePolicy>
     <Children>
-      <WidgetGroup trigger="[VinylControl],show_vinylcontrol" persist="true">
+
+      <WidgetGroup>
+        <ObjectName>VinylControlContainer</ObjectName>
+        <Layout>horizontal</Layout>
+        <SizePolicy>min,min</SizePolicy>
+        <Children></Children>
+      </WidgetGroup>
+
+      <WidgetGroup>
         <ObjectName>VinylControls</ObjectName>
         <Layout>horizontal</Layout>
         <SizePolicy>min,min</SizePolicy>
@@ -56,14 +64,6 @@
               <ConfigKey>[Channel<Variable name="channum"/>],vinylcontrol_cueing</ConfigKey>
             </Connection>
           </PushButton>
-        </Children>
-      </WidgetGroup>
-
-      <WidgetGroup>
-        <ObjectName>VinylControlContainer</ObjectName>
-        <Layout>horizontal</Layout>
-        <SizePolicy>min,min</SizePolicy>
-        <Children>
         </Children>
       </WidgetGroup>
 

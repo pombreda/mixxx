@@ -149,44 +149,13 @@
               <Text>VINYL</Text>
             </State>
             <Connection>
-              <ConfigKey persist="true">[VinylControl],show_vinylcontrol</ConfigKey>
+              <ConfigKey persist="true">[VinylControl],show_vinylcontrol_status</ConfigKey>
               <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
               <ButtonState>LeftButton</ButtonState>
               <ConnectValueToWidget>false</ConnectValueToWidget>
             </Connection>
             <Connection>
-              <ConfigKey persist="true">[VinylControl],show_vinylcontrol</ConfigKey>
-              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-            </Connection>
-          </PushButton>
-        </Children>
-      </WidgetGroup>
-
-      <WidgetGroup>
-        <ObjectName>UIButton</ObjectName>
-        <Layout>vertical</Layout>
-        <SizePolicy>min,min</SizePolicy>
-        <Children>
-          <PushButton>
-            <Size>60f,20f</Size>
-            <ObjectName>UIToggleButton</ObjectName>
-            <NumberStates>2</NumberStates>
-            <State>
-              <Number>0</Number>
-              <Text>SAMPLERS</Text>
-            </State>
-            <State>
-              <Number>1</Number>
-              <Text>SAMPLERS</Text>
-            </State>
-            <Connection>
-              <ConfigKey persist="true">[Samplers],show_samplers</ConfigKey>
-              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-              <ButtonState>LeftButton</ButtonState>
-              <ConnectValueToWidget>false</ConnectValueToWidget>
-            </Connection>
-            <Connection>
-              <ConfigKey persist="true">[Samplers],show_samplers</ConfigKey>
+              <ConfigKey persist="true">[VinylControl],show_vinylcontrol_status</ConfigKey>
               <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
             </Connection>
           </PushButton>
@@ -218,6 +187,37 @@
             </Connection>
             <Connection>
               <ConfigKey persist="true">[EffectRack1],show</ConfigKey>
+              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+            </Connection>
+          </PushButton>
+        </Children>
+      </WidgetGroup>
+
+      <WidgetGroup>
+        <ObjectName>UIButton</ObjectName>
+        <Layout>vertical</Layout>
+        <SizePolicy>min,min</SizePolicy>
+        <Children>
+          <PushButton>
+            <Size>60f,20f</Size>
+            <ObjectName>UIToggleButton</ObjectName>
+            <NumberStates>2</NumberStates>
+            <State>
+              <Number>0</Number>
+              <Text>SAMPLERS</Text>
+            </State>
+            <State>
+              <Number>1</Number>
+              <Text>SAMPLERS</Text>
+            </State>
+            <Connection>
+              <ConfigKey persist="true">[Samplers],show_samplers</ConfigKey>
+              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+              <ButtonState>LeftButton</ButtonState>
+              <ConnectValueToWidget>false</ConnectValueToWidget>
+            </Connection>
+            <Connection>
+              <ConfigKey persist="true">[Samplers],show_samplers</ConfigKey>
               <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
             </Connection>
           </PushButton>
