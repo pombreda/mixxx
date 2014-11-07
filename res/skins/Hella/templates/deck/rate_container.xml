@@ -5,24 +5,33 @@
     <MinimumSize>60,</MinimumSize>
     <Children>
 
-      <Key>
-        <ObjectName>Visualkey</ObjectName>
-        <Group>[Channel<Variable name="channum"/>]</Group>
-        <Connection>
-          <ConfigKey>[Channel<Variable name="channum"/>],visual_key</ConfigKey>
-        </Connection>
-      </Key>
-      <NumberBpm>
-        <ObjectName>VisualBPM</ObjectName>
-        <TooltipId>visual_bpm</TooltipId>
-        <Channel><Variable name="channum"/></Channel>
-        <NumberOfDigits>2</NumberOfDigits>
-        <Connection>
-          <ConfigKey>[Channel<Variable name="channum"/>],visual_bpm</ConfigKey>
-        </Connection>
-      </NumberBpm>
+      <WidgetGroup>
+        <ObjectName>KeyBPMContainer</ObjectName>
+        <Layout>vertical</Layout>
+        <SizePolicy>f,me</SizePolicy>
+        <Children>
+          <Key>
+            <ObjectName>Visualkey</ObjectName>
+            <Group>[Channel<Variable name="channum"/>]</Group>
+            <Connection>
+              <ConfigKey>[Channel<Variable name="channum"/>],visual_key</ConfigKey>
+            </Connection>
+          </Key>
+
+          <NumberBpm>
+            <ObjectName>VisualBPM</ObjectName>
+            <TooltipId>visual_bpm</TooltipId>
+            <Channel><Variable name="channum"/></Channel>
+            <NumberOfDigits>2</NumberOfDigits>
+            <Connection>
+              <ConfigKey>[Channel<Variable name="channum"/>],visual_bpm</ConfigKey>
+            </Connection>
+          </NumberBpm>
+        </Children>
+      </WidgetGroup>
 
       <SliderComposed>
+        <ObjectName>RateSlider</ObjectName>
         <TooltipId>rate</TooltipId>
         <Handle>images/knobs/pitch.png</Handle>
         <Slider>images/sliders/pitch.png</Slider>

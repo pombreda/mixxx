@@ -1,6 +1,6 @@
 <Template>
   <WidgetGroup>
-    <ObjectName>VinylSyncHotcueContainer</ObjectName>
+    <ObjectName>SyncHotcueContainer</ObjectName>
     <Layout>vertical</Layout>
     <SizePolicy>me,f</SizePolicy>
     <Children>

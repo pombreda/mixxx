@@ -16,6 +16,7 @@
         <Layout>vertical</Layout>
         <SizePolicy>me,f</SizePolicy>
         <Children>
+
           <WidgetGroup>
             <ObjectName>TitleRow</ObjectName>
             <Layout>horizontal</Layout>
@@ -29,21 +30,6 @@
                     <Alignment>Left</Alignment>
                     <TooltipId>track_title</TooltipId>
                     <Property>title</Property>
-                    <Channel>
-                      <Variable name="channum"/>
-                    </Channel>
-                  </TrackProperty>
-                </Children>
-              </WidgetGroup>
-              <WidgetGroup>
-                <ObjectName>CommentGutter</ObjectName>
-                <Layout>horizontal</Layout>
-                <SizePolicy>me,f</SizePolicy>
-                <Children>
-                  <TrackProperty>
-                    <Alignment>Left</Alignment>
-                    <TooltipId>track_comment</TooltipId>
-                    <Property>comment</Property>
                     <Channel>
                       <Variable name="channum"/>
                     </Channel>
@@ -68,6 +54,7 @@
               </WidgetGroup>
             </Children>
           </WidgetGroup>
+
           <WidgetGroup>
             <ObjectName>ArtistRow</ObjectName>
             <Layout>horizontal</Layout>
@@ -80,20 +67,6 @@
                   <TrackProperty>
                     <TooltipId>track_artist</TooltipId>
                     <Property>artist</Property>
-                    <Channel>
-                      <Variable name="channum"/>
-                    </Channel>
-                  </TrackProperty>
-                </Children>
-              </WidgetGroup>
-              <WidgetGroup>
-                <ObjectName>AlbumGutter</ObjectName>
-                <Layout>horizontal</Layout>
-                <SizePolicy>me,f</SizePolicy>
-                <Children>
-                  <TrackProperty>
-                    <TooltipId>track_album</TooltipId>
-                    <Property>album</Property>
                     <Channel>
                       <Variable name="channum"/>
                     </Channel>
@@ -115,8 +88,44 @@
               </WidgetGroup>
             </Children>
           </WidgetGroup>
-        </Children>
 
+          <WidgetGroup>
+            <ObjectName>AlbumCommentsRow</ObjectName>
+            <Layout>horizontal</Layout>
+            <Children>
+              <WidgetGroup>
+                <ObjectName>AlbumGutter</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>me,f</SizePolicy>
+                <Children>
+                  <TrackProperty>
+                    <TooltipId>track_album</TooltipId>
+                    <Property>album</Property>
+                    <Channel>
+                      <Variable name="channum"/>
+                    </Channel>
+                  </TrackProperty>
+                </Children>
+              </WidgetGroup>
+              <WidgetGroup>
+                <ObjectName>CommentGutter</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>me,f</SizePolicy>
+                <Children>
+                  <TrackProperty>
+                    <Alignment>Left</Alignment>
+                    <TooltipId>track_comment</TooltipId>
+                    <Property>comment</Property>
+                    <Channel>
+                      <Variable name="channum"/>
+                    </Channel>
+                  </TrackProperty>
+                </Children>
+              </WidgetGroup>
+            </Children>
+          </WidgetGroup>
+
+        </Children>
       </WidgetGroup>
     </Children>
   </WidgetGroup>

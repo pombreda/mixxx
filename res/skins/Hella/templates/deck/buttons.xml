@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <Template>
   <WidgetGroup>
-    <ObjectName>DeckButtons</ObjectName>
-    <BackPath>images/background/tile.png</BackPath>
+    <ObjectName>DeckButtonsContainer</ObjectName>
     <Layout>horizontal</Layout>
     <SizePolicy>me,f</SizePolicy>
     <Children>

@@ -31,7 +31,7 @@
       <WidgetGroup>
         <ObjectName>DeckSpinnyWaveformContainer</ObjectName>
         <Layout>horizontal</Layout>
-        <MaximumSize>,50</MaximumSize>
+        <MaximumSize>,64</MaximumSize>
         <Children>
           <Template src="skin:templates/deck/spinny.xml"/>
           <Template src="skin:templates/deck/vinylcontrol.xml"/>

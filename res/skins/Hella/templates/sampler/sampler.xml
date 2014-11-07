@@ -34,8 +34,8 @@
 
               <Overview>
                 <ObjectName>SamplerWaveform</ObjectName>
-                <MinimumSize>180,30</MinimumSize>
                 <SizePolicy>me,me</SizePolicy>
+                <MinimumSize>180,30</MinimumSize>
                 <TooltipId>waveform_overview</TooltipId>
                 <Group>[Sampler<Variable name="samplernum"/>]</Group>
                 <BgColor/>
@@ -161,7 +161,6 @@
           <WidgetGroup>
             <ObjectName>SamplerButtons</ObjectName>
             <Layout>horizontal</Layout>
-            <BackPath>images/background/tile.png</BackPath>
             <Children>
 
               <WidgetGroup>

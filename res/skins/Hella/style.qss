@@ -18,6 +18,8 @@
   qproperty-layoutAlignment: 'AlignTop';
   background-color: #0e0e0e;
   border: 1px solid #585858;
+  border-top: none;
+  border-bottom: none;
 }
 
 #DecksAndMixers {
@@ -270,9 +272,9 @@ QTreeView::item:selected {
   qproperty-layoutAlignment: 'AlignLeft | AlignCenter';
   padding: 5px;
   border: 0px solid #585858;
-  border-left:0px;
-  border-right:0px;
-  border-bottom:0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
 }
 
 #UIToggleButton[displayValue="0"], #UIReversedToggleButton[displayValue="1"] {
@@ -358,69 +360,59 @@ QTreeView::item:selected {
 #DecksLeftContainer, #DecksRightContainer {
   qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
 }
-#DeckWaveformOverviewContainer {
+
+#DeckInfoRowAndCoverArt, #DeckWaveformOverviewContainer, #SyncHotcueContainer, #DeckButtonsContainer {
+  background-color: #0e0e0e;
   border-bottom: 1px solid #585858;
-  padding: 0px;
-}
-
-#DeckSyncAndHotcues {
-  qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  background-color: #1e1e1e;
-  padding: 5px;
-}
-
-#DeckInfoRowAndCoverArt {
-  border-bottom: 1px solid #585858;
-  background-color: #1e1e1e;
-}
-
-#DeckCoverArt {
-  padding: 4px;
-}
-#DeckInfoRows {
-  background-color: #1e1e1e;
-}
-
-#DeckButtons {
-  qproperty-layoutAlignment: 'AlignTop';
-  padding: 0px 3px 3px 3px;
-  border: 1px solid #585858;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
+  border-left: 1px solid #585858;
+  padding: 1px;
 }
 
 #DeckSpinnyWaveformContainer {
   qproperty-layoutAlignment: 'AlignCenter';
+  padding: 3px;
+  background-color: #0e0e0e;
+}
+
+#VinylControlContainer {
+  padding-right: 5px;
+}
+
+#DeckButtonsContainer, #DeckSyncAndHotcues {
+  qproperty-layoutAlignment: 'AlignTop';
+  padding: 3px;
+}
+
+#DeckCoverArt {
+}
+#DeckInfoRows {
+}
+
+#TitleRow, #ArtistRow, #AlbumCommentsRow {
+  qproperty-layoutAlignment: 'AlignLeft | AlignBottom';
+  padding: 1px;
+  border: 0px;
+}
+
+#ArtistGutter, #TitleGutter, #AlbumGutter {
+  qproperty-layoutAlignment: 'AlignLeft | AlignBottom';
+  margin-left: 3px;
+}
+#CommentGutter, #TimeGutter, #DurationGutter {
+  qproperty-layoutAlignment: 'AlignRight | AlignBottom';
+  margin: 0;
+  padding: 0 3px 0 0;
+}
+#TimeGutter, #DurationGutter {
+  color: #eeeeff;
 }
 
 #SpinnyContainer, #DeckWaveform {
   background-color: #0e0e0e;
 }
 
-#TitleRow, #ArtistRow {
-  qproperty-layoutAlignment: 'AlignLeft | AlignBottom';
-  padding: 1px;
-  border: 1px solid #585858;
-  border-top: 0px;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#ArtistGutter, #TitleGutter {
-  qproperty-layoutAlignment: 'AlignLeft | AlignCenter';
-  padding: 1px;
-}
-#AlbumGutter, #CommentGutter, #TimeGutter, #DurationGutter {
-  qproperty-layoutAlignment: 'AlignRight | AlignCenter';
-  padding: 1px;
-}
-
-#AlbumGutter, #CommentGutter, #TimeGutter, #DurationGutter {
-  padding-left: 3px;
-}
-#TimeGutter, #DurationGutter {
-  color: #eeeeff;
+#VinylControls {
+  qproperty-layoutAlignment: 'AlignLeft | AlignTop';
 }
 
 #SyncControls {
@@ -447,7 +439,7 @@ QTreeView::item:selected {
   qproperty-layoutAlignment: 'AlignLeft | AlignBottom';
 }
 
-#TitleGutter WLabel, #ArtistGutter WLabel, #EffectUnitNameContainer WLabel {
+#TitleGutter WLabel, #ArtistGutter WLabel, #TimeGutter WLabel, #EffectUnitNameContainer WLabel {
   font: bold 16px/19px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
   text-transform: none;
   text-align: left;
@@ -457,17 +449,9 @@ QTreeView::item:selected {
   text-align: right;
 }
 #TimeGutter WLabel, #DurationGutter WLabel {
+  text-transform: none;
+  text-align: right;
   color: #eeeedd;
-}
-#TimeGutter WLabel {
-  font: bold 16px/19px Lucida Grande, Lucida Sans Unicode, Arial, Verdana, sans-serif;
-}
-
-#VinylControlContainer {
-}
-
-#VinylControls {
-  qproperty-layoutAlignment: 'AlignLeft | AlignTop';
 }
 
 #KnobLabel {
@@ -481,6 +465,7 @@ QTreeView::item:selected {
 #PreviewDeckContainer {
   qproperty-layoutAlignment: 'AlignRight | AlignCenter';
   border: 1px solid #585858;
+  border-bottom: none;
   padding: 0px;
   margin: 0px 5px 0px 5px;
 }
@@ -509,10 +494,18 @@ QTreeView::item:selected {
   padding: 0px;
   margin: 0px;
   border: 1px solid #585858;
-  background-color: #1e1e1e;
+  background-color: #0e0e0e;
 }
 
 #SamplerMainControls {
+}
+
+#SamplerWaveformContainer {
+  padding: 0px 0px 0px 5px;
+}
+
+#SamplerWaveform {
+  padding-right: 5px;
 }
 
 #SamplerVU {
@@ -549,10 +542,7 @@ QTreeView::item:selected {
 }
 
 #SamplerButtonGrid {
-  border: 1px solid #585858;
-  border-top: 0px;
-  border-right: 0px;
-  border-bottom: 0px;
+  border: none;
 }
 
 #SamplerVol {

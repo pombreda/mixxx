@@ -2,8 +2,7 @@
   <WidgetGroup>
     <ObjectName>SpinnyContainer</ObjectName>
     <Layout>horizontal</Layout>
-    <MinimumSize>50,50</MinimumSize>
-    <MinimumSize>50,50</MinimumSize>
+    <MinimumSize>64,50</MinimumSize>
     <Children>
       <Spinny>
         <Group>[Channel<Variable name="channum"/>]</Group>
