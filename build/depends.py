@@ -678,6 +678,7 @@ class MixxxCore(Feature):
                    "widget/wdisplay.cpp",
                    "widget/wvumeter.cpp",
                    "widget/wpushbutton.cpp",
+                   "widget/weffectpushbutton.cpp",
                    "widget/wslidercomposed.cpp",
                    "widget/wstatuslight.cpp",
                    "widget/woverview.cpp",
@@ -911,6 +912,7 @@ class MixxxCore(Feature):
                    "util/sandbox.cpp",
                    "util/file.cpp",
                    "util/mac.cpp",
+                   "util/task.cpp",
 
                    '#res/mixxx.qrc'
                    ]

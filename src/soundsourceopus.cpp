@@ -276,4 +276,3 @@ QImage SoundSourceOpus::parseCoverArt() {
     return QImage();
 #endif
 }
-
