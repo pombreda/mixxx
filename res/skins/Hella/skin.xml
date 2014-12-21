@@ -67,7 +67,7 @@
       <MinimumSize>1280,50</MinimumSize>
       <MaximumSize>1920,50</MaximumSize>
       <Children>
-        <Template src="skin:templates/toolbar/container.xml"/>
+        <Template src="skin:components/toolbar/container.xml"/>
       </Children>
     </WidgetGroup>
 
@@ -84,7 +84,7 @@
               <ObjectName>Effects</ObjectName>
               <Layout>vertical</Layout>
               <Children>
-                <Template src="skin:templates/effects/container.xml"/>
+                <Template src="skin:components/effects/container.xml"/>
               </Children>
             </WidgetGroup>
 
@@ -92,9 +92,9 @@
               <ObjectName>DecksAndMixers</ObjectName>
               <Layout>horizontal</Layout>
               <Children>
-                <Template src="skin:templates/deck/container_left.xml"/>
-                <Template src="skin:templates/mixer/container.xml"/>
-                <Template src="skin:templates/deck/container_right.xml"/>
+                <Template src="skin:components/deck/container_left.xml"/>
+                <Template src="skin:components/mixer/container.xml"/>
+                <Template src="skin:components/deck/container_right.xml"/>
               </Children>
             </WidgetGroup>
 
@@ -102,7 +102,7 @@
               <ObjectName>Samplers</ObjectName>
               <Layout>vertical</Layout>
               <Children>
-                <Template src="skin:templates/sampler/container.xml"/>
+                <Template src="skin:components/sampler/container.xml"/>
               </Children>
             </WidgetGroup>
 

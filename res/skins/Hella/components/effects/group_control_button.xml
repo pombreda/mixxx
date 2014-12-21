@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE template>
 <Template>
-  <Template src="skin:templates/components/left_display_2state_button.xml">
+  <Template src="skin:components/components/left_display_2state_button.xml">
     <SetVariable name="ObjectName">EffectUnitGroupControlButton</SetVariable>
     <SetVariable name="state_0_pressed"/>
     <SetVariable name="state_0_unpressed"/>

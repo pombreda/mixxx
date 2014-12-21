@@ -128,19 +128,19 @@
                 <ObjectName>EffectKnobContainer</ObjectName>
                 <Children>
 
-                  <Template src="skin:templates/effects/parameter_knob.xml">
+                  <Template src="skin:components/effects/parameter_knob.xml">
                     <SetVariable name="Effect">1</SetVariable>
                     <SetVariable name="EffectParameter">1</SetVariable>
                   </Template>
-                  <Template src="skin:templates/effects/parameter_knob.xml">
+                  <Template src="skin:components/effects/parameter_knob.xml">
                     <SetVariable name="Effect">1</SetVariable>
                     <SetVariable name="EffectParameter">2</SetVariable>
                   </Template>
-                  <Template src="skin:templates/effects/parameter_knob.xml">
+                  <Template src="skin:components/effects/parameter_knob.xml">
                     <SetVariable name="Effect">1</SetVariable>
                     <SetVariable name="EffectParameter">3</SetVariable>
                   </Template>
-                  <Template src="skin:templates/effects/parameter_knob.xml">
+                  <Template src="skin:components/effects/parameter_knob.xml">
                     <SetVariable name="Effect">1</SetVariable>
                     <SetVariable name="EffectParameter">4</SetVariable>
                   </Template>
@@ -160,7 +160,7 @@
                 <ObjectName>EffectUnitControls</ObjectName>
                 <Layout>horizontal</Layout>
                 <Children>
-                  <Template src="skin:templates/components/knob.xml">
+                  <Template src="skin:components/components/knob.xml">
                     <SetVariable name="control">mix</SetVariable>
                     <SetVariable name="label">Mix</SetVariable>
                   </Template>
@@ -177,11 +177,11 @@
                     <Layout>horizontal</Layout>
                     <SizePolicy>min,min</SizePolicy>
                     <Children>
-                      <Template src="skin:templates/effects/group_control_button.xml">
+                      <Template src="skin:components/effects/group_control_button.xml">
                         <SetVariable name="group_name">Master</SetVariable>
                         <SetVariable name="group_group">[Master]</SetVariable>
                       </Template>
-                      <Template src="skin:templates/effects/group_control_button.xml">
+                      <Template src="skin:components/effects/group_control_button.xml">
                         <SetVariable name="group_name">Head</SetVariable>
                         <SetVariable name="group_group">[Headphone]</SetVariable>
                       </Template>
@@ -192,11 +192,11 @@
                     <Layout>horizontal</Layout>
                     <SizePolicy>min,min</SizePolicy>
                     <Children>
-                      <Template src="skin:templates/effects/group_control_button.xml">
+                      <Template src="skin:components/effects/group_control_button.xml">
                         <SetVariable name="group_name">CH1</SetVariable>
                         <SetVariable name="group_group">[Channel1]</SetVariable>
                       </Template>
-                      <Template src="skin:templates/effects/group_control_button.xml">
+                      <Template src="skin:components/effects/group_control_button.xml">
                         <SetVariable name="group_name">CH2</SetVariable>
                         <SetVariable name="group_group">[Channel2]</SetVariable>
                       </Template>
@@ -207,11 +207,11 @@
                     <Layout>horizontal</Layout>
                     <SizePolicy>min,min</SizePolicy>
                     <Children>
-                      <Template src="skin:templates/effects/group_control_button.xml">
+                      <Template src="skin:components/effects/group_control_button.xml">
                         <SetVariable name="group_name">CH3</SetVariable>
                         <SetVariable name="group_group">[Channel3]</SetVariable>
                       </Template>
-                      <Template src="skin:templates/effects/group_control_button.xml">
+                      <Template src="skin:components/effects/group_control_button.xml">
                         <SetVariable name="group_name">CH4</SetVariable>
                         <SetVariable name="group_group">[Channel4]</SetVariable>
                       </Template>

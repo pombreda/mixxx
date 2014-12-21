@@ -10,7 +10,7 @@
       <WidgetGroup>
         <Layout>horizontal</Layout>
         <Children>
-          <Template src="skin:templates/deck/rate_container.xml"/>
+          <Template src="skin:components/deck/rate_container.xml"/>
 
           <WidgetGroup>
             <ObjectName>DeckControls<Variable name="channum"/></ObjectName>
@@ -18,10 +18,10 @@
             <SizePolicy>me,f</SizePolicy>
             <Layout>vertical</Layout>
             <Children>
-              <Template src="skin:templates/deck/info_rows.xml"/>
-              <Template src="skin:templates/deck/waveform_overview.xml"/>
-              <Template src="skin:templates/deck/sync_and_hotcues.xml"/>
-              <Template src="skin:templates/deck/buttons.xml"/>
+              <Template src="skin:components/deck/info_rows.xml"/>
+              <Template src="skin:components/deck/waveform_overview.xml"/>
+              <Template src="skin:components/deck/sync_and_hotcues.xml"/>
+              <Template src="skin:components/deck/buttons.xml"/>
             </Children>
           </WidgetGroup>
 
@@ -33,9 +33,9 @@
         <Layout>horizontal</Layout>
         <MaximumSize>,64</MaximumSize>
         <Children>
-          <Template src="skin:templates/deck/spinny.xml"/>
-          <Template src="skin:templates/deck/vinylcontrol.xml"/>
-          <Template src="skin:templates/deck/waveform.xml"/>
+          <Template src="skin:components/deck/spinny.xml"/>
+          <Template src="skin:components/deck/vinylcontrol.xml"/>
+          <Template src="skin:components/deck/waveform.xml"/>
         </Children>
       </WidgetGroup>
 

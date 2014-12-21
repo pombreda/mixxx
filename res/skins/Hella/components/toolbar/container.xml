@@ -4,11 +4,11 @@
     <Layout>horizontal</Layout>
     <Children>
 
-      <Template src="skin:templates/toolbar/buttons.xml"/>
-      <Template src="skin:templates/toolbar/preview.xml"/>
-      <Template src="skin:templates/toolbar/master_mix.xml"/>
-      <Template src="skin:templates/toolbar/master_sync.xml"/>
-      <Template src="skin:templates/toolbar/master_volume.xml"/>
+      <Template src="skin:components/toolbar/buttons.xml"/>
+      <Template src="skin:components/toolbar/preview.xml"/>
+      <Template src="skin:components/toolbar/master_mix.xml"/>
+      <Template src="skin:components/toolbar/master_sync.xml"/>
+      <Template src="skin:components/toolbar/master_volume.xml"/>
 
     </Children>
   </WidgetGroup>

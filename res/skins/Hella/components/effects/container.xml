@@ -6,22 +6,22 @@
     <SizePolicy>me,min</SizePolicy>
     <Children>
 
-      <Template src="skin:templates/effects/unit.xml">
+      <Template src="skin:components/effects/unit.xml">
         <SetVariable name="EffectRack">1</SetVariable>
         <SetVariable name="EffectUnit">1</SetVariable>
       </Template>
 
-      <Template src="skin:templates/effects/unit.xml">
+      <Template src="skin:components/effects/unit.xml">
         <SetVariable name="EffectRack">1</SetVariable>
         <SetVariable name="EffectUnit">2</SetVariable>
       </Template>
 
-      <Template src="skin:templates/effects/unit.xml">
+      <Template src="skin:components/effects/unit.xml">
         <SetVariable name="EffectRack">1</SetVariable>
         <SetVariable name="EffectUnit">3</SetVariable>
       </Template>
 
-      <Template src="skin:templates/effects/unit.xml">
+      <Template src="skin:components/effects/unit.xml">
         <SetVariable name="EffectRack">1</SetVariable>
         <SetVariable name="EffectUnit">4</SetVariable>
       </Template>

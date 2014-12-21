@@ -10,7 +10,7 @@
         <Layout>horizontal</Layout>
         <SizePolicy>me,p</SizePolicy>
         <Children>
-          <Template src="skin:templates/mixer/microphone.xml"/>
+          <Template src="skin:components/mixer/microphone.xml"/>
         </Children>
         <Connection>
           <ConfigKey persist="true">[Microphone],show_microphone</ConfigKey>
@@ -31,16 +31,16 @@
                 <Layout>horizontal</Layout>
                 <SizePolicy>f,p</SizePolicy>
                 <Children>
-                  <Template src="skin:templates/mixer/channel_tall.xml">
+                  <Template src="skin:components/mixer/channel_tall.xml">
                     <SetVariable name="channum">3</SetVariable>
                   </Template>
-                  <Template src="skin:templates/mixer/channel_tall.xml">
+                  <Template src="skin:components/mixer/channel_tall.xml">
                     <SetVariable name="channum">1</SetVariable>
                   </Template>
-                  <Template src="skin:templates/mixer/channel_tall.xml">
+                  <Template src="skin:components/mixer/channel_tall.xml">
                     <SetVariable name="channum">2</SetVariable>
                   </Template>
-                  <Template src="skin:templates/mixer/channel_tall.xml">
+                  <Template src="skin:components/mixer/channel_tall.xml">
                     <SetVariable name="channum">4</SetVariable>
                   </Template>
                 </Children>
@@ -51,10 +51,10 @@
                 <Layout>horizontal</Layout>
                 <SizePolicy>f,p</SizePolicy>
                 <Children>
-                  <Template src="skin:templates/mixer/channel_leftside.xml">
+                  <Template src="skin:components/mixer/channel_leftside.xml">
                     <SetVariable name="channum">1</SetVariable>
                   </Template>
-                  <Template src="skin:templates/mixer/channel_rightside.xml">
+                  <Template src="skin:components/mixer/channel_rightside.xml">
                     <SetVariable name="channum">2</SetVariable>
                   </Template>
                 </Children>

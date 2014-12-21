@@ -5,19 +5,19 @@
     <SizePolicy>me,min</SizePolicy>
     <Children>
 
-      <Template src="skin:templates/sampler/sampler.xml">
+      <Template src="skin:components/sampler/sampler.xml">
         <SetVariable name="samplernum">1</SetVariable>
       </Template>
 
-      <Template src="skin:templates/sampler/sampler.xml">
+      <Template src="skin:components/sampler/sampler.xml">
         <SetVariable name="samplernum">2</SetVariable>
       </Template>
 
-      <Template src="skin:templates/sampler/sampler.xml">
+      <Template src="skin:components/sampler/sampler.xml">
         <SetVariable name="samplernum">3</SetVariable>
       </Template>
 
-      <Template src="skin:templates/sampler/sampler.xml">
+      <Template src="skin:components/sampler/sampler.xml">
         <SetVariable name="samplernum">4</SetVariable>
       </Template>
 
