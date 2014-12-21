@@ -30,11 +30,15 @@ DlgTrackInfo::~DlgTrackInfo() {
     qDebug() << "~DlgTrackInfo()";
 }
 
-void DlgTrackInfo::init(){
+void DlgTrackInfo::init() {
     setupUi(this);
 
     cueTable->hideColumn(0);
     coverBox->insertWidget(1, m_pWCoverArtLabel);
+
+    // It is essential to make the QPlainTextEdit transparent.
+    // Without this, the background is always solid (white by default).
+    txtLocation->viewport()->setAutoFillBackground(false);
 
     connect(btnNext, SIGNAL(clicked()),
             this, SLOT(slotNext()));
@@ -81,7 +85,7 @@ void DlgTrackInfo::init(){
     }
     connect(m_pWCoverArtLabel, SIGNAL(coverArtSelected(const CoverArt&)),
             this, SLOT(slotCoverArtSelected(const CoverArt&)));
-    connect(m_pWCoverArtLabel, SIGNAL(reloadCover()),
+    connect(m_pWCoverArtLabel, SIGNAL(reloadCoverArt()),
             this, SLOT(slotReloadCoverArt()));
 }
 

@@ -196,9 +196,6 @@ Section "Mixxx (required)" SecMixxx
   File "${BASE_BUILD_DIR}\dist${BITWIDTH}\mixxx.exe"
   File "${BASE_BUILD_DIR}\dist${BITWIDTH}\*.dll"
 
-  ; Put other files there
-  File "${BASE_BUILD_DIR}\dist${BITWIDTH}\*.xml"
-
   ; And documentation, licence etc.
   File "${BASE_BUILD_DIR}\Mixxx-Manual.pdf"
   File "${BASE_BUILD_DIR}\LICENSE"
@@ -307,7 +304,6 @@ Section "Uninstall"
   Delete $INSTDIR\mixxx.exe
   Delete $INSTDIR\mixxx.log
   Delete $INSTDIR\*.dll
-  Delete $INSTDIR\schema.xml
   Delete $INSTDIR\*.manifest
   Delete $INSTDIR\UninstallMixxx.exe
   Delete $INSTDIR\Mixxx-Manual.pdf
@@ -426,21 +422,7 @@ Section "Uninstall"
   Delete $INSTDIR\skins\*.* ; This just deletes files at the root of the skins directory
   RMDir /r "$INSTDIR\skins\Deere"
   RMDir /r "$INSTDIR\skins\LateNight"
-  RMDir /r "$INSTDIR\skins\LateNightBlues1280x1024-SXGA"
-  RMDir /r "$INSTDIR\skins\LateNightBlues1280x800-WXGA"
-  RMDir /r "$INSTDIR\skins\LateNightBlues1366x768-WXGA"
-  RMDir /r "$INSTDIR\skins\Outline1024x600-Netbook"
-  RMDir /r "$INSTDIR\skins\Outline800x480-WVGA"
-  RMDir /r "$INSTDIR\skins\Outline1024x768-XGA"
-  RMDir /r "$INSTDIR\skins\Phoney1600x1200-UXGA"
-  RMDir /r "$INSTDIR\skins\Phoney1680x1050-WSXGA"
-  RMDir /r "$INSTDIR\skins\PhoneyDark1600x1200-UXGA"
-  RMDir /r "$INSTDIR\skins\PhoneyDark1680x1050-WSXGA"
   RMDir /r "$INSTDIR\skins\Shade"
-  RMDir /r "$INSTDIR\skins\Shade1024x600-Netbook"
-  RMDir /r "$INSTDIR\skins\Shade1024x768-XGA"
-  RMDir /r "$INSTDIR\skins\ShadeDark1024x600-Netbook"
-  RMDir /r "$INSTDIR\skins\ShadeDark1024x768-XGA"
   ; The lack of the /r prevents deleting any sub-directories we didn't explicitly delete above
   RMDir "$INSTDIR\skins"
 

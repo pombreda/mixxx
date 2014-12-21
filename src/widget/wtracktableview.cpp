@@ -22,6 +22,7 @@
 #include "dlgpreflibrary.h"
 #include "waveform/guitick.h"
 #include "widget/wcoverartmenu.h"
+#include "util/assert.h"
 
 WTrackTableView::WTrackTableView(QWidget * parent,
                                  ConfigObject<ConfigValue> * pConfig,
@@ -201,8 +202,12 @@ void WTrackTableView::loadTrackModel(QAbstractItemModel *model) {
 
     TrackModel* trackModel = dynamic_cast<TrackModel*>(model);
 
-    Q_ASSERT(model);
-    Q_ASSERT(trackModel);
+    DEBUG_ASSERT_AND_HANDLE(model) {
+        return;
+    }
+    DEBUG_ASSERT_AND_HANDLE(trackModel) {
+        return;
+    }
 
     /* If the model has not changed
      * there's no need to exchange the headers
@@ -356,8 +361,8 @@ void WTrackTableView::loadTrackModel(QAbstractItemModel *model) {
 }
 
 void WTrackTableView::createActions() {
-    Q_ASSERT(m_pMenu);
-    Q_ASSERT(m_pSamplerMenu);
+    DEBUG_ASSERT(m_pMenu);
+    DEBUG_ASSERT(m_pSamplerMenu);
 
     m_pRemoveAct = new QAction(tr("Remove"), this);
     connect(m_pRemoveAct, SIGNAL(triggered()), this, SLOT(slotRemove()));
@@ -740,7 +745,7 @@ void WTrackTableView::contextMenuEvent(QContextMenuEvent* event) {
             }
         }
         m_pPlaylistMenu->addSeparator();
-        QAction *newPlaylistAction = new QAction( tr("Create New Playlist"), m_pPlaylistMenu);
+        QAction* newPlaylistAction = new QAction(tr("Create New Playlist"), m_pPlaylistMenu);
         m_pPlaylistMenu->addAction(newPlaylistAction);
         m_playlistMapper.setMapping(newPlaylistAction, -1);// -1 to signify new playlist
         connect(newPlaylistAction, SIGNAL(triggered()), &m_playlistMapper, SLOT(map()));
@@ -770,7 +775,7 @@ void WTrackTableView::contextMenuEvent(QContextMenuEvent* event) {
             connect(pAction, SIGNAL(triggered()), &m_crateMapper, SLOT(map()));
         }
         m_pCrateMenu->addSeparator();
-        QAction *newCrateAction = new QAction( tr("Create New Crate"), m_pCrateMenu);
+        QAction* newCrateAction = new QAction(tr("Create New Crate"), m_pCrateMenu);
         m_pCrateMenu->addAction(newCrateAction);
         m_crateMapper.setMapping(newCrateAction, -1);// -1 to signify new playlist
         connect(newCrateAction, SIGNAL(triggered()), &m_crateMapper, SLOT(map()));
@@ -795,7 +800,7 @@ void WTrackTableView::contextMenuEvent(QContextMenuEvent* event) {
             }
             int column = trackModel->fieldIndex("bpm_lock");
             QModelIndex index = indices.at(0).sibling(indices.at(0).row(),column);
-            if (index.data().toBool()){ //BPM is locked
+            if (index.data().toBool()) { //BPM is locked
                 m_pBpmUnlockAction->setEnabled(true);
                 m_pBpmLockAction->setEnabled(false);
                 m_pBpmDoubleAction->setEnabled(false);
@@ -864,21 +869,24 @@ void WTrackTableView::contextMenuEvent(QContextMenuEvent* event) {
         m_pMenu->addAction(m_pReloadMetadataFromMusicBrainzAct);
     }
 
-    // We load a single track to get the necessary context for the cover (we use
-    // last to be consistent with selectionChanged above).
-    QModelIndex last = indices.last();
-    CoverInfo info;
-    info.source = static_cast<CoverInfo::Source>(
-        last.sibling(last.row(), m_iCoverSourceColumn).data().toInt());
-    info.type = static_cast<CoverInfo::Type>(
-        last.sibling(last.row(), m_iCoverTypeColumn).data().toInt());
-    info.hash = last.sibling(last.row(), m_iCoverHashColumn).data().toUInt();
-    info.trackLocation = last.sibling(
-        last.row(), m_iTrackLocationColumn).data().toString();
-    info.coverLocation = last.sibling(
-        last.row(), m_iCoverLocationColumn).data().toString();
-    m_pCoverMenu->setCoverArt(TrackPointer(), info);
-    m_pMenu->addMenu(m_pCoverMenu);
+    // Cover art menu only applies if at least one track is selected.
+    if (indices.size()) {
+        // We load a single track to get the necessary context for the cover (we use
+        // last to be consistent with selectionChanged above).
+        QModelIndex last = indices.last();
+        CoverInfo info;
+        info.source = static_cast<CoverInfo::Source>(
+            last.sibling(last.row(), m_iCoverSourceColumn).data().toInt());
+        info.type = static_cast<CoverInfo::Type>(
+            last.sibling(last.row(), m_iCoverTypeColumn).data().toInt());
+        info.hash = last.sibling(last.row(), m_iCoverHashColumn).data().toUInt();
+        info.trackLocation = last.sibling(
+            last.row(), m_iTrackLocationColumn).data().toString();
+        info.coverLocation = last.sibling(
+            last.row(), m_iCoverLocationColumn).data().toString();
+        m_pCoverMenu->setCoverArt(TrackPointer(), info);
+        m_pMenu->addMenu(m_pCoverMenu);
+    }
 
     // REMOVE and HIDE should not be at the first menu position to avoid accidental clicks
     m_pMenu->addSeparator();
@@ -958,37 +966,25 @@ void WTrackTableView::mouseMoveEvent(QMouseEvent* pEvent) {
         }
         locations.append(trackModel->getTrackLocation(index));
     }
-    DragAndDropHelper::dragTrackLocations(locations, this);
+    DragAndDropHelper::dragTrackLocations(locations, this, "library");
 }
 
 // Drag enter event, happens when a dragged item hovers over the track table view
 void WTrackTableView::dragEnterEvent(QDragEnterEvent * event) {
     //qDebug() << "dragEnterEvent" << event->mimeData()->formats();
-    if (event->mimeData()->hasUrls())
-    {
+    if (event->mimeData()->hasUrls()) {
         if (event->source() == this) {
             if (modelHasCapabilities(TrackModel::TRACKMODELCAPS_REORDER)) {
                 event->acceptProposedAction();
-            } else {
-                event->ignore();
+                return;
             }
-        } else {
-            QList<QUrl> urls(event->mimeData()->urls());
-            bool anyAccepted = false;
-            foreach (QUrl url, urls) {
-                QFileInfo file(url.toLocalFile());
-                if (SoundSourceProxy::isFilenameSupported(file.fileName()))
-                    anyAccepted = true;
-            }
-            if (anyAccepted) {
-                event->acceptProposedAction();
-            } else {
-                event->ignore();
-            }
+        } else if (DragAndDropHelper::dragEnterAccept(*event->mimeData(),
+                                                      "library", false, true)) {
+            event->acceptProposedAction();
+            return;
         }
-    } else {
-        event->ignore();
     }
+    event->ignore();
 }
 
 // Drag move event, happens when a dragged item hovers over the track table view...
@@ -1347,7 +1343,7 @@ void WTrackTableView::addSelectionToPlaylist(int iPlaylistId) {
             trackIds.append(iTrackId);
         }
     }
-   if (iPlaylistId==-1){//i.e. a new playlist is suppose to be created
+   if (iPlaylistId == -1) { // i.e. a new playlist is suppose to be created
        QString name;
        bool validNameGiven = false;
 
@@ -1409,7 +1405,7 @@ void WTrackTableView::addSelectionToCrate(int iCrateId) {
             trackIds.append(iTrackId);
         }
     }
-    if (iCrateId == -1){//i.e. a new crate is suppose to be created
+    if (iCrateId == -1) { // i.e. a new crate is suppose to be created
         QString name;
         bool validNameGiven = false;
         do {
@@ -1523,7 +1519,7 @@ void WTrackTableView::slotUnlockBpm() {
     lockBpm(false);
 }
 
-void WTrackTableView::slotScaleBpm(int scale){
+void WTrackTableView::slotScaleBpm(int scale) {
     TrackModel* trackModel = getTrackModel();
     if (trackModel == NULL) {
         return;

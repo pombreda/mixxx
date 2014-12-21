@@ -9,7 +9,7 @@ HiddenTableModel::HiddenTableModel(QObject* parent,
 HiddenTableModel::~HiddenTableModel() {
 }
 
-void HiddenTableModel::setTableModel(int id){
+void HiddenTableModel::setTableModel(int id) {
     Q_UNUSED(id);
     QSqlQuery query;
     const QString tableName("hidden_songs");
@@ -84,10 +84,6 @@ bool HiddenTableModel::isColumnInternal(int column) {
             column == fieldIndex(ColumnCache::COLUMN_LIBRARYTABLE_COVERART_HASH)) {
         return true;
     }
-    return false;
-}
-bool HiddenTableModel::isColumnHiddenByDefault(int column) {
-    Q_UNUSED(column);
     return false;
 }
 

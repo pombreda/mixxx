@@ -69,6 +69,7 @@ class LegacySkinParser : public QObject, public SkinParser {
     void setupLabelWidget(QDomElement element, WLabel* pLabel);
     QWidget* parseText(QDomElement node);
     QWidget* parseTrackProperty(QDomElement node);
+    QWidget* parseStarRating(QDomElement node);
     QWidget* parseNumberRate(QDomElement node);
     QWidget* parseNumberPos(QDomElement node);
     QWidget* parseEngineKey(QDomElement node);
@@ -102,6 +103,8 @@ class LegacySkinParser : public QObject, public SkinParser {
     // Renders a template.
     QList<QWidget*> parseTemplate(QDomElement node);
 
+    void commonWidgetSetup(QDomNode node, WBaseWidget* pBaseWidget,
+                           bool allowConnections=true);
     void setupPosition(QDomNode node, QWidget* pWidget);
     void setupSize(QDomNode node, QWidget* pWidget);
     void setupBaseWidget(QDomNode node, WBaseWidget* pBaseWidget);

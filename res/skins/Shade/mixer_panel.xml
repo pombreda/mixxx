@@ -230,7 +230,8 @@
 								<ButtonState>RightButton</ButtonState>
 							</Connection>
 							<Connection>
-								<ConfigKey>[Channel1],cue_indicator</ConfigKey>							</Connection>
+								<ConfigKey>[Channel1],cue_indicator</ConfigKey>
+							</Connection>
 						</PushButton>
 						<PushButton>
 							<TooltipId>cue_default_cue_gotoandstop</TooltipId>
@@ -426,6 +427,10 @@
 								<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
 								<ButtonState>LeftButton</ButtonState>
 							</Connection>
+							<Connection>
+						        <ConfigKey>[Channel1],filterHighKill_loaded</ConfigKey>
+						        <BindProperty>visible</BindProperty>
+					        </Connection>
 						</PushButton>
 						<PushButton>
 							<TooltipId>filterMidKill</TooltipId>
@@ -447,6 +452,10 @@
 								<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
 								<ButtonState>LeftButton</ButtonState>
 							</Connection>
+							<Connection>
+						        <ConfigKey>[Channel1],filterMidKill_loaded</ConfigKey>
+						        <BindProperty>visible</BindProperty>
+					        </Connection>
 						</PushButton>
 						<PushButton>
 							<TooltipId>filterLowKill</TooltipId>
@@ -467,6 +476,10 @@
 								<ConfigKey>[Channel1],filterLowKill</ConfigKey>
 								<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
 								<ButtonState>LeftButton</ButtonState>
+							</Connection>
+							<Connection>
+								<ConfigKey>[Channel1],filterLowKill_loaded</ConfigKey>
+								<BindProperty>visible</BindProperty>
 							</Connection>
 						</PushButton>
 
@@ -490,6 +503,10 @@
 								<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
 								<ButtonState>LeftButton</ButtonState>
 							</Connection>
+							<Connection>
+								<ConfigKey>[Channel2],filterHighKill_loaded</ConfigKey>
+								<BindProperty>visible</BindProperty>
+							</Connection>
 						</PushButton>
 						<PushButton>
 							<TooltipId>filterMidKill</TooltipId>
@@ -511,6 +528,10 @@
 								<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
 								<ButtonState>LeftButton</ButtonState>
 							</Connection>
+								<Connection>
+						        	<ConfigKey>[Channel2],filterMidKill_loaded</ConfigKey>
+						        	<BindProperty>visible</BindProperty>
+					        	</Connection>
 						</PushButton>
 						<PushButton>
 							<TooltipId>filterLowKill</TooltipId>
@@ -532,6 +553,10 @@
 								<EmitOnPressAndRelease>true</EmitOnPressAndRelease>
 								<ButtonState>LeftButton</ButtonState>
 							</Connection>
+							<Connection>
+								<ConfigKey>[Channel2],filterLowKill_loaded</ConfigKey>
+								<BindProperty>visible</BindProperty>
+							</Connection>
 						</PushButton>
 
 						<!--
@@ -548,22 +573,58 @@
 								}
 							</Style>
 							<Pos>113,15</Pos>
+							<CustomFormat>hh:mm</CustomFormat>
 							<ShowSeconds>false</ShowSeconds>
 						</Time>
+						
+						<StatusLight>
+							<Pos>113,27</Pos>
+							<TooltipId>audio_latency_usage</TooltipId>
+							<Style>
+							</Style>
+							<PathStatusLight>audio_latency/audio_latency_overload.png</PathStatusLight>
+							<PathBack>audio_latency/audio_latency_overload_back.png</PathBack>
+							<Connection>
+								<ConfigKey>[Master],audio_latency_overload</ConfigKey>
+							</Connection>
+						</StatusLight>
+        				
+						<VuMeter>
+				            <Pos>113,28</Pos>
+				            <Style>
+								WVuMeter {
+									background-color: #626f87;
+								}
+							</Style>
+							<TooltipId>audio_latency_usage</TooltipId>
+							<MinimumSize>26,1</MinimumSize>
+							<MaximumSize>26,1</MaximumSize>
+							<PathVu>audio_latency/audio_latency_usage.png</PathVu>
+							<PeakHoldSize>26</PeakHoldSize>
+							<PeakHoldTime>500</PeakHoldTime>
+							<PeakFallTime>50</PeakFallTime>
+							<PeakFallStep>1</PeakFallStep>
+							<Horizontal>true</Horizontal>
+							<Connection>
+								<ConfigKey>[Master],audio_latency_usage</ConfigKey>
+							</Connection>
+						</VuMeter>
+						
+
 
 						<!--
 						**********************************************
-						RotaryFader- Master volume & balance
+						RotaryFader- Master gain & balance
 						**********************************************
 						-->
 						<Knob>
-							<TooltipId>master_volume</TooltipId>
+							<TooltipId>master_gain</TooltipId>
 							<Style></Style>
 							<NumberStates>64</NumberStates>
-							<Path>knobs_no_center/knob_rotary_s%1.png</Path>
+							<Path>knobs/knob_rotary_s%1.png</Path>
 							<Pos>208,15</Pos>
 							<Connection>
-								<ConfigKey>[Master],volume</ConfigKey>
+								<ConfigKey>[Master],gain</ConfigKey>
 							</Connection>
 						</Knob>
 						<Knob>
@@ -583,13 +644,13 @@
 						**********************************************
 						-->
 						<Knob>
-							<TooltipId>headphone_volume</TooltipId>
+							<TooltipId>headphone_gain</TooltipId>
 							<Style></Style>
 							<NumberStates>64</NumberStates>
 							<Path>knobs_no_center/knob_rotary_s%1.png</Path>
 							<Pos>20,15</Pos>
 							<Connection>
-								<ConfigKey>[Master],headVolume</ConfigKey>
+								<ConfigKey>[Master],headGain</ConfigKey>
 							</Connection>
 						</Knob>
 						<Knob>
@@ -620,7 +681,7 @@
 							<Path>knobs/knob_rotary_s%1.png</Path>
 							<Pos>65,51</Pos>
 							<Connection>
-								<ConfigKey>[EffectRack1_EffectUnit1],parameter</ConfigKey>
+								<ConfigKey>[EffectRack1_EffectUnit1],super1</ConfigKey>
 							</Connection>
 						</Knob>
 						<Knob>
@@ -630,7 +691,7 @@
 							<Path>knobs/knob_rotary_s%1.png</Path>
 							<Pos>163,51</Pos>
 							<Connection>
-								<ConfigKey>[EffectRack1_EffectUnit2],parameter</ConfigKey>
+								<ConfigKey>[EffectRack1_EffectUnit2],super1</ConfigKey>
 							</Connection>
 						</Knob>
 						<Knob>
@@ -668,6 +729,10 @@
 							<Connection>
 								<ConfigKey>[Channel1],filterHigh</ConfigKey>
 							</Connection>
+								<Connection>
+						        	<ConfigKey>[Channel1],filterHigh_loaded</ConfigKey>
+						        	<BindProperty>visible</BindProperty>
+					        	</Connection>
 						</Knob>
 						<Knob>
 							<TooltipId>filterMid</TooltipId>
@@ -678,6 +743,10 @@
 							<Connection>
 								<ConfigKey>[Channel1],filterMid</ConfigKey>
 							</Connection>
+							<Connection>
+						        	<ConfigKey>[Channel1],filterMid_loaded</ConfigKey>
+						        	<BindProperty>visible</BindProperty>
+					        	</Connection>
 						</Knob>
 						<Knob>
 							<TooltipId>filterLow</TooltipId>
@@ -687,6 +756,10 @@
 							<Pos>32,170</Pos>
 							<Connection>
 								<ConfigKey>[Channel1],filterLow</ConfigKey>
+							</Connection>
+							<Connection>
+								<ConfigKey>[Channel1],filterLow_loaded</ConfigKey>
+								<BindProperty>visible</BindProperty>
 							</Connection>
 						</Knob>
 
@@ -709,6 +782,10 @@
 							<Connection>
 								<ConfigKey>[Channel2],filterHigh</ConfigKey>
 							</Connection>
+							<Connection>
+						        	<ConfigKey>[Channel2],filterHigh_loaded</ConfigKey>
+						        	<BindProperty>visible</BindProperty>
+					        	</Connection>
 						</Knob>
 						<Knob>
 							<TooltipId>filterMid</TooltipId>
@@ -719,6 +796,10 @@
 							<Connection>
 								<ConfigKey>[Channel2],filterMid</ConfigKey>
 							</Connection>
+							<Connection>
+						        	<ConfigKey>[Channel2],filterMid_loaded</ConfigKey>
+						        	<BindProperty>visible</BindProperty>
+					        	</Connection>
 						</Knob>
 						<Knob>
 							<TooltipId>filterLow</TooltipId>
@@ -728,6 +809,10 @@
 							<Pos>196,170</Pos>
 							<Connection>
 								<ConfigKey>[Channel2],filterLow</ConfigKey>
+							</Connection>
+							<Connection>
+								<ConfigKey>[Channel2],filterLow_loaded</ConfigKey>
+								<BindProperty>visible</BindProperty>
 							</Connection>
 						</Knob>
 

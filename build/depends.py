@@ -194,7 +194,7 @@ class Qt(Dependence):
         qt_modules = [
             'QtCore', 'QtGui', 'QtOpenGL', 'QtXml', 'QtSvg',
             'QtSql', 'QtScript', 'QtXmlPatterns', 'QtNetwork',
-            'QtTest'
+            'QtTest', 'QtScriptTools'
         ]
         if qt5:
             qt_modules.extend(['QtWidgets', 'QtConcurrent'])
@@ -378,7 +378,7 @@ class ReplayGain(Dependence):
 
 
 class SoundTouch(Dependence):
-    SOUNDTOUCH_PATH = 'soundtouch-1.6.0'
+    SOUNDTOUCH_PATH = 'soundtouch-1.8.0'
 
     def sse_enabled(self, build):
         optimize = int(util.get_flags(build.env, 'optimize', 1))
@@ -388,21 +388,22 @@ class SoundTouch(Dependence):
 
     def sources(self, build):
         sources = ['engine/enginebufferscalest.cpp',
-                   '#lib/%s/SoundTouch.cpp' % self.SOUNDTOUCH_PATH,
-                   '#lib/%s/TDStretch.cpp' % self.SOUNDTOUCH_PATH,
-                   '#lib/%s/RateTransposer.cpp' % self.SOUNDTOUCH_PATH,
                    '#lib/%s/AAFilter.cpp' % self.SOUNDTOUCH_PATH,
+                   '#lib/%s/BPMDetect.cpp' % self.SOUNDTOUCH_PATH,
                    '#lib/%s/FIFOSampleBuffer.cpp' % self.SOUNDTOUCH_PATH,
                    '#lib/%s/FIRFilter.cpp' % self.SOUNDTOUCH_PATH,
+                   '#lib/%s/InterpolateCubic.cpp' % self.SOUNDTOUCH_PATH,
+                   '#lib/%s/InterpolateLinear.cpp' % self.SOUNDTOUCH_PATH,
+                   '#lib/%s/InterpolateShannon.cpp' % self.SOUNDTOUCH_PATH,
                    '#lib/%s/PeakFinder.cpp' % self.SOUNDTOUCH_PATH,
-                   '#lib/%s/BPMDetect.cpp' % self.SOUNDTOUCH_PATH]
+                   '#lib/%s/RateTransposer.cpp' % self.SOUNDTOUCH_PATH,
+                   '#lib/%s/SoundTouch.cpp' % self.SOUNDTOUCH_PATH,
+                   '#lib/%s/TDStretch.cpp' % self.SOUNDTOUCH_PATH]
 
         # SoundTouch CPU optimizations are only for x86
         # architectures. SoundTouch automatically ignores these files when it is
         # not being built for an architecture that supports them.
-        cpu_detection = '#lib/%s/cpu_detect_x86_win.cpp' if build.toolchain_is_msvs else \
-            '#lib/%s/cpu_detect_x86_gcc.cpp'
-        sources.append(cpu_detection % self.SOUNDTOUCH_PATH)
+        sources.append('#lib/%s/cpu_detect_x86.cpp' % self.SOUNDTOUCH_PATH)
 
         # Check if the compiler has SSE extention enabled
         # Allways the case on x64 (core instructions)
@@ -415,15 +416,12 @@ class SoundTouch(Dependence):
     def configure(self, build, conf, env=None):
         if env is None:
             env = build.env
-        if build.platform_is_windows:
-            # Regardless of the bitwidth, ST checks for WIN32
-            env.Append(CPPDEFINES='WIN32')
         env.Append(CPPPATH=['#lib/%s' % self.SOUNDTOUCH_PATH])
 
-        # Check if the compiler has SSE extention enabled
-        # Allways the case on x64 (core instructions)
-        if self.sse_enabled(build):
-            env.Append(CPPDEFINES='SOUNDTOUCH_ALLOW_X86_OPTIMIZATIONS')
+        # If we do not want SSE optimizations (either the architecture does not
+        # support it or we are running a non-optimized build) then disable them.
+        if not self.sse_enabled(build):
+            env.Append(CPPDEFINES='SOUNDTOUCH_DISABLE_X86_OPTIMIZATIONS')
 
 
 class RubberBand(Dependence):
@@ -524,6 +522,7 @@ class MixxxCore(Feature):
                    "dlgprefnovinyl.cpp",
                    "dlgabout.cpp",
                    "dlgprefeq.cpp",
+                   "dlgprefeffects.cpp",
                    "dlgprefcrossfader.cpp",
                    "dlgtagfetcher.cpp",
                    "dlgtrackinfo.cpp",
@@ -581,7 +580,6 @@ class MixxxCore(Feature):
                    "engine/enginebufferscale.cpp",
                    "engine/enginebufferscaledummy.cpp",
                    "engine/enginebufferscalelinear.cpp",
-                   "engine/enginefilterblock.cpp",
                    "engine/enginefilterbiquad1.cpp",
                    "engine/enginefiltermoogladder4.cpp",
                    "engine/enginefilterbessel4.cpp",
@@ -659,6 +657,7 @@ class MixxxCore(Feature):
                    "upgrade.cpp",
 
                    "soundsource.cpp",
+                   "soundsourcetaglib.cpp",
 
                    "sharedglcontext.cpp",
                    "widget/controlwidgetconnection.cpp",
@@ -692,6 +691,7 @@ class MixxxCore(Feature):
                    "widget/wimagestore.cpp",
                    "widget/hexspinbox.cpp",
                    "widget/wtrackproperty.cpp",
+                   "widget/wstarrating.cpp",
                    "widget/weffectchain.cpp",
                    "widget/weffect.cpp",
                    "widget/weffectparameter.cpp",
@@ -738,7 +738,8 @@ class MixxxCore(Feature):
                    "library/playlisttablemodel.cpp",
                    "library/libraryfeature.cpp",
                    "library/analysisfeature.cpp",
-                   "library/autodjfeature.cpp",
+                   "library/autodj/autodjfeature.cpp",
+                   "library/autodj/autodjprocessor.cpp",
                    "library/dao/directorydao.cpp",
                    "library/mixxxlibraryfeature.cpp",
                    "library/baseplaylistfeature.cpp",
@@ -775,6 +776,10 @@ class MixxxCore(Feature):
                    "library/legacylibraryimporter.cpp",
                    "library/library.cpp",
 
+                   "library/scanner/scannertask.cpp",
+                   "library/scanner/importfilestask.cpp",
+                   "library/scanner/recursivescandirectorytask.cpp",
+
                    "library/dao/cratedao.cpp",
                    "library/cratetablemodel.cpp",
                    "library/dao/cuedao.cpp",
@@ -792,7 +797,6 @@ class MixxxCore(Feature):
                    "library/stardelegate.cpp",
                    "library/stareditor.cpp",
                    "library/bpmdelegate.cpp",
-                   "library/bpmeditor.cpp",
                    "library/previewbuttondelegate.cpp",
                    "library/coverartdelegate.cpp",
                    "audiotagger.cpp",
@@ -865,6 +869,8 @@ class MixxxCore(Feature):
                    "skin/colorschemeparser.cpp",
                    "skin/tooltips.cpp",
                    "skin/skincontext.cpp",
+                   "skin/svgparser.cpp",
+                   "skin/pixmapsource.cpp",
 
                    "sampleutil.cpp",
                    "trackinfoobject.cpp",
@@ -913,6 +919,7 @@ class MixxxCore(Feature):
                    "util/file.cpp",
                    "util/mac.cpp",
                    "util/task.cpp",
+                   "util/experiment.cpp",
 
                    '#res/mixxx.qrc'
                    ]
@@ -949,6 +956,7 @@ class MixxxCore(Feature):
             'dlgprefcrossfaderdlg.ui',
             'dlgprefkeydlg.ui',
             'dlgprefeqdlg.ui',
+            'dlgprefeffectsdlg.ui',
             'dlgpreferencesdlg.ui',
             'dlgprefnovinyldlg.ui',
             'dlgpreflibrarydlg.ui',
@@ -983,6 +991,14 @@ class MixxxCore(Feature):
         # EM64T). We need to unify them together.
         if not build.machine == 'alpha':
             build.env.Append(CPPDEFINES=build.machine)
+
+        if build.build_is_debug:
+            build.env.Append(CPPDEFINES='MIXXX_BUILD_DEBUG')
+        elif build.build_is_release:
+            build.env.Append(CPPDEFINES='MIXXX_BUILD_RELEASE')
+
+        if int(SCons.ARGUMENTS.get('debug_assertions_fatal', 0)):
+            build.env.Append(CPPDEFINES='MIXXX_DEBUG_ASSERTIONS_FATAL')
 
         if build.toolchain_is_gnu:
             # Default GNU Options

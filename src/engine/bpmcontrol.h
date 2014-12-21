@@ -1,9 +1,10 @@
-
 // bpmcontrol.h
 // Created 7/5/2009 by RJ Ryan (rryan@mit.edu)
 
 #ifndef BPMCONTROL_H
 #define BPMCONTROL_H
+
+#include <gtest/gtest_prod.h>
 
 #include "controlobject.h"
 #include "engine/enginecontrol.h"
@@ -21,11 +22,11 @@ class BpmControl : public EngineControl {
     Q_OBJECT
 
   public:
-    BpmControl(const char* _group, ConfigObject<ConfigValue>* _config);
+    BpmControl(QString group, ConfigObject<ConfigValue>* _config);
     virtual ~BpmControl();
 
     double getBpm() const;
-    double getFileBpm() const { return m_pFileBpm ? m_pFileBpm->get() : 0.0; }
+    double getLocalBpm() const { return m_pLocalBpm ? m_pLocalBpm->get() : 0.0; }
     // When in master sync mode, ratecontrol calls calcSyncedRate to figure out
     // how fast the track should play back.  The returned rate is usually just
     // the correct pitch to match bpms.  The usertweak argument represents
@@ -46,6 +47,8 @@ class BpmControl : public EngineControl {
                    const int iBufferSize);
     void setTargetBeatDistance(double beatDistance);
     void setInstantaneousBpm(double instantaneousBpm);
+    void resetSyncAdjustment();
+    double updateLocalBpm();
     double updateBeatDistance();
 
     void collectFeatures(GroupFeatureState* pGroupFeatures) const;
@@ -88,6 +91,7 @@ class BpmControl : public EngineControl {
     void slotAdjustRateSlider();
     void slotUpdatedTrackBeats();
     void slotBeatsTranslate(double);
+    void slotBeatsTranslateMatchAlignment(double);
 
   private:
     SyncMode getSyncMode() const {
@@ -113,6 +117,8 @@ class BpmControl : public EngineControl {
 
     // The current loaded file's detected BPM
     ControlObject* m_pFileBpm;
+    // The average bpm around the current playposition;
+    ControlObject* m_pLocalBpm;
     ControlPushButton* m_pAdjustBeatsFaster;
     ControlPushButton* m_pAdjustBeatsSlower;
     ControlPushButton* m_pTranslateBeatsEarlier;
@@ -132,6 +138,8 @@ class BpmControl : public EngineControl {
     // Button that translates the beats so the nearest beat is on the current
     // playposition.
     ControlPushButton* m_pTranslateBeats;
+    // Button that translates beats to match another playing deck
+    ControlPushButton* m_pBeatsTranslateMatchAlignment;
 
     double m_dPreviousSample;
 
@@ -142,6 +150,7 @@ class BpmControl : public EngineControl {
     double m_dSyncInstantaneousBpm;
     double m_dLastSyncAdjustment;
     bool m_resetSyncAdjustment;
+    FRIEND_TEST(EngineSyncTest, UserTweakBeatDistance);
     double m_dUserOffset;
 
     TapFilter m_tapFilter;

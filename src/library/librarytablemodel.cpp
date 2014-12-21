@@ -9,7 +9,7 @@ const QString LibraryTableModel::DEFAULT_LIBRARYFILTER =
 LibraryTableModel::LibraryTableModel(QObject* parent,
                                      TrackCollection* pTrackCollection,
                                      const char* settingsNamespace)
-        : BaseSqlTableModel(parent, pTrackCollection, settingsNamespace){
+        : BaseSqlTableModel(parent, pTrackCollection, settingsNamespace) {
     setTableModel();
 }
 
@@ -84,11 +84,6 @@ bool LibraryTableModel::isColumnInternal(int column) {
         return true;
     }
 
-    return false;
-}
-
-bool LibraryTableModel::isColumnHiddenByDefault(int column) {
-    Q_UNUSED(column);
     return false;
 }
 
