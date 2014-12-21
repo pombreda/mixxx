@@ -4,138 +4,13 @@
     <ObjectName>PreviewDeckContainer</ObjectName>
     <Layout>horizontal</Layout>
     <SizePolicy>min,min</SizePolicy>
-    <MinimumSize>100,40</MinimumSize>
+    <MinimumSize>100,50</MinimumSize>
     <Children>
 
       <WidgetGroup>
-        <ObjectName>PreviewInfo</ObjectName>
-        <Layout>vertical</Layout>
-        <SizePolicy>min,min</SizePolicy>
-        <MinimumSize>,40</MinimumSize>
-        <Children>
-
-          <WidgetGroup>
-            <ObjectName>PreviewDetailsRow</ObjectName>
-            <Layout>horizontal</Layout>
-
-            <Children>
-
-              <WidgetGroup>
-                <ObjectName>PreviewTitle</ObjectName>
-                <Layout>horizontal</Layout>
-                <SizePolicy>me,min</SizePolicy>
-                <Children>
-
-                  <Text>
-                    <TooltipId>text</TooltipId>
-                    <Group>[PreviewDeck1]</Group>
-                  </Text>
-
-                </Children>
-              </WidgetGroup>
-
-              <PushButton>
-                <ObjectName>PreviewEjectButton</ObjectName>
-                <TooltipId>eject</TooltipId>
-                <NumberStates>1</NumberStates>
-                <State>
-                  <Number>0</Number>
-                  <Pressed>images/eject/over.png</Pressed>
-                  <Unpressed>images/eject/back.png</Unpressed>
-                </State>
-                <Connection>
-                  <ConfigKey>[PreviewDeck1],eject</ConfigKey>
-                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-                  <ButtonState>LeftButton</ButtonState>
-                  <ConnectValueToWidget>false</ConnectValueToWidget>
-                </Connection>
-              </PushButton>
-
-            </Children>
-          </WidgetGroup>
-
-          <WidgetGroup>
-            <ObjectName>PreviewOverview</ObjectName>
-            <Layout>horizontal</Layout>
-            <SizePolicy>me,min</SizePolicy>
-            <MinimumSize>100,30</MinimumSize>
-            <Children>
-
-              <WidgetGroup>
-                <ObjectName>PreviewPlayButton</ObjectName>
-                <Layout>horizontal</Layout>
-                <Children>
-
-                  <PushButton>
-                    <ObjectName>PreviewPlayButton</ObjectName>
-                    <TooltipId>play_start</TooltipId>
-                    <NumberStates>2</NumberStates>
-                    <RightClickIsPushButton>true</RightClickIsPushButton>
-                    <State>
-                      <Number>0</Number>
-                      <Pressed>images/sampler/play/down.png</Pressed>
-                      <Unpressed>images/sampler/play/back.png</Unpressed>
-                    </State>
-                    <State>
-                      <Number>1</Number>
-                      <Pressed>images/sampler/play/overdown.png</Pressed>
-                      <Unpressed>images/sampler/play/over.png</Unpressed>
-                    </State>
-                    <Connection>
-                      <ConfigKey>[PreviewDeck1],play</ConfigKey>
-                      <EmitOnDownPress>true</EmitOnDownPress>
-                      <ButtonState>LeftButton</ButtonState>
-                    </Connection>
-                    <Connection>
-                      <ConfigKey>[PreviewDeck1],start</ConfigKey>
-                      <EmitOnDownPress>true</EmitOnDownPress>
-                      <ButtonState>RightButton</ButtonState>
-                      <ConnectValueToWidget>false</ConnectValueToWidget>
-                    </Connection>
-                  </PushButton>
-                </Children>
-              </WidgetGroup>
-
-              <Overview>
-                <ObjectName>PreviewWaveform</ObjectName>
-                <TooltipId>waveform_overview</TooltipId>
-                <Group>[PreviewDeck1]</Group>
-                <Size>me,30f</Size>
-                <BgColor/>
-                <BgColor>#FFFFFF</BgColor>
-                <SignalColor>#FF8000</SignalColor>
-                <SignalHighColor>#F0EBD1</SignalHighColor>
-                <SignalMidColor>#EECE33</SignalMidColor>
-                <SignalLowColor>#E4C739</SignalLowColor>
-                <PlayPosColor>#00FF00</PlayPosColor>
-                <DefaultMark>
-                  <Align>bottom</Align>
-                  <Color>#FFFFFF</Color>
-                  <TextColor>#00FF00</TextColor>
-                  <Text> %1 </Text>
-                </DefaultMark>
-                <Mark>
-                  <Control>cue_point</Control>
-                  <Text> C </Text>
-                  <Align>top</Align>
-                  <Color>#FF001C</Color>
-                  <TextColor>#00FF00</TextColor>
-                </Mark>
-                <Connection>
-                  <ConfigKey>[PreviewDeck1],playposition</ConfigKey>
-                  <EmitOnDownPress>false</EmitOnDownPress>
-                </Connection>
-              </Overview>
-
-            </Children>
-          </WidgetGroup>
-
-        </Children>
-      </WidgetGroup>
-
-      <WidgetGroup>
-        <ObjectName>PreviewControls</ObjectName>
+        <ObjectName>PreviewVolumeContainer</ObjectName>
         <Layout>horizontal</Layout>
+        <SizePolicy>min,min</SizePolicy>
         <Children>
           <WidgetGroup>
             <ObjectName>PreviewVolume</ObjectName>
@@ -182,6 +57,132 @@
               <EmitOnDownPress>false</EmitOnDownPress>
             </Connection>
           </SliderComposed>
+
+        </Children>
+      </WidgetGroup>
+
+      <WidgetGroup>
+        <ObjectName>PreviewInfo</ObjectName>
+        <Layout>vertical</Layout>
+        <SizePolicy>min,min</SizePolicy>
+        <Children>
+
+          <WidgetGroup>
+            <ObjectName>PreviewTextRow</ObjectName>
+            <Layout>horizontal</Layout>
+
+            <Children>
+
+              <WidgetGroup>
+                <ObjectName>PreviewTitle</ObjectName>
+                <Layout>horizontal</Layout>
+                <SizePolicy>me,min</SizePolicy>
+                <Children>
+
+                  <Text>
+                    <TooltipId>text</TooltipId>
+                    <Group>[PreviewDeck1]</Group>
+                  </Text>
+
+                </Children>
+              </WidgetGroup>
+
+            </Children>
+          </WidgetGroup>
+
+          <WidgetGroup>
+            <ObjectName>PreviewOverview</ObjectName>
+            <Layout>horizontal</Layout>
+            <SizePolicy>me,min</SizePolicy>
+            <MinimumSize>100,30</MinimumSize>
+            <Children>
+
+              <WidgetGroup>
+                <ObjectName>PreviewButtons</ObjectName>
+                <Layout>horizontal</Layout>
+                <Children>
+
+                  <PushButton>
+                    <ObjectName>PreviewPlayButton</ObjectName>
+                    <TooltipId>play_start</TooltipId>
+                    <NumberStates>2</NumberStates>
+                    <RightClickIsPushButton>true</RightClickIsPushButton>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/sampler/play/down.png</Pressed>
+                      <Unpressed>images/sampler/play/back.png</Unpressed>
+                    </State>
+                    <State>
+                      <Number>1</Number>
+                      <Pressed>images/sampler/play/overdown.png</Pressed>
+                      <Unpressed>images/sampler/play/over.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[PreviewDeck1],play</ConfigKey>
+                      <EmitOnDownPress>true</EmitOnDownPress>
+                      <ButtonState>LeftButton</ButtonState>
+                    </Connection>
+                    <Connection>
+                      <ConfigKey>[PreviewDeck1],start</ConfigKey>
+                      <EmitOnDownPress>true</EmitOnDownPress>
+                      <ButtonState>RightButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                  </PushButton>
+
+                  <PushButton>
+                    <ObjectName>PreviewEjectButton</ObjectName>
+                    <TooltipId>eject</TooltipId>
+                    <NumberStates>1</NumberStates>
+                    <State>
+                      <Number>0</Number>
+                      <Pressed>images/sampler/eject/over.png</Pressed>
+                      <Unpressed>images/sampler/eject/back.png</Unpressed>
+                    </State>
+                    <Connection>
+                      <ConfigKey>[PreviewDeck1],eject</ConfigKey>
+                      <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                      <ButtonState>LeftButton</ButtonState>
+                      <ConnectValueToWidget>false</ConnectValueToWidget>
+                    </Connection>
+                  </PushButton>
+
+                </Children>
+              </WidgetGroup>
+
+              <Overview>
+                <ObjectName>PreviewWaveform</ObjectName>
+                <TooltipId>waveform_overview</TooltipId>
+                <Group>[PreviewDeck1]</Group>
+                <Size>me,30f</Size>
+                <BgColor/>
+                <BgColor>#FFFFFF</BgColor>
+                <SignalColor>#FF8000</SignalColor>
+                <SignalHighColor>#F0EBD1</SignalHighColor>
+                <SignalMidColor>#EECE33</SignalMidColor>
+                <SignalLowColor>#E4C739</SignalLowColor>
+                <PlayPosColor>#00FF00</PlayPosColor>
+                <DefaultMark>
+                  <Align>bottom</Align>
+                  <Color>#FFFFFF</Color>
+                  <TextColor>#00FF00</TextColor>
+                  <Text> %1 </Text>
+                </DefaultMark>
+                <Mark>
+                  <Control>cue_point</Control>
+                  <Text> C </Text>
+                  <Align>top</Align>
+                  <Color>#FF001C</Color>
+                  <TextColor>#00FF00</TextColor>
+                </Mark>
+                <Connection>
+                  <ConfigKey>[PreviewDeck1],playposition</ConfigKey>
+                  <EmitOnDownPress>false</EmitOnDownPress>
+                </Connection>
+              </Overview>
+
+            </Children>
+          </WidgetGroup>
 
         </Children>
       </WidgetGroup>

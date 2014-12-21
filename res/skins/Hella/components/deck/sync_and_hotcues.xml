@@ -10,32 +10,62 @@
         <Layout>horizontal</Layout>
         <Children>
 
-          <PushButton>
+          <WidgetGroup>
             <ObjectName>SyncControls</ObjectName>
-            <TooltipId>beatsync_beatsync_tempo</TooltipId>
+            <Layout>horizontal</Layout>
             <SizePolicy>me,f</SizePolicy>
-            <NumberStates>2</NumberStates>
-            <State>
-              <Number>0</Number>
-              <Pressed>images/sync/overdown.png</Pressed>
-              <Unpressed>images/sync/back.png</Unpressed>
-            </State>
-            <State>
-              <Number>1</Number>
-              <Pressed>images/sync/overdown.png</Pressed>
-              <Unpressed>images/sync/overdown.png</Unpressed>
-            </State>
-            <Connection>
-              <ConfigKey>[Channel<Variable name="channum"/>],sync_enabled</ConfigKey>
-              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-              <ButtonState>LeftButton</ButtonState>
-            </Connection>
-            <Connection>
-              <ConfigKey>[Channel<Variable name="channum"/>],beatsync_tempo</ConfigKey>
-              <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
-              <ButtonState>RightButton</ButtonState>
-            </Connection>
-          </PushButton>
+            <Children>
+              <PushButton>
+                <ObjectName>DeckSyncButton</ObjectName>
+                <TooltipId>beatsync_beatsync_tempo</TooltipId>
+                <SizePolicy>me,f</SizePolicy>
+                <NumberStates>2</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/sync/sync_overdown.png</Pressed>
+                  <Unpressed>images/sync/sync_back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/sync/sync_overdown.png</Pressed>
+                  <Unpressed>images/sync/sync_overdown.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],sync_enabled</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                </Connection>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],beatsync_tempo</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>RightButton</ButtonState>
+                </Connection>
+              </PushButton>
+
+              <PushButton>
+                <ObjectName>DeckSyncMasterButton</ObjectName>
+                <TooltipId>sync_master</TooltipId>
+                <SizePolicy>me,f</SizePolicy>
+                <NumberStates>2</NumberStates>
+                <State>
+                  <Number>0</Number>
+                  <Pressed>images/sync/master_overdown.png</Pressed>
+                  <Unpressed>images/sync/master_back.png</Unpressed>
+                </State>
+                <State>
+                  <Number>1</Number>
+                  <Pressed>images/sync/master_overdown.png</Pressed>
+                  <Unpressed>images/sync/master_overdown.png</Unpressed>
+                </State>
+                <Connection>
+                  <ConfigKey>[Channel<Variable name="channum"/>],sync_master</ConfigKey>
+                  <EmitOnPressAndRelease>true</EmitOnPressAndRelease>
+                  <ButtonState>LeftButton</ButtonState>
+                </Connection>
+              </PushButton>
+
+            </Children>
+          </WidgetGroup>
 
           <WidgetGroup>
             <ObjectName>Hotcues</ObjectName>

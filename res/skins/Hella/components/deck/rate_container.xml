@@ -2,7 +2,7 @@
   <WidgetGroup>
     <ObjectName>RateContainer</ObjectName>
     <Layout>vertical</Layout>
-    <MinimumSize>60,</MinimumSize>
+    <MinimumSize>64,</MinimumSize>
     <Children>
 
       <WidgetGroup>

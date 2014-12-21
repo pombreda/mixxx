@@ -35,12 +35,8 @@
     <license>Creative Commons Attribution, Share-Alike 3.0 Unported</license>
     <attributes>
       <attribute config_key="[Master],num_decks">4</attribute>
-      <attribute config_key="[Master],num_samplers">2</attribute>
+      <attribute config_key="[Master],num_samplers">4</attribute>
       <attribute config_key="[Master],num_preview_decks">1</attribute>
-      <attribute config_key="[Spinny1],show_spinny">1</attribute>
-      <attribute config_key="[Spinny2],show_spinny">1</attribute>
-      <attribute config_key="[Spinny3],show_spinny">1</attribute>
-      <attribute config_key="[Spinny4],show_spinny">1</attribute>
       <attribute config_key="[Samplers],show_samplers">1</attribute>
       <attribute config_key="[Microphone],show_microphone">0</attribute>
       <attribute config_key="[Vinylcontrol],show_vinylcontrol">0</attribute>
@@ -64,8 +60,8 @@
       <ObjectName>ToolbarContainer</ObjectName>
       <Layout>vertical</Layout>
       <SizePolicy>f,f</SizePolicy>
-      <MinimumSize>1280,50</MinimumSize>
-      <MaximumSize>1920,50</MaximumSize>
+      <MinimumSize>1280,60</MinimumSize>
+      <MaximumSize>1920,60</MaximumSize>
       <Children>
         <Template src="skin:components/toolbar/container.xml"/>
       </Children>

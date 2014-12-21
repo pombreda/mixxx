@@ -14,19 +14,28 @@
   background-color: #0e0e0e;
 }
 
-#DeckContainer {
-  qproperty-layoutAlignment: 'AlignTop';
+#Samplers, #Effects, #DecksAndMixers {
   background-color: #0e0e0e;
   border: 1px solid #585858;
-  border-top: none;
   border-bottom: none;
 }
 
 #DecksAndMixers {
   qproperty-layoutAlignment: 'AlignTop';
+  border: none;
 }
 
-#Samplers, #Effects {
+#DecksLeftContainer, #MixerAndMixerContainer, #DecksRightContainer {
+  qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
+}
+
+#MixerAndMixerContainer {
+  border-top: 1px solid #585858;
+  border-bottom: 1px solid #585858;
+}
+
+#DeckContainer {
+  qproperty-layoutAlignment: 'AlignTop';
   background-color: #0e0e0e;
   border: 1px solid #585858;
 }
@@ -39,7 +48,6 @@
   border-left: 0px solid #585858;
   background-color: #0e0e0e;
   padding-top: 5px;
-  /*border-top: 1px solid #585858;*/
 }
 
 WLabel {
@@ -152,10 +160,23 @@ QSpinBox:editable, QDoubleSpinBox:editable, QLabel:focus {
   padding: 0px;
 }
 
-QLabel#LibraryBPMButton, QLabel#LibraryBPMSpinBox {
+#LibraryBPMButton, #LibraryBPMSpinBox {
   background-color: #0f0f0f;
 }
-QPushButton#LibraryPreviewButton, QPushButton#LibraryBPMButton {
+
+#LibraryBPMButton::indicator:checked {
+  background-color: #cfb32c;
+}
+#LibraryBPMButton::indicator:unchecked {
+  background-color: #0f0f0f;
+  border: 1px solid #cfb32c;
+}
+#LibraryBPMButton::item:selected {
+  color: #cfb32c;
+  background-color: #0f0f0f;
+}
+
+QPushButton#LibraryPreviewButton, QPushButton#LibraryBPMButton, QCheckBox#LibraryBPMButton {
   border: 0px;
   background-color: #0f0f0f;
 }
@@ -265,12 +286,27 @@ QTreeView::item:selected {
 }
 
 #MasterBPM {
-  qproperty-layoutAlignment: 'AlignHCenter | AlignCenter';
+  padding-bottom: 4px;
 }
 
-#UIButton {
+#ToolbarButtonContainer {
   qproperty-layoutAlignment: 'AlignLeft | AlignCenter';
-  padding: 5px;
+  padding 0px;
+  border 0px;
+}
+
+#ToolbarButtonRow {
+  qproperty-layoutAlignment: 'AlignLeft | AlignCenter';
+  padding 0px;
+  border 0px;
+}
+
+#ToolbarButton {
+  qproperty-layoutAlignment: 'AlignLeft | AlignCenter';
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 3px;
+  padding-right: 3px;
   border: 0px solid #585858;
   border-left: 0px;
   border-right: 0px;
@@ -299,23 +335,26 @@ QTreeView::item:selected {
 
 #MixerControlsContainer, #MicrophoneControlsContainer {
   qproperty-layoutAlignment: 'AlignTop';
-  border: 1px solid #585858;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
 }
+
 #MixerControlsContainer {
+  padding-top: 5px;
   border: 0px;
 }
+
 #MicrophoneContainer {
   qproperty-layoutAlignment: 'AlignCenter | AlignTop';
-  border-bottom: 1px solid #585858;
 }
 
 #MicrophoneControlsContainer {
   qproperty-layoutAlignment: 'AlignCenter | AlignTop';
   padding: 0px;
+  border-bottom: 1px solid #585858;
 }
+
 #MicrophoneTalkover {
   padding-left: 10px;
   padding-right: 10px;
@@ -355,10 +394,6 @@ QTreeView::item:selected {
 }
 
 #Crossfader {
-}
-
-#DecksLeftContainer, #DecksRightContainer {
-  qproperty-layoutAlignment: 'AlignHCenter | AlignTop';
 }
 
 #DeckInfoRowAndCoverArt, #DeckWaveformOverviewContainer, #SyncHotcueContainer, #DeckButtonsContainer {
@@ -408,6 +443,7 @@ QTreeView::item:selected {
 }
 
 #SpinnyContainer, #DeckWaveform {
+  background: none;
   background-color: #0e0e0e;
 }
 
@@ -416,6 +452,7 @@ QTreeView::item:selected {
 }
 
 #SyncControls {
+  qproperty-layoutAlignment: 'AlignLeft | AlignTop';
 }
 
 #Hotcues {
@@ -464,36 +501,59 @@ QTreeView::item:selected {
 
 #PreviewDeckContainer {
   qproperty-layoutAlignment: 'AlignRight | AlignCenter';
-  border: 1px solid #585858;
-  border-bottom: none;
   padding: 0px;
-  margin: 0px 5px 0px 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-right: 5px solid red;
+}
+
+#PreviewInfo {
+  padding-left: 3px;
+}
+
+#PreviewVolumeContainer {
+  padding-right: 0px;
+}
+
+#PreviewTextRow {
+
+}
+
+#PreviewTitle {
+  border-bottom: 1px solid #585858;
+}
+
+#PreviewTitle, #PreviewOverview {
+  border-left: 1px solid #585858;
 }
 
 #PreviewTitle {
   qproperty-layoutAlignment: 'AlignLeft | AlignTop';
-  border: 1px solid #585858;
   border-top: 0px;
-  border-left: 0px;
   border-right: 0px;
+  padding: 0px 3px 0px 3px;
 }
 
-#PreviewOverview {
+#PreviewOverview, #PreviewButtons {
   margin: 0px;
+  border-right: 1px solid #585858;
+  qproperty-layoutAlignment: 'AlignLeft | AlignCenter';
 }
 
-#PreviewPlayButton {
-  padding: 0px 5px 0px 5px;
+#PreviewPlayButton, #PreviewEjectButton {
+  padding: 0px 3px 0px 3px;
 }
 
 #SamplerDecksContainer {
   background-color: #0e0e0e;
+  margin-top: 5px;
 }
 
 #SamplerDeck {
   padding: 0px;
   margin: 0px;
   border: 1px solid #585858;
+  border-top: none;
   background-color: #0e0e0e;
 }
 

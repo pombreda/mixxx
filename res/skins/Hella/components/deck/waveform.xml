@@ -3,15 +3,13 @@
     <ObjectName>DeckWaveform</ObjectName>
     <Layout>vertical</Layout>
     <SizePolicy>me,min</SizePolicy>
-    <MinimumSize>200,</MinimumSize>
+    <MinimumSize>200,60</MinimumSize>
     <Children>
 
       <Visual>
         <TooltipId>waveform_display</TooltipId>
         <Style/>
-        <Channel>
-          <Variable name="channum"/>
-        </Channel>
+        <Channel><Variable name="channum"/></Channel>
         <Pos>0,0</Pos>
         <BgColor>#0e0e0e</BgColor>
         <SignalColor>#EECE33</SignalColor>

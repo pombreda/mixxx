@@ -114,7 +114,6 @@
                 <Children>
                   <TrackProperty>
                     <Alignment>Left</Alignment>
-                    <TooltipId>track_comment</TooltipId>
                     <Property>comment</Property>
                     <Channel>
                       <Variable name="channum"/>

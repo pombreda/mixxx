@@ -1,6 +1,6 @@
 <Template>
   <WidgetGroup>
-    <ObjectName>MixerContainer</ObjectName>
+    <ObjectName>MixerAndMixerContainer</ObjectName>
     <Layout>vertical</Layout>
     <SizePolicy>f,me</SizePolicy>
     <Children>
