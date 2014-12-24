@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MixxxControllerPreset mixxxVersion="1.12+" schemaVersion="1">
+    <info>
+        <name>HID Keyboard</name>
+        <author>Ilkka Tuohela</author>
+        <description>HID Keyboard controls</description>
+    </info>
+    <controller id="HID Keyboard">
+        <scriptfiles>
+            <file functionprefix="" filename="common-hid-packet-parser.js"/>
+            <file functionprefix="HIDKeyboard" filename="HID Keyboard.js"/>
+        </scriptfiles>
+    </controller>
+</MixxxControllerPreset>

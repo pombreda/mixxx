@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MixxxControllerPreset mixxxVersion="1.11+" schemaVersion="1">
+    <info>
+        <name>HID Mouse</name>
+        <author>Ilkka Tuohela</author>
+        <description>HID Mouse controls</description>
+    </info>
+    <controller id="Hiiri">
+        <scriptfiles>
+            <file functionprefix="" filename="common-hid-packet-parser.js"/>
+            <file functionprefix="HIDMouse" filename="HID Mouse.js"/>
+        </scriptfiles>
+    </controller>
+</MixxxControllerPreset>
