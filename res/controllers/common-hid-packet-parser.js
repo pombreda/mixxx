@@ -1541,17 +1541,20 @@ HIDController.prototype.autorepeatTimer = function() {
             field = group[field_name];
 
             if (field.type != "bitvector") {
+
                 if (field.auto_repeat) {
                     this.processControl(field);
                 }
-                continue
-            }
 
-            for (bit_name in field.value.bits) {
-                bit = field.value.bits[bit_name];
-                if (bit.auto_repeat) {
-                    this.processButton(bit);
+            } else {
+
+                for (bit_name in field.value.bits) {
+                    bit = field.value.bits[bit_name];
+                    if (bit.auto_repeat) {
+                        this.processButton(bit);
+                    }
                 }
+
             }
 
         }
