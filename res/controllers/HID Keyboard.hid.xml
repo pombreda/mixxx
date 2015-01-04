@@ -3,11 +3,11 @@
     <info>
         <name>HID Keyboard</name>
         <author>Ilkka Tuohela</author>
-        <description>HID Keyboard controls</description>
+        <description>HID keyboard example</description>
     </info>
     <controller id="HID Keyboard">
         <scriptfiles>
-            <file functionprefix="" filename="common-hid-packet-parser.js"/>
+            <file filename="common-hid-packet-parser.js"/>
             <file functionprefix="HIDKeyboard" filename="HID Keyboard.js"/>
         </scriptfiles>
     </controller>

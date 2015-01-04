@@ -11,7 +11,7 @@
     </info>
     <controller id="Sony Sixxaxis Game Controller">
         <scriptfiles>
-            <file filename="common-hid-packet-parser.js" functionprefix=""/>
+            <file filename="common-hid-packet-parser.js"/>
             <file filename="Sony-SixxAxis.js" functionprefix="SonySixxAxis"/>
         </scriptfiles>
     </controller>

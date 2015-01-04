@@ -15,9 +15,8 @@
         </devices>
     </info>
     <controller id="Pioneer CDJ HID">
-
         <scriptfiles>
-            <file filename="common-hid-packet-parser.js" functionprefix=""/>
+            <file filename="common-hid-packet-parser.js"/>
             <file filename="Pioneer-CDJ-HID.js" functionprefix="PioneerCDJHID"/>
         </scriptfiles>
     </controller>

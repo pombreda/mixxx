@@ -3,12 +3,12 @@
     <info>
         <name>HID Mouse</name>
         <author>Ilkka Tuohela</author>
-        <description>HID Mouse controls</description>
+        <description>HID Mouse example</description>
     </info>
-    <controller id="Hiiri">
+    <controller id="HIDMouse">
         <scriptfiles>
-            <file functionprefix="" filename="common-hid-packet-parser.js"/>
-            <file functionprefix="HIDMouse" filename="HID Mouse.js"/>
+            <file filename="common-hid-packet-parser.js"/>
+            <file filename="HID Mouse.js" functionprefix="HIDMouse"/>
         </scriptfiles>
     </controller>
 </MixxxControllerPreset>

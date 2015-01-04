@@ -11,7 +11,7 @@
     <controller id="EKS Otus">
 
         <scriptfiles>
-            <file filename="common-hid-packet-parser.js" functionprefix=""/>
+            <file filename="common-hid-packet-parser.js"/>
             <file filename="EKS-Otus.js" functionprefix="EksOtus"/>
         </scriptfiles>
     </controller>
