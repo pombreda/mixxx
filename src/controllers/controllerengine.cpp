@@ -79,6 +79,14 @@ Output:  -
 -------- ------------------------------------------------------ */
 void ControllerEngine::callFunctionOnObjects(QList<QString> scriptFunctionPrefixes,
                                              QString function, QScriptValueList args) {
+
+
+    // This may happen when hotplug controller has just been marked as
+    // deleted in another thread
+    if (m_pEngine == NULL) {
+        return;
+    }
+
     const QScriptValue global = m_pEngine->globalObject();
 
     foreach (QString prefixName, scriptFunctionPrefixes) {
@@ -107,6 +115,13 @@ Input:   -
 Output:  -
 -------- ------------------------------------------------------ */
 QScriptValue ControllerEngine::resolveFunction(QString function, bool useCache) const {
+
+    // This may happen when hotplug controller has just been marked as
+    // deleted in another thread
+    if (m_pEngine == NULL) {
+        return QScriptValue();
+    }
+
     if (useCache && m_scriptValueCache.contains(function)) {
         return m_scriptValueCache.value(function);
     }
@@ -184,6 +199,21 @@ bool ControllerEngine::isReady() {
     return ret;
 }
 
+void ControllerEngine::disconnectScriptEngine() {
+    disconnect(&m_scriptWatcher, SIGNAL(fileChanged(QString)),
+               this, SLOT(scriptHasChanged(QString)));
+
+    gracefulShutdown();
+
+    // Delete the script engine, first clearing the pointer so that
+    // other threads will not get the dead pointer after we delete it.
+    if (m_pEngine != NULL) {
+        QScriptEngine *engine = m_pEngine;
+        m_pEngine = NULL;
+        engine->deleteLater();
+    }
+}
+
 void ControllerEngine::initializeScriptEngine() {
     // Create the Script Engine
     m_pEngine = new QScriptEngine(this);
@@ -242,20 +272,9 @@ void ControllerEngine::scriptHasChanged(QString scriptFilename) {
     qDebug() << "ControllerEngine: Reloading Scripts";
     ControllerPresetPointer pPreset = m_pController->getPreset();
 
-    disconnect(&m_scriptWatcher, SIGNAL(fileChanged(QString)),
-               this, SLOT(scriptHasChanged(QString)));
-
-    gracefulShutdown();
-
-    // Delete the script engine, first clearing the pointer so that
-    // other threads will not get the dead pointer after we delete it.
-    if (m_pEngine != NULL) {
-        QScriptEngine *engine = m_pEngine;
-        m_pEngine = NULL;
-        engine->deleteLater();
-    }
-
+    disconnectScriptEngine();
     initializeScriptEngine();
+
     loadScriptFiles(m_lastScriptPaths, pPreset->scripts);
 
     qDebug() << "Re-initializing scripts";
@@ -795,7 +814,7 @@ QScriptValue ControllerEngine::connectControl(QString group, QString name,
     }
 
     if (m_pEngine == NULL) {
-        return QScriptValue(false);
+        return QScriptValue();
     }
 
     if (callback.isString()) {

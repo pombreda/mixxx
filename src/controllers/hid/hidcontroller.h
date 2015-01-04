@@ -70,6 +70,9 @@ class HidController : public Controller {
     virtual bool matchProductInfo(QHash <QString,QString >);
     virtual void guessDeviceCategory();
 
+    const inline QString getPath() { return QString((const char *)hid_path);}
+    int disconnectController();
+
   protected:
     Q_INVOKABLE void send(QList<int> data, unsigned int length, unsigned int reportID = 0);
 
@@ -92,7 +95,6 @@ class HidController : public Controller {
     virtual ControllerPreset* preset() {
         return &m_preset;
     }
-
 
     // Local copies of things we need from hid_device_info
     int hid_interface_number;

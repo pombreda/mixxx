@@ -257,6 +257,8 @@ int HidController::open() {
         return -1;
     }
 
+    setConnected(true);
+
     setOpen(true);
     startEngine();
 
@@ -308,8 +310,25 @@ int HidController::close() {
     if (debugging()) {
         qDebug() << "  Closing device";
     }
+    setConnected(false);
     hid_close(m_pHidDevice);
     setOpen(false);
+    return 0;
+}
+
+int HidController::disconnectController() {
+    ControllerEngine* pEngine = getEngine();
+
+    if (!isOpen()) {
+        qDebug() << "HID device" << getName() << "already closed";
+        return -1;
+    }
+
+    if (pEngine != NULL) {
+        pEngine->disconnectScriptEngine();
+    }
+
+    close();
     return 0;
 }
 
@@ -327,18 +346,26 @@ void HidController::send(QByteArray data) {
 }
 
 void HidController::send(QByteArray data, unsigned int reportID) {
+    if (!isConnected())
+        return;
+
     // Append the Report ID to the beginning of data[] per the API..
     data.prepend(reportID);
 
     int result = hid_write(m_pHidDevice, (unsigned char*)data.constData(), data.size());
     if (result == -1) {
+        const wchar_t* error = hid_error(m_pHidDevice);
+        if (error==NULL) {
+            setConnected(false);
+            return;
+        }
         if (debugging()) {
             qWarning() << "Unable to send data to" << getName()
                        << "serial #" << hid_serial << ":"
-                       << QString::fromWCharArray(hid_error(m_pHidDevice));
+                       << QString::fromWCharArray(error);
         } else {
             qWarning() << "Unable to send data to" << getName() << ":"
-                       << QString::fromWCharArray(hid_error(m_pHidDevice));
+                       << QString::fromWCharArray(error);
         }
     } else if (debugging()) {
         qDebug() << result << "bytes sent to" << getName()

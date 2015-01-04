@@ -267,6 +267,8 @@ void DlgPrefController::enumeratePresets() {
         int index = m_ui.comboBoxPreset->findText(nameForPreset(match));
         if (index != -1) {
             m_ui.comboBoxPreset->setCurrentIndex(index);
+            // Pre-select does not make sense unless we also load the preset
+            slotLoadPreset(index);
         }
     }
 }

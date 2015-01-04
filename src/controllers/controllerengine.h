@@ -134,6 +134,8 @@ class ControllerEngine : public QObject {
     void loadScriptFiles(QList<QString> scriptPaths,
                          const QList<ControllerPreset::ScriptFileInfo>& scripts);
     void initializeScripts(const QList<ControllerPreset::ScriptFileInfo>& scripts);
+
+    void disconnectScriptEngine();
     void gracefulShutdown();
     void scriptHasChanged(QString);
 
