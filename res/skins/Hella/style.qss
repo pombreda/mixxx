@@ -267,6 +267,11 @@ QTreeView::item:selected {
 #OverviewToolbarRow {
 }
 
+#OverviewToolbarButtons {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 #ButtonRepeat, #ButtonKeylock, #ButtonTranslatePosition, #ButtonQuantize {
   border: 1px solid #585858;
 }
@@ -377,6 +382,10 @@ QTreeView::item:selected {
 }
 
 #MixerChannel {
+  qproperty-layoutAlignment: 'AlignTop';
+}
+
+#ChannelFilters {
   qproperty-layoutAlignment: 'AlignBottom';
 }
 
@@ -401,6 +410,10 @@ QTreeView::item:selected {
   border-bottom: 1px solid #585858;
   border-left: 1px solid #585858;
   padding: 1px;
+}
+
+#DeckInfoRowAndCoverArt, #DeckWaveformOverviewContainer {
+  padding-left: 5px;
 }
 
 #DeckSpinnyWaveformContainer {
@@ -442,9 +455,10 @@ QTreeView::item:selected {
   color: #eeeeff;
 }
 
-#SpinnyContainer, #DeckWaveform {
+#SpinnyContainer, #DeckWaveformContainer {
   background: none;
   background-color: #0e0e0e;
+  color: #0e0e0e;
 }
 
 #VinylControls {

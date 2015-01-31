@@ -513,57 +513,6 @@
       </WidgetGroup>
 
       <WidgetGroup>
-        <ObjectName>SlipControlsContainer</ObjectName>
-        <Layout>horizontal</Layout>
-        <SizePolicy>f,f</SizePolicy>
-        <Children>
-          <WidgetGroup>
-            <ObjectName>SlipControls</ObjectName>
-            <Layout>vertical</Layout>
-            <SizePolicy>f,f</SizePolicy>
-            <Children>
-
-              <WidgetGroup>
-                <Layout>horizontal</Layout>
-                <ObjectName>SlipControlsRow</ObjectName>
-                <Children>
-
-                  <PushButton>
-                    <TooltipId>slip_enabled</TooltipId>
-                    <NumberStates>2</NumberStates>
-                    <RightClickIsPushButton>true</RightClickIsPushButton>
-                    <State>
-                      <Number>0</Number>
-                      <Pressed>images/play/down.png</Pressed>
-                      <Unpressed>images/play/back.png</Unpressed>
-                    </State>
-                    <State>
-                      <Number>1</Number>
-                      <Pressed>images/play/overdown.png</Pressed>
-                      <Unpressed>images/play/over.png</Unpressed>
-                    </State>
-                    <Connection>
-                      <ConfigKey>[Channel<Variable name="channum"/>],slip_enabled</ConfigKey>
-                      <EmitOnDownPress>true</EmitOnDownPress>
-                      <ButtonState>LeftButton</ButtonState>
-                    </Connection>
-                    <Connection>
-                      <ConfigKey>[Channel<Variable name="channum"/>],slip_enabled</ConfigKey>
-                      <EmitOnDownPress>true</EmitOnDownPress>
-                      <ButtonState>RightButton</ButtonState>
-                      <ConnectValueToWidget>false</ConnectValueToWidget>
-                    </Connection>
-                  </PushButton>
-
-                </Children>
-              </WidgetGroup>
-
-            </Children>
-          </WidgetGroup>
-        </Children>
-      </WidgetGroup>
-
-      <WidgetGroup>
         <ObjectName>PlayControlsContainer</ObjectName>
         <Layout>horizontal</Layout>
         <SizePolicy>f,f</SizePolicy>
