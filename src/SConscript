@@ -360,7 +360,7 @@ if build.platform_is_osx and 'bundle' in COMMAND_LINE_TARGETS:
         for x in soundsource_plugins:
                 plugins.append(x.get_abspath())
 
-	for x in mixxxminimal_plugins:
+        for x in mixxxminimal_plugins:
                 plugins.append(x.get_abspath())
 
         resource_map = {}
@@ -736,7 +736,7 @@ def BuildUbuntuPackage(target, source, env):
 
                 # Add a changelog record for this package
                 if build.build_is_debug:
-                        description = "  * Experimental build of branch '%s' at Bazaar revision %s" % (branch_name, vcs_revision)
+                        description = "  * Experimental build of branch '%s' at revision %s" % (branch_name, vcs_revision)
                         ubuntu_append_changelog('debian', package_name, package_version,
                                                 description, distro=ubuntu_distro)
                 else:

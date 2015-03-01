@@ -122,8 +122,10 @@ class AutoDJFeature : public LibraryFeature {
     // Adds a random track from all loaded crates to the auto-DJ queue.
     void slotAddRandomTrack(bool);
 
-  signals:
-    void enableAddRandom(bool enabled);
+    // Adds a random track from the queue upon hitting minimum number
+    // of tracks in the playlist
+    void slotRandomQueue(int);
+
 };
 
 
